@@ -16,36 +16,36 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="The Apache Arrow team is pleased to announce the 0.2.0 release of Apache Arrow nanoarrow. This initial release covers 19 resolved issues from 6 contributors. Release Highlights Addition of the Arrow IPC stream reader extension Addition of the Getting Started with nanoarrow tutorial Improvements in reliability and platform test coverage of the C library Improvements in reliability and type support in the R bindings See the Changelog for a detailed list of contributions to this release. IPC stream support This release includes support for reading schemas and record batches serialized using the Arrow IPC format. Based on the flatcc flatbuffers implementation, the nanoarrow IPC read support is implemented as an optional extension to the core nanoarrow library. The easiest way to get started is with the ArrowArrayStream provider using one of the built-in ArrowIpcInputStream implementations: #include &lt;stdio.h&gt; #include &lt;stdbool.h&gt; #include &quot;nanoarrow_ipc.h&quot; int main(int argc, char* argv[]) { FILE* file_ptr = freopen(NULL, &quot;rb&quot;, stdin); struct ArrowIpcInputStream input; NANOARROW_RETURN_NOT_OK(ArrowIpcInputStreamInitFile(&amp;input, file_ptr, false)); struct ArrowArrayStream stream; NANOARROW_RETURN_NOT_OK(ArrowIpcArrayStreamReaderInit(&amp;stream, &amp;input, NULL)); struct ArrowSchema schema; NANOARROW_RETURN_NOT_OK(stream.get_schema(&amp;stream, &amp;schema)); struct ArrowArray array; while (true) { NANOARROW_RETURN_NOT_OK(stream.get_next(&amp;stream, &amp;array)); if (array.release == NULL) { break; } } return 0; } Facilities for advanced usage are also provided via the low-level ArrowIpcDecoder, which takes care of the details of deserializing the flatbuffer headers and assembling buffers into an ArrowArray. The current implementation can read schema and record batch messages that contain any Arrow type that supported by the C data interface. The initial version can read both big and little endian streams originating from platforms of either endian. Dictionary encoding and compression are not currently supported. Getting started with nanoarrow Early users of the nanoarrow C library respectfully noted that it was difficult to know where to begin. This release includes improvements in reference documentation but also includes a long-form tutorial for those just getting started with or considering adopting the library. You can find the tutorial at the nanoarrow documentation site. C library The nanoarrow 0.2.0 release also includes a number of bugfixes and improvements to the core C library, many of which were identified as a result of usage connected with development of the IPC extension. Helpers for extracting/appending Decimal128 and Decimal256 elements from/to arrays were added. The C library can now perform “full” validation to validate untrusted input (e.g., serialized IPC from the wire). The C library can now perform “minimal” validation that performs all checks that do not access any buffer data. This feature was added to facilitate future support for the ArrowDeviceArray that was recently added as the Arrow C device interface. Release verification on Ubuntu (x86_64, arm64), Fedora (x86_64), Archlinux (x86_64), Centos 7 (x86_64, arm64), Alpine (x86_64, arm64, s390x), Windows (x86_64), and MacOS (x86_64) were added to the continuous integration system. Linux verification is implemented using docker compose to facilitate local checks when developing features that may affect a specific platform. R bindings The nanoarrow R bindings are distributed as the nanoarrow package on CRAN. The 0.2.0 release of the R bindings includes improvements in type support, improvements in stability, and features required for the forthcoming release of Arrow Database Connectivity (ADBC) R bindings. Notably: Support for conversion of union arrays to R objects was added to facilitate support for an ADBC function that returns such an array. Support for adding an R-level finalizer to an ArrowArrayStream was added to facilitate safely wrapping a stream resulting from an ADBC call at the R level. Python bindings? The nanoarrow 0.2.0 release does not include Python bindings, but improvements to the unreleased draft bindings were added to facilitate discussion among Python developers regarding the useful scope of a potential future nanoarrow Python package. If one of those developers is you, feel free to open an issue or send a post to the developer mailing list to engage in the discussion. Contributors This initial release consists of contributions from 6 contributors in addition to the invaluable advice and support of the Apache Arrow developer mailing list. Special thanks to David Li for reviewing nearly every PR in this release! $ git shortlog -sn d91c35b33c7b6ff94f5f929384879352e241ed71..apache-arrow-nanoarrow-0.2.0 | grep -v &quot;GitHub Actions&quot; 61 Dewey Dunnington 2 Dirk Eddelbuettel 2 Joris Van den Bossche 2 Kirill Müller 2 William Ayd 1 David Li" />
 <meta property="og:description" content="The Apache Arrow team is pleased to announce the 0.2.0 release of Apache Arrow nanoarrow. This initial release covers 19 resolved issues from 6 contributors. Release Highlights Addition of the Arrow IPC stream reader extension Addition of the Getting Started with nanoarrow tutorial Improvements in reliability and platform test coverage of the C library Improvements in reliability and type support in the R bindings See the Changelog for a detailed list of contributions to this release. IPC stream support This release includes support for reading schemas and record batches serialized using the Arrow IPC format. Based on the flatcc flatbuffers implementation, the nanoarrow IPC read support is implemented as an optional extension to the core nanoarrow library. The easiest way to get started is with the ArrowArrayStream provider using one of the built-in ArrowIpcInputStream implementations: #include &lt;stdio.h&gt; #include &lt;stdbool.h&gt; #include &quot;nanoarrow_ipc.h&quot; int main(int argc, char* argv[]) { FILE* file_ptr = freopen(NULL, &quot;rb&quot;, stdin); struct ArrowIpcInputStream input; NANOARROW_RETURN_NOT_OK(ArrowIpcInputStreamInitFile(&amp;input, file_ptr, false)); struct ArrowArrayStream stream; NANOARROW_RETURN_NOT_OK(ArrowIpcArrayStreamReaderInit(&amp;stream, &amp;input, NULL)); struct ArrowSchema schema; NANOARROW_RETURN_NOT_OK(stream.get_schema(&amp;stream, &amp;schema)); struct ArrowArray array; while (true) { NANOARROW_RETURN_NOT_OK(stream.get_next(&amp;stream, &amp;array)); if (array.release == NULL) { break; } } return 0; } Facilities for advanced usage are also provided via the low-level ArrowIpcDecoder, which takes care of the details of deserializing the flatbuffer headers and assembling buffers into an ArrowArray. The current implementation can read schema and record batch messages that contain any Arrow type that supported by the C data interface. The initial version can read both big and little endian streams originating from platforms of either endian. Dictionary encoding and compression are not currently supported. Getting started with nanoarrow Early users of the nanoarrow C library respectfully noted that it was difficult to know where to begin. This release includes improvements in reference documentation but also includes a long-form tutorial for those just getting started with or considering adopting the library. You can find the tutorial at the nanoarrow documentation site. C library The nanoarrow 0.2.0 release also includes a number of bugfixes and improvements to the core C library, many of which were identified as a result of usage connected with development of the IPC extension. Helpers for extracting/appending Decimal128 and Decimal256 elements from/to arrays were added. The C library can now perform “full” validation to validate untrusted input (e.g., serialized IPC from the wire). The C library can now perform “minimal” validation that performs all checks that do not access any buffer data. This feature was added to facilitate future support for the ArrowDeviceArray that was recently added as the Arrow C device interface. Release verification on Ubuntu (x86_64, arm64), Fedora (x86_64), Archlinux (x86_64), Centos 7 (x86_64, arm64), Alpine (x86_64, arm64, s390x), Windows (x86_64), and MacOS (x86_64) were added to the continuous integration system. Linux verification is implemented using docker compose to facilitate local checks when developing features that may affect a specific platform. R bindings The nanoarrow R bindings are distributed as the nanoarrow package on CRAN. The 0.2.0 release of the R bindings includes improvements in type support, improvements in stability, and features required for the forthcoming release of Arrow Database Connectivity (ADBC) R bindings. Notably: Support for conversion of union arrays to R objects was added to facilitate support for an ADBC function that returns such an array. Support for adding an R-level finalizer to an ArrowArrayStream was added to facilitate safely wrapping a stream resulting from an ADBC call at the R level. Python bindings? The nanoarrow 0.2.0 release does not include Python bindings, but improvements to the unreleased draft bindings were added to facilitate discussion among Python developers regarding the useful scope of a potential future nanoarrow Python package. If one of those developers is you, feel free to open an issue or send a post to the developer mailing list to engage in the discussion. Contributors This initial release consists of contributions from 6 contributors in addition to the invaluable advice and support of the Apache Arrow developer mailing list. Special thanks to David Li for reviewing nearly every PR in this release! $ git shortlog -sn d91c35b33c7b6ff94f5f929384879352e241ed71..apache-arrow-nanoarrow-0.2.0 | grep -v &quot;GitHub Actions&quot; 61 Dewey Dunnington 2 Dirk Eddelbuettel 2 Joris Van den Bossche 2 Kirill Müller 2 William Ayd 1 David Li" />
-<link rel="canonical" href="https://arrow.apache.org/blog/2023/06/22/nanoarrow-0.120-release/" />
-<meta property="og:url" content="https://arrow.apache.org/blog/2023/06/22/nanoarrow-0.120-release/" />
+<link rel="canonical" href="https://kou.github.io/arrow-site/arrow-site/blog/2023/06/22/nanoarrow-0.120-release/" />
+<meta property="og:url" content="https://kou.github.io/arrow-site/arrow-site/blog/2023/06/22/nanoarrow-0.120-release/" />
 <meta property="og:site_name" content="Apache Arrow" />
-<meta property="og:image" content="https://arrow.apache.org/img/arrow-logo_horizontal_black-txt_white-bg.png" />
+<meta property="og:image" content="https://kou.github.io/arrow-site/arrow-site/img/arrow-logo_horizontal_black-txt_white-bg.png" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2023-06-22T00:00:00-04:00" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta property="twitter:image" content="https://arrow.apache.org/img/arrow-logo_horizontal_black-txt_white-bg.png" />
+<meta property="twitter:image" content="https://kou.github.io/arrow-site/arrow-site/img/arrow-logo_horizontal_black-txt_white-bg.png" />
 <meta property="twitter:title" content="Apache Arrow nanoarrow 0.2 Release" />
 <meta name="twitter:site" content="@ApacheArrow" />
 <meta name="twitter:creator" content="@pmc" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"pmc"},"dateModified":"2023-06-22T00:00:00-04:00","datePublished":"2023-06-22T00:00:00-04:00","description":"The Apache Arrow team is pleased to announce the 0.2.0 release of Apache Arrow nanoarrow. This initial release covers 19 resolved issues from 6 contributors. Release Highlights Addition of the Arrow IPC stream reader extension Addition of the Getting Started with nanoarrow tutorial Improvements in reliability and platform test coverage of the C library Improvements in reliability and type support in the R bindings See the Changelog for a detailed list of contributions to this release. IPC stream support This release includes support for reading schemas and record batches serialized using the Arrow IPC format. Based on the flatcc flatbuffers implementation, the nanoarrow IPC read support is implemented as an optional extension to the core nanoarrow library. The easiest way to get started is with the ArrowArrayStream provider using one of the built-in ArrowIpcInputStream implementations: #include &lt;stdio.h&gt; #include &lt;stdbool.h&gt; #include &quot;nanoarrow_ipc.h&quot; int main(int argc, char* argv[]) { FILE* file_ptr = freopen(NULL, &quot;rb&quot;, stdin); struct ArrowIpcInputStream input; NANOARROW_RETURN_NOT_OK(ArrowIpcInputStreamInitFile(&amp;input, file_ptr, false)); struct ArrowArrayStream stream; NANOARROW_RETURN_NOT_OK(ArrowIpcArrayStreamReaderInit(&amp;stream, &amp;input, NULL)); struct ArrowSchema schema; NANOARROW_RETURN_NOT_OK(stream.get_schema(&amp;stream, &amp;schema)); struct ArrowArray array; while (true) { NANOARROW_RETURN_NOT_OK(stream.get_next(&amp;stream, &amp;array)); if (array.release == NULL) { break; } } return 0; } Facilities for advanced usage are also provided via the low-level ArrowIpcDecoder, which takes care of the details of deserializing the flatbuffer headers and assembling buffers into an ArrowArray. The current implementation can read schema and record batch messages that contain any Arrow type that supported by the C data interface. The initial version can read both big and little endian streams originating from platforms of either endian. Dictionary encoding and compression are not currently supported. Getting started with nanoarrow Early users of the nanoarrow C library respectfully noted that it was difficult to know where to begin. This release includes improvements in reference documentation but also includes a long-form tutorial for those just getting started with or considering adopting the library. You can find the tutorial at the nanoarrow documentation site. C library The nanoarrow 0.2.0 release also includes a number of bugfixes and improvements to the core C library, many of which were identified as a result of usage connected with development of the IPC extension. Helpers for extracting/appending Decimal128 and Decimal256 elements from/to arrays were added. The C library can now perform “full” validation to validate untrusted input (e.g., serialized IPC from the wire). The C library can now perform “minimal” validation that performs all checks that do not access any buffer data. This feature was added to facilitate future support for the ArrowDeviceArray that was recently added as the Arrow C device interface. Release verification on Ubuntu (x86_64, arm64), Fedora (x86_64), Archlinux (x86_64), Centos 7 (x86_64, arm64), Alpine (x86_64, arm64, s390x), Windows (x86_64), and MacOS (x86_64) were added to the continuous integration system. Linux verification is implemented using docker compose to facilitate local checks when developing features that may affect a specific platform. R bindings The nanoarrow R bindings are distributed as the nanoarrow package on CRAN. The 0.2.0 release of the R bindings includes improvements in type support, improvements in stability, and features required for the forthcoming release of Arrow Database Connectivity (ADBC) R bindings. Notably: Support for conversion of union arrays to R objects was added to facilitate support for an ADBC function that returns such an array. Support for adding an R-level finalizer to an ArrowArrayStream was added to facilitate safely wrapping a stream resulting from an ADBC call at the R level. Python bindings? The nanoarrow 0.2.0 release does not include Python bindings, but improvements to the unreleased draft bindings were added to facilitate discussion among Python developers regarding the useful scope of a potential future nanoarrow Python package. If one of those developers is you, feel free to open an issue or send a post to the developer mailing list to engage in the discussion. Contributors This initial release consists of contributions from 6 contributors in addition to the invaluable advice and support of the Apache Arrow developer mailing list. Special thanks to David Li for reviewing nearly every PR in this release! $ git shortlog -sn d91c35b33c7b6ff94f5f929384879352e241ed71..apache-arrow-nanoarrow-0.2.0 | grep -v &quot;GitHub Actions&quot; 61 Dewey Dunnington 2 Dirk Eddelbuettel 2 Joris Van den Bossche 2 Kirill Müller 2 William Ayd 1 David Li","headline":"Apache Arrow nanoarrow 0.2 Release","image":"https://arrow.apache.org/img/arrow-logo_horizontal_black-txt_white-bg.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://arrow.apache.org/blog/2023/06/22/nanoarrow-0.120-release/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://arrow.apache.org/img/logo.png"},"name":"pmc"},"url":"https://arrow.apache.org/blog/2023/06/22/nanoarrow-0.120-release/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"pmc"},"dateModified":"2023-06-22T00:00:00-04:00","datePublished":"2023-06-22T00:00:00-04:00","description":"The Apache Arrow team is pleased to announce the 0.2.0 release of Apache Arrow nanoarrow. This initial release covers 19 resolved issues from 6 contributors. Release Highlights Addition of the Arrow IPC stream reader extension Addition of the Getting Started with nanoarrow tutorial Improvements in reliability and platform test coverage of the C library Improvements in reliability and type support in the R bindings See the Changelog for a detailed list of contributions to this release. IPC stream support This release includes support for reading schemas and record batches serialized using the Arrow IPC format. Based on the flatcc flatbuffers implementation, the nanoarrow IPC read support is implemented as an optional extension to the core nanoarrow library. The easiest way to get started is with the ArrowArrayStream provider using one of the built-in ArrowIpcInputStream implementations: #include &lt;stdio.h&gt; #include &lt;stdbool.h&gt; #include &quot;nanoarrow_ipc.h&quot; int main(int argc, char* argv[]) { FILE* file_ptr = freopen(NULL, &quot;rb&quot;, stdin); struct ArrowIpcInputStream input; NANOARROW_RETURN_NOT_OK(ArrowIpcInputStreamInitFile(&amp;input, file_ptr, false)); struct ArrowArrayStream stream; NANOARROW_RETURN_NOT_OK(ArrowIpcArrayStreamReaderInit(&amp;stream, &amp;input, NULL)); struct ArrowSchema schema; NANOARROW_RETURN_NOT_OK(stream.get_schema(&amp;stream, &amp;schema)); struct ArrowArray array; while (true) { NANOARROW_RETURN_NOT_OK(stream.get_next(&amp;stream, &amp;array)); if (array.release == NULL) { break; } } return 0; } Facilities for advanced usage are also provided via the low-level ArrowIpcDecoder, which takes care of the details of deserializing the flatbuffer headers and assembling buffers into an ArrowArray. The current implementation can read schema and record batch messages that contain any Arrow type that supported by the C data interface. The initial version can read both big and little endian streams originating from platforms of either endian. Dictionary encoding and compression are not currently supported. Getting started with nanoarrow Early users of the nanoarrow C library respectfully noted that it was difficult to know where to begin. This release includes improvements in reference documentation but also includes a long-form tutorial for those just getting started with or considering adopting the library. You can find the tutorial at the nanoarrow documentation site. C library The nanoarrow 0.2.0 release also includes a number of bugfixes and improvements to the core C library, many of which were identified as a result of usage connected with development of the IPC extension. Helpers for extracting/appending Decimal128 and Decimal256 elements from/to arrays were added. The C library can now perform “full” validation to validate untrusted input (e.g., serialized IPC from the wire). The C library can now perform “minimal” validation that performs all checks that do not access any buffer data. This feature was added to facilitate future support for the ArrowDeviceArray that was recently added as the Arrow C device interface. Release verification on Ubuntu (x86_64, arm64), Fedora (x86_64), Archlinux (x86_64), Centos 7 (x86_64, arm64), Alpine (x86_64, arm64, s390x), Windows (x86_64), and MacOS (x86_64) were added to the continuous integration system. Linux verification is implemented using docker compose to facilitate local checks when developing features that may affect a specific platform. R bindings The nanoarrow R bindings are distributed as the nanoarrow package on CRAN. The 0.2.0 release of the R bindings includes improvements in type support, improvements in stability, and features required for the forthcoming release of Arrow Database Connectivity (ADBC) R bindings. Notably: Support for conversion of union arrays to R objects was added to facilitate support for an ADBC function that returns such an array. Support for adding an R-level finalizer to an ArrowArrayStream was added to facilitate safely wrapping a stream resulting from an ADBC call at the R level. Python bindings? The nanoarrow 0.2.0 release does not include Python bindings, but improvements to the unreleased draft bindings were added to facilitate discussion among Python developers regarding the useful scope of a potential future nanoarrow Python package. If one of those developers is you, feel free to open an issue or send a post to the developer mailing list to engage in the discussion. Contributors This initial release consists of contributions from 6 contributors in addition to the invaluable advice and support of the Apache Arrow developer mailing list. Special thanks to David Li for reviewing nearly every PR in this release! $ git shortlog -sn d91c35b33c7b6ff94f5f929384879352e241ed71..apache-arrow-nanoarrow-0.2.0 | grep -v &quot;GitHub Actions&quot; 61 Dewey Dunnington 2 Dirk Eddelbuettel 2 Joris Van den Bossche 2 Kirill Müller 2 William Ayd 1 David Li","headline":"Apache Arrow nanoarrow 0.2 Release","image":"https://kou.github.io/arrow-site/arrow-site/img/arrow-logo_horizontal_black-txt_white-bg.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://kou.github.io/arrow-site/arrow-site/blog/2023/06/22/nanoarrow-0.120-release/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://kou.github.io/arrow-site/arrow-site/img/logo.png"},"name":"pmc"},"url":"https://kou.github.io/arrow-site/arrow-site/blog/2023/06/22/nanoarrow-0.120-release/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
     <!-- favicons -->
-    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png" id="light1">
-    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png" id="light2">
-    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/img/apple-touch-icon.png" id="light3">
-    <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="/img/apple-touch-icon-120x120.png" id="light4">
-    <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="/img/apple-touch-icon-76x76.png" id="light5">
-    <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="/img/apple-touch-icon-60x60.png" id="light6">
+    <link rel="icon" type="image/png" sizes="16x16" href="/arrow-site/img/favicon-16x16.png" id="light1">
+    <link rel="icon" type="image/png" sizes="32x32" href="/arrow-site/img/favicon-32x32.png" id="light2">
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/arrow-site/img/apple-touch-icon.png" id="light3">
+    <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="/arrow-site/img/apple-touch-icon-120x120.png" id="light4">
+    <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="/arrow-site/img/apple-touch-icon-76x76.png" id="light5">
+    <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="/arrow-site/img/apple-touch-icon-60x60.png" id="light6">
     <!-- dark mode favicons -->
-    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16-dark.png" id="dark1">
-    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32-dark.png" id="dark2">
-    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/img/apple-touch-icon-dark.png" id="dark3">
-    <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="/img/apple-touch-icon-120x120-dark.png" id="dark4">
-    <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="/img/apple-touch-icon-76x76-dark.png" id="dark5">
-    <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="/img/apple-touch-icon-60x60-dark.png" id="dark6">
+    <link rel="icon" type="image/png" sizes="16x16" href="/arrow-site/img/favicon-16x16-dark.png" id="dark1">
+    <link rel="icon" type="image/png" sizes="32x32" href="/arrow-site/img/favicon-32x32-dark.png" id="dark2">
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/arrow-site/img/apple-touch-icon-dark.png" id="dark3">
+    <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="/arrow-site/img/apple-touch-icon-120x120-dark.png" id="dark4">
+    <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="/arrow-site/img/apple-touch-icon-76x76-dark.png" id="dark5">
+    <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="/arrow-site/img/apple-touch-icon-60x60-dark.png" id="dark6">
 
     <script>
       // Switch to the dark-mode favicons if prefers-color-scheme: dark
@@ -97,9 +97,9 @@
       onUpdate();
     </script>
 
-    <link href="/css/main.css" rel="stylesheet">
-    <link href="/css/syntax.css" rel="stylesheet">
-    <script src="/javascript/main.js"></script>
+    <link href="/arrow-site/css/main.css" rel="stylesheet">
+    <link href="/arrow-site/css/syntax.css" rel="stylesheet">
+    <script src="/arrow-site/javascript/main.js"></script>
     
     <!-- Matomo -->
 <script>
@@ -127,7 +127,7 @@
   <header>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
   
-  <a class="navbar-brand no-padding" href="/"><img src="/img/arrow-inverse-300px.png" height="40px"/></a>
+  <a class="navbar-brand no-padding" href="/arrow-site/"><img src="/arrow-site/img/arrow-inverse-300px.png" height="40px"/></a>
   
    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#arrow-navbar" aria-controls="arrow-navbar" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -136,9 +136,9 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse justify-content-end" id="arrow-navbar">
       <ul class="nav navbar-nav">
-        <li class="nav-item"><a class="nav-link" href="/overview/" role="button" aria-haspopup="true" aria-expanded="false">Overview</a></li>
-        <li class="nav-item"><a class="nav-link" href="/faq/" role="button" aria-haspopup="true" aria-expanded="false">FAQ</a></li>
-        <li class="nav-item"><a class="nav-link" href="/blog" role="button" aria-haspopup="true" aria-expanded="false">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="/arrow-site/overview/" role="button" aria-haspopup="true" aria-expanded="false">Overview</a></li>
+        <li class="nav-item"><a class="nav-link" href="/arrow-site/faq/" role="button" aria-haspopup="true" aria-expanded="false">FAQ</a></li>
+        <li class="nav-item"><a class="nav-link" href="/arrow-site/blog" role="button" aria-haspopup="true" aria-expanded="false">Blog</a></li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#"
              id="navbarDropdownGetArrow" role="button" data-toggle="dropdown"
@@ -146,8 +146,8 @@
              Get Arrow
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownGetArrow">
-            <a class="dropdown-item" href="/install/">Install</a>
-            <a class="dropdown-item" href="/release/">Releases</a>
+            <a class="dropdown-item" href="/arrow-site/install/">Install</a>
+            <a class="dropdown-item" href="/arrow-site/release/">Releases</a>
             <a class="dropdown-item" href="https://github.com/apache/arrow">Source Code</a>
           </div>
         </li>
@@ -158,19 +158,19 @@
              Documentation
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownDocumentation">
-            <a class="dropdown-item" href="/docs">Project Docs</a>
-            <a class="dropdown-item" href="/docs/format/Columnar.html">Format</a>
+            <a class="dropdown-item" href="/arrow-site/docs">Project Docs</a>
+            <a class="dropdown-item" href="/arrow-site/docs/format/Columnar.html">Format</a>
             <hr/>
-            <a class="dropdown-item" href="/docs/c_glib">C GLib</a>
-            <a class="dropdown-item" href="/docs/cpp">C++</a>
+            <a class="dropdown-item" href="/arrow-site/docs/c_glib">C GLib</a>
+            <a class="dropdown-item" href="/arrow-site/docs/cpp">C++</a>
             <a class="dropdown-item" href="https://github.com/apache/arrow/blob/main/csharp/README.md">C#</a>
             <a class="dropdown-item" href="https://godoc.org/github.com/apache/arrow/go/arrow">Go</a>
-            <a class="dropdown-item" href="/docs/java">Java</a>
-            <a class="dropdown-item" href="/docs/js">JavaScript</a>
-            <a class="dropdown-item" href="/julia/">Julia</a>
+            <a class="dropdown-item" href="/arrow-site/docs/java">Java</a>
+            <a class="dropdown-item" href="/arrow-site/docs/js">JavaScript</a>
+            <a class="dropdown-item" href="/arrow-site/julia/">Julia</a>
             <a class="dropdown-item" href="https://github.com/apache/arrow/blob/main/matlab/README.md">MATLAB</a>
-            <a class="dropdown-item" href="/docs/python">Python</a>
-            <a class="dropdown-item" href="/docs/r">R</a>
+            <a class="dropdown-item" href="/arrow-site/docs/python">Python</a>
+            <a class="dropdown-item" href="/arrow-site/docs/r">R</a>
             <a class="dropdown-item" href="https://github.com/apache/arrow/blob/main/ruby/README.md">Ruby</a>
             <a class="dropdown-item" href="https://docs.rs/arrow/latest">Rust</a>
           </div>
@@ -182,11 +182,11 @@
              Subprojects
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownSubprojects">
-            <a class="dropdown-item" href="/adbc">ADBC</a>
-            <a class="dropdown-item" href="/docs/format/Flight.html">Arrow Flight</a>
-            <a class="dropdown-item" href="/docs/format/FlightSql.html">Arrow Flight SQL</a>
+            <a class="dropdown-item" href="/arrow-site/adbc">ADBC</a>
+            <a class="dropdown-item" href="/arrow-site/docs/format/Flight.html">Arrow Flight</a>
+            <a class="dropdown-item" href="/arrow-site/docs/format/FlightSql.html">Arrow Flight SQL</a>
             <a class="dropdown-item" href="https://datafusion.apache.org">DataFusion</a>
-            <a class="dropdown-item" href="/nanoarrow">nanoarrow</a>
+            <a class="dropdown-item" href="/arrow-site/nanoarrow">nanoarrow</a>
           </div>
         </li>
         <li class="nav-item dropdown">
@@ -196,14 +196,14 @@
              Community
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownCommunity">
-            <a class="dropdown-item" href="/community/">Communication</a>
-            <a class="dropdown-item" href="/docs/developers/index.html">Contributing</a>
+            <a class="dropdown-item" href="/arrow-site/community/">Communication</a>
+            <a class="dropdown-item" href="/arrow-site/docs/developers/index.html">Contributing</a>
             <a class="dropdown-item" href="https://github.com/apache/arrow/issues">Issue Tracker</a>
-            <a class="dropdown-item" href="/committers/">Governance</a>
-            <a class="dropdown-item" href="/use_cases/">Use Cases</a>
-            <a class="dropdown-item" href="/powered_by/">Powered By</a>
-            <a class="dropdown-item" href="/visual_identity/">Visual Identity</a>
-            <a class="dropdown-item" href="/security/">Security</a>
+            <a class="dropdown-item" href="/arrow-site/committers/">Governance</a>
+            <a class="dropdown-item" href="/arrow-site/use_cases/">Use Cases</a>
+            <a class="dropdown-item" href="/arrow-site/powered_by/">Powered By</a>
+            <a class="dropdown-item" href="/arrow-site/visual_identity/">Visual Identity</a>
+            <a class="dropdown-item" href="/arrow-site/security/">Security</a>
             <a class="dropdown-item" href="https://www.apache.org/foundation/policies/conduct.html">Code of Conduct</a>
           </div>
         </li>
