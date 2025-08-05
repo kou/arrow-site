@@ -10,40 +10,40 @@
     
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<meta name="generator" content="Jekyll v4.3.3" />
+<meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Apache Arrow ADBC 0.8.0 (Libraries) Release" />
 <meta name="author" content="pmc" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="The Apache Arrow team is pleased to announce the 0.8.0 release of the Apache Arrow ADBC libraries. This covers includes 43 resolved issues from 12 distinct contributors. This is a release of the libraries, which are at version 0.8.0. The API specification is versioned separately and is at version 1.1.0. The release notes below are not exhaustive and only expose selected highlights of the release. Many other bugfixes and improvements have been made: we refer you to the complete changelog. Release Highlights C#/.NET has added a BigQuery driver. Also, it now can be used through ADO.NET. The R bindings now use ADBC 1.1.0, and more packages are now available on CRAN. The Snowflake driver now has an option to control whether to return decimal types or attempt to convert to integers/floats. The PostgreSQL driver now uses COPY for bulk ingestion, which Pandas has found is approximately 35x faster than their previous method. The SQLite driver can now load extensions and supports more data types, including Arrow binary (SQL BLOB), and supports binding some dictionary-encoded types (which will be unpacked). Contributors $ git shortlog --perl-regexp --author=&#39;^((?!dependabot\[bot\]).*)$&#39; -sn apache-arrow-adbc-0.7.0..apache-arrow-adbc-0.8.0 27 David Li 23 William Ayd 19 Dewey Dunnington 4 Matt Topol 4 Solomon Choe 4 davidhcoe 2 vleslief-ms 1 Aaron Ross 1 Fredrik Hoem Grelland 1 Joel Lubinitsky 1 OleMussmann 1 Ruoxuan Wang Roadmap Work continues on improving the existing drivers in terms of supported Arrow/database types, performance, and so on. For Java, the minimum JDK version will stay on JDK 8 as long as the Arrow Java libraries remain on that version. There are currently no plans for a second API revision. As work progresses on asynchronous and device-aware APIs in the Arrow ecosystem, ADBC will eventually be updated to support any new APIs. Getting Involved We welcome questions and contributions from all interested. Issues can be filed on GitHub, and questions can be directed to GitHub or the Arrow mailing lists." />
 <meta property="og:description" content="The Apache Arrow team is pleased to announce the 0.8.0 release of the Apache Arrow ADBC libraries. This covers includes 43 resolved issues from 12 distinct contributors. This is a release of the libraries, which are at version 0.8.0. The API specification is versioned separately and is at version 1.1.0. The release notes below are not exhaustive and only expose selected highlights of the release. Many other bugfixes and improvements have been made: we refer you to the complete changelog. Release Highlights C#/.NET has added a BigQuery driver. Also, it now can be used through ADO.NET. The R bindings now use ADBC 1.1.0, and more packages are now available on CRAN. The Snowflake driver now has an option to control whether to return decimal types or attempt to convert to integers/floats. The PostgreSQL driver now uses COPY for bulk ingestion, which Pandas has found is approximately 35x faster than their previous method. The SQLite driver can now load extensions and supports more data types, including Arrow binary (SQL BLOB), and supports binding some dictionary-encoded types (which will be unpacked). Contributors $ git shortlog --perl-regexp --author=&#39;^((?!dependabot\[bot\]).*)$&#39; -sn apache-arrow-adbc-0.7.0..apache-arrow-adbc-0.8.0 27 David Li 23 William Ayd 19 Dewey Dunnington 4 Matt Topol 4 Solomon Choe 4 davidhcoe 2 vleslief-ms 1 Aaron Ross 1 Fredrik Hoem Grelland 1 Joel Lubinitsky 1 OleMussmann 1 Ruoxuan Wang Roadmap Work continues on improving the existing drivers in terms of supported Arrow/database types, performance, and so on. For Java, the minimum JDK version will stay on JDK 8 as long as the Arrow Java libraries remain on that version. There are currently no plans for a second API revision. As work progresses on asynchronous and device-aware APIs in the Arrow ecosystem, ADBC will eventually be updated to support any new APIs. Getting Involved We welcome questions and contributions from all interested. Issues can be filed on GitHub, and questions can be directed to GitHub or the Arrow mailing lists." />
-<link rel="canonical" href="https://arrow.apache.org/blog/2023/11/09/adbc-0.8.0-release/" />
-<meta property="og:url" content="https://arrow.apache.org/blog/2023/11/09/adbc-0.8.0-release/" />
+<link rel="canonical" href="https://kou.github.io/arrow-site/arrow-site/blog/2023/11/09/adbc-0.8.0-release/" />
+<meta property="og:url" content="https://kou.github.io/arrow-site/arrow-site/blog/2023/11/09/adbc-0.8.0-release/" />
 <meta property="og:site_name" content="Apache Arrow" />
-<meta property="og:image" content="https://arrow.apache.org/img/arrow-logo_horizontal_black-txt_white-bg.png" />
+<meta property="og:image" content="https://kou.github.io/arrow-site/arrow-site/img/arrow-logo_horizontal_black-txt_white-bg.png" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2023-11-09T00:00:00-05:00" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta property="twitter:image" content="https://arrow.apache.org/img/arrow-logo_horizontal_black-txt_white-bg.png" />
+<meta property="twitter:image" content="https://kou.github.io/arrow-site/arrow-site/img/arrow-logo_horizontal_black-txt_white-bg.png" />
 <meta property="twitter:title" content="Apache Arrow ADBC 0.8.0 (Libraries) Release" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"pmc"},"dateModified":"2023-11-09T00:00:00-05:00","datePublished":"2023-11-09T00:00:00-05:00","description":"The Apache Arrow team is pleased to announce the 0.8.0 release of the Apache Arrow ADBC libraries. This covers includes 43 resolved issues from 12 distinct contributors. This is a release of the libraries, which are at version 0.8.0. The API specification is versioned separately and is at version 1.1.0. The release notes below are not exhaustive and only expose selected highlights of the release. Many other bugfixes and improvements have been made: we refer you to the complete changelog. Release Highlights C#/.NET has added a BigQuery driver. Also, it now can be used through ADO.NET. The R bindings now use ADBC 1.1.0, and more packages are now available on CRAN. The Snowflake driver now has an option to control whether to return decimal types or attempt to convert to integers/floats. The PostgreSQL driver now uses COPY for bulk ingestion, which Pandas has found is approximately 35x faster than their previous method. The SQLite driver can now load extensions and supports more data types, including Arrow binary (SQL BLOB), and supports binding some dictionary-encoded types (which will be unpacked). Contributors $ git shortlog --perl-regexp --author=&#39;^((?!dependabot\\[bot\\]).*)$&#39; -sn apache-arrow-adbc-0.7.0..apache-arrow-adbc-0.8.0 27 David Li 23 William Ayd 19 Dewey Dunnington 4 Matt Topol 4 Solomon Choe 4 davidhcoe 2 vleslief-ms 1 Aaron Ross 1 Fredrik Hoem Grelland 1 Joel Lubinitsky 1 OleMussmann 1 Ruoxuan Wang Roadmap Work continues on improving the existing drivers in terms of supported Arrow/database types, performance, and so on. For Java, the minimum JDK version will stay on JDK 8 as long as the Arrow Java libraries remain on that version. There are currently no plans for a second API revision. As work progresses on asynchronous and device-aware APIs in the Arrow ecosystem, ADBC will eventually be updated to support any new APIs. Getting Involved We welcome questions and contributions from all interested. Issues can be filed on GitHub, and questions can be directed to GitHub or the Arrow mailing lists.","headline":"Apache Arrow ADBC 0.8.0 (Libraries) Release","image":"https://arrow.apache.org/img/arrow-logo_horizontal_black-txt_white-bg.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://arrow.apache.org/blog/2023/11/09/adbc-0.8.0-release/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://arrow.apache.org/img/logo.png"},"name":"pmc"},"url":"https://arrow.apache.org/blog/2023/11/09/adbc-0.8.0-release/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"pmc"},"dateModified":"2023-11-09T00:00:00-05:00","datePublished":"2023-11-09T00:00:00-05:00","description":"The Apache Arrow team is pleased to announce the 0.8.0 release of the Apache Arrow ADBC libraries. This covers includes 43 resolved issues from 12 distinct contributors. This is a release of the libraries, which are at version 0.8.0. The API specification is versioned separately and is at version 1.1.0. The release notes below are not exhaustive and only expose selected highlights of the release. Many other bugfixes and improvements have been made: we refer you to the complete changelog. Release Highlights C#/.NET has added a BigQuery driver. Also, it now can be used through ADO.NET. The R bindings now use ADBC 1.1.0, and more packages are now available on CRAN. The Snowflake driver now has an option to control whether to return decimal types or attempt to convert to integers/floats. The PostgreSQL driver now uses COPY for bulk ingestion, which Pandas has found is approximately 35x faster than their previous method. The SQLite driver can now load extensions and supports more data types, including Arrow binary (SQL BLOB), and supports binding some dictionary-encoded types (which will be unpacked). Contributors $ git shortlog --perl-regexp --author=&#39;^((?!dependabot\\[bot\\]).*)$&#39; -sn apache-arrow-adbc-0.7.0..apache-arrow-adbc-0.8.0 27 David Li 23 William Ayd 19 Dewey Dunnington 4 Matt Topol 4 Solomon Choe 4 davidhcoe 2 vleslief-ms 1 Aaron Ross 1 Fredrik Hoem Grelland 1 Joel Lubinitsky 1 OleMussmann 1 Ruoxuan Wang Roadmap Work continues on improving the existing drivers in terms of supported Arrow/database types, performance, and so on. For Java, the minimum JDK version will stay on JDK 8 as long as the Arrow Java libraries remain on that version. There are currently no plans for a second API revision. As work progresses on asynchronous and device-aware APIs in the Arrow ecosystem, ADBC will eventually be updated to support any new APIs. Getting Involved We welcome questions and contributions from all interested. Issues can be filed on GitHub, and questions can be directed to GitHub or the Arrow mailing lists.","headline":"Apache Arrow ADBC 0.8.0 (Libraries) Release","image":"https://kou.github.io/arrow-site/arrow-site/img/arrow-logo_horizontal_black-txt_white-bg.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://kou.github.io/arrow-site/arrow-site/blog/2023/11/09/adbc-0.8.0-release/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://kou.github.io/arrow-site/arrow-site/img/logo.png"},"name":"pmc"},"url":"https://kou.github.io/arrow-site/arrow-site/blog/2023/11/09/adbc-0.8.0-release/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
     <!-- favicons -->
-    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png" id="light1">
-    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png" id="light2">
-    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/img/apple-touch-icon.png" id="light3">
-    <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="/img/apple-touch-icon-120x120.png" id="light4">
-    <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="/img/apple-touch-icon-76x76.png" id="light5">
-    <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="/img/apple-touch-icon-60x60.png" id="light6">
+    <link rel="icon" type="image/png" sizes="16x16" href="/arrow-site/img/favicon-16x16.png" id="light1">
+    <link rel="icon" type="image/png" sizes="32x32" href="/arrow-site/img/favicon-32x32.png" id="light2">
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/arrow-site/img/apple-touch-icon.png" id="light3">
+    <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="/arrow-site/img/apple-touch-icon-120x120.png" id="light4">
+    <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="/arrow-site/img/apple-touch-icon-76x76.png" id="light5">
+    <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="/arrow-site/img/apple-touch-icon-60x60.png" id="light6">
     <!-- dark mode favicons -->
-    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16-dark.png" id="dark1">
-    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32-dark.png" id="dark2">
-    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/img/apple-touch-icon-dark.png" id="dark3">
-    <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="/img/apple-touch-icon-120x120-dark.png" id="dark4">
-    <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="/img/apple-touch-icon-76x76-dark.png" id="dark5">
-    <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="/img/apple-touch-icon-60x60-dark.png" id="dark6">
+    <link rel="icon" type="image/png" sizes="16x16" href="/arrow-site/img/favicon-16x16-dark.png" id="dark1">
+    <link rel="icon" type="image/png" sizes="32x32" href="/arrow-site/img/favicon-32x32-dark.png" id="dark2">
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/arrow-site/img/apple-touch-icon-dark.png" id="dark3">
+    <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="/arrow-site/img/apple-touch-icon-120x120-dark.png" id="dark4">
+    <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="/arrow-site/img/apple-touch-icon-76x76-dark.png" id="dark5">
+    <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="/arrow-site/img/apple-touch-icon-60x60-dark.png" id="dark6">
 
     <script>
       // Switch to the dark-mode favicons if prefers-color-scheme: dark
@@ -95,9 +95,9 @@
       onUpdate();
     </script>
 
-    <link href="/css/main.css" rel="stylesheet">
-    <link href="/css/syntax.css" rel="stylesheet">
-    <script src="/javascript/main.js"></script>
+    <link href="/arrow-site/css/main.css" rel="stylesheet">
+    <link href="/arrow-site/css/syntax.css" rel="stylesheet">
+    <script src="/arrow-site/javascript/main.js"></script>
     
     <!-- Matomo -->
 <script>
@@ -118,7 +118,7 @@
 <!-- End Matomo Code -->
 
     
-    <link type="application/atom+xml" rel="alternate" href="https://arrow.apache.org/feed.xml" title="Apache Arrow" />
+    <link type="application/atom+xml" rel="alternate" href="https://kou.github.io/arrow-site/arrow-site/feed.xml" title="Apache Arrow" />
   </head>
 
 
@@ -126,7 +126,7 @@
   <header>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
   
-  <a class="navbar-brand no-padding" href="/"><img src="/img/arrow-inverse-300px.png" height="40px"/></a>
+  <a class="navbar-brand no-padding" href="/arrow-site/"><img src="/arrow-site/img/arrow-inverse-300px.png" height="40px"></a>
   
    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#arrow-navbar" aria-controls="arrow-navbar" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -135,117 +135,106 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse justify-content-end" id="arrow-navbar">
       <ul class="nav navbar-nav">
-        <li class="nav-item"><a class="nav-link" href="/overview/" role="button" aria-haspopup="true" aria-expanded="false">Overview</a></li>
-        <li class="nav-item"><a class="nav-link" href="/faq/" role="button" aria-haspopup="true" aria-expanded="false">FAQ</a></li>
-        <li class="nav-item"><a class="nav-link" href="/blog" role="button" aria-haspopup="true" aria-expanded="false">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="/arrow-site/overview/" role="button" aria-haspopup="true" aria-expanded="false">Overview</a></li>
+        <li class="nav-item"><a class="nav-link" href="/arrow-site/faq/" role="button" aria-haspopup="true" aria-expanded="false">FAQ</a></li>
+        <li class="nav-item"><a class="nav-link" href="/arrow-site/blog" role="button" aria-haspopup="true" aria-expanded="false">Blog</a></li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#"
-             id="navbarDropdownGetArrow" role="button" data-toggle="dropdown"
-             aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownGetArrow" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              Get Arrow
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownGetArrow">
-            <a class="dropdown-item" href="/install/">Install</a>
-            <a class="dropdown-item" href="/release/">Releases</a>
+            <a class="dropdown-item" href="/arrow-site/install/">Install</a>
+            <a class="dropdown-item" href="/arrow-site/release/">Releases</a>
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#"
-             id="navbarDropdownDocumentation" role="button" data-toggle="dropdown"
-             aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDocumentation" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              Docs
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownDocumentation">
-            <a class="dropdown-item" href="/docs">Project Docs</a>
-            <a class="dropdown-item" href="/docs/format/Columnar.html">Format</a>
-            <hr/>
-            <a class="dropdown-item" href="/docs/c_glib">C GLib</a>
-            <a class="dropdown-item" href="/docs/cpp">C++</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/blob/main/csharp/README.md">C#</a>
-            <a class="dropdown-item" href="https://godoc.org/github.com/apache/arrow/go/arrow">Go</a>
-            <a class="dropdown-item" href="/docs/java">Java</a>
-            <a class="dropdown-item" href="/docs/js">JavaScript</a>
-            <a class="dropdown-item" href="/julia/">Julia</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/blob/main/matlab/README.md">MATLAB</a>
-            <a class="dropdown-item" href="/docs/python">Python</a>
-            <a class="dropdown-item" href="/docs/r">R</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/blob/main/ruby/README.md">Ruby</a>
-            <a class="dropdown-item" href="https://docs.rs/arrow/latest">Rust</a>
-            <a class="dropdown-item" href="/swift">Swift</a>
+            <a class="dropdown-item" href="/arrow-site/docs">Project Docs</a>
+            <a class="dropdown-item" href="/arrow-site/docs/format/Columnar.html">Format</a>
+            <hr>
+            <a class="dropdown-item" href="/arrow-site/docs/c_glib">C GLib</a>
+            <a class="dropdown-item" href="/arrow-site/docs/cpp">C++</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/blob/main/csharp/README.md" target="_blank" rel="noopener">C#</a>
+            <a class="dropdown-item" href="https://godoc.org/github.com/apache/arrow/go/arrow" target="_blank" rel="noopener">Go</a>
+            <a class="dropdown-item" href="/arrow-site/docs/java">Java</a>
+            <a class="dropdown-item" href="/arrow-site/docs/js">JavaScript</a>
+            <a class="dropdown-item" href="/arrow-site/julia/">Julia</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/blob/main/matlab/README.md" target="_blank" rel="noopener">MATLAB</a>
+            <a class="dropdown-item" href="/arrow-site/docs/python">Python</a>
+            <a class="dropdown-item" href="/arrow-site/docs/r">R</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/blob/main/ruby/README.md" target="_blank" rel="noopener">Ruby</a>
+            <a class="dropdown-item" href="https://docs.rs/arrow/latest" target="_blank" rel="noopener">Rust</a>
+            <a class="dropdown-item" href="/arrow-site/swift">Swift</a>
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#"
-             id="navbarDropdownSource" role="button" data-toggle="dropdown"
-             aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownSource" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              Source
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownSource">
-            <a class="dropdown-item" href="https://github.com/apache/arrow">Main Repo</a>
-            <hr/>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/c_glib">C GLib</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/cpp">C++</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/csharp">C#</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow-go">Go</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow-java">Java</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow-js">JavaScript</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow-julia">Julia</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/matlab">MATLAB</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/python">Python</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/r">R</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/ruby">Ruby</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow-rs">Rust</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow-swift">Swift</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow" target="_blank" rel="noopener">Main Repo</a>
+            <hr>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/c_glib" target="_blank" rel="noopener">C GLib</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/cpp" target="_blank" rel="noopener">C++</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/csharp" target="_blank" rel="noopener">C#</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow-go" target="_blank" rel="noopener">Go</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow-java" target="_blank" rel="noopener">Java</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow-js" target="_blank" rel="noopener">JavaScript</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow-julia" target="_blank" rel="noopener">Julia</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/matlab" target="_blank" rel="noopener">MATLAB</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/python" target="_blank" rel="noopener">Python</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/r" target="_blank" rel="noopener">R</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/ruby" target="_blank" rel="noopener">Ruby</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow-rs" target="_blank" rel="noopener">Rust</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow-swift" target="_blank" rel="noopener">Swift</a>
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#"
-             id="navbarDropdownSubprojects" role="button" data-toggle="dropdown"
-             aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownSubprojects" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              Subprojects
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownSubprojects">
-            <a class="dropdown-item" href="/adbc">ADBC</a>
-            <a class="dropdown-item" href="/docs/format/Flight.html">Arrow Flight</a>
-            <a class="dropdown-item" href="/docs/format/FlightSql.html">Arrow Flight SQL</a>
-            <a class="dropdown-item" href="https://datafusion.apache.org">DataFusion</a>
-            <a class="dropdown-item" href="/nanoarrow">nanoarrow</a>
+            <a class="dropdown-item" href="/arrow-site/adbc">ADBC</a>
+            <a class="dropdown-item" href="/arrow-site/docs/format/Flight.html">Arrow Flight</a>
+            <a class="dropdown-item" href="/arrow-site/docs/format/FlightSql.html">Arrow Flight SQL</a>
+            <a class="dropdown-item" href="https://datafusion.apache.org" target="_blank" rel="noopener">DataFusion</a>
+            <a class="dropdown-item" href="/arrow-site/nanoarrow">nanoarrow</a>
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#"
-             id="navbarDropdownCommunity" role="button" data-toggle="dropdown"
-             aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCommunity" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              Community
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownCommunity">
-            <a class="dropdown-item" href="/community/">Communication</a>
-            <a class="dropdown-item" href="/docs/developers/index.html">Contributing</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/issues">Issue Tracker</a>
-            <a class="dropdown-item" href="/committers/">Governance</a>
-            <a class="dropdown-item" href="/use_cases/">Use Cases</a>
-            <a class="dropdown-item" href="/powered_by/">Powered By</a>
-            <a class="dropdown-item" href="/visual_identity/">Visual Identity</a>
-            <a class="dropdown-item" href="/security/">Security</a>
-            <a class="dropdown-item" href="https://www.apache.org/foundation/policies/conduct.html">Code of Conduct</a>
+            <a class="dropdown-item" href="/arrow-site/community/">Communication</a>
+            <a class="dropdown-item" href="/arrow-site/docs/developers/index.html">Contributing</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/issues" target="_blank" rel="noopener">Issue Tracker</a>
+            <a class="dropdown-item" href="/arrow-site/committers/">Governance</a>
+            <a class="dropdown-item" href="/arrow-site/use_cases/">Use Cases</a>
+            <a class="dropdown-item" href="/arrow-site/powered_by/">Powered By</a>
+            <a class="dropdown-item" href="/arrow-site/visual_identity/">Visual Identity</a>
+            <a class="dropdown-item" href="/arrow-site/security/">Security</a>
+            <a class="dropdown-item" href="https://www.apache.org/foundation/policies/conduct.html" target="_blank" rel="noopener">Code of Conduct</a>
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#"
-             id="navbarDropdownASF" role="button" data-toggle="dropdown"
-             aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownASF" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              ASF Links
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownASF">
-            <a class="dropdown-item" href="https://www.apache.org/">ASF Website</a>
-            <a class="dropdown-item" href="https://www.apache.org/licenses/">License</a>
-            <a class="dropdown-item" href="https://www.apache.org/foundation/sponsorship.html">Donate</a>
-            <a class="dropdown-item" href="https://www.apache.org/foundation/thanks.html">Thanks</a>
-            <a class="dropdown-item" href="https://www.apache.org/security/">Security</a>
+            <a class="dropdown-item" href="https://www.apache.org/" target="_blank" rel="noopener">ASF Website</a>
+            <a class="dropdown-item" href="https://www.apache.org/licenses/" target="_blank" rel="noopener">License</a>
+            <a class="dropdown-item" href="https://www.apache.org/foundation/sponsorship.html" target="_blank" rel="noopener">Donate</a>
+            <a class="dropdown-item" href="https://www.apache.org/foundation/thanks.html" target="_blank" rel="noopener">Thanks</a>
+            <a class="dropdown-item" href="https://www.apache.org/security/" target="_blank" rel="noopener">Security</a>
           </div>
         </li>
       </ul>
-    </div><!-- /.navbar-collapse -->
+    </div>
+<!-- /.navbar-collapse -->
   </nav>
 
   </header>
@@ -266,10 +255,10 @@
   <span class="published mr-3">
     09 Nov 2023
   </span>
-  <br />
+  <br>
   <span class="badge badge-secondary">By</span>
   
-    <a class="mr-3" href="https://arrow.apache.org">The Apache Arrow PMC (pmc) </a>
+    <a class="mr-3" href="https://arrow.apache.org" target="_blank" rel="noopener">The Apache Arrow PMC (pmc) </a>
   
 
   
@@ -279,37 +268,28 @@
         <!--
 
 -->
-
 <p>The Apache Arrow team is pleased to announce the 0.8.0 release of
-the Apache Arrow ADBC libraries. This covers includes <a href="https://github.com/apache/arrow-adbc/milestone/12"><strong>43
+the Apache Arrow ADBC libraries. This covers includes <a href="https://github.com/apache/arrow-adbc/milestone/12" target="_blank" rel="noopener"><strong>43
 resolved issues</strong></a> from <a href="#contributors"><strong>12 distinct contributors</strong></a>.</p>
-
 <p>This is a release of the <strong>libraries</strong>, which are at version
 0.8.0.  The <strong>API specification</strong> is versioned separately and is
 at version 1.1.0.</p>
-
 <p>The release notes below are not exhaustive and only expose selected
 highlights of the release. Many other bugfixes and improvements have
-been made: we refer you to the <a href="https://github.com/apache/arrow-adbc/blob/apache-arrow-adbc-0.8.0/CHANGELOG.md">complete changelog</a>.</p>
-
-<h2 id="release-highlights">Release Highlights</h2>
-
+been made: we refer you to the <a href="https://github.com/apache/arrow-adbc/blob/apache-arrow-adbc-0.8.0/CHANGELOG.md" target="_blank" rel="noopener">complete changelog</a>.</p>
+<h2>Release Highlights</h2>
 <p>C#/.NET has added a BigQuery driver. Also, it now can be used through ADO.NET.</p>
-
 <p>The R bindings now use ADBC 1.1.0, and more packages are now available on
 CRAN.</p>
-
 <p>The Snowflake driver now has an option to control whether to return decimal
 types or attempt to convert to integers/floats.  The PostgreSQL driver now
-uses COPY for bulk ingestion, which Pandas has found is <a href="https://github.com/pandas-dev/pandas/pull/53869#issuecomment-1771657930">approximately 35x
+uses COPY for bulk ingestion, which Pandas has found is <a href="https://github.com/pandas-dev/pandas/pull/53869#issuecomment-1771657930" target="_blank" rel="noopener">approximately 35x
 faster</a> than their previous method.  The SQLite driver can now
-load <a href="https://www.sqlite.org/loadext.html">extensions</a> and supports more data types, including
+load <a href="https://www.sqlite.org/loadext.html" target="_blank" rel="noopener">extensions</a> and supports more data types, including
 Arrow binary (SQL BLOB), and supports binding some dictionary-encoded types
 (which will be unpacked).</p>
-
-<h2 id="contributors">Contributors</h2>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git shortlog --perl-regexp --author='^((?!dependabot\[bot\]).*)$' -sn apache-arrow-adbc-0.7.0..apache-arrow-adbc-0.8.0
+<h2>Contributors</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git shortlog --perl-regexp --author='^((?!dependabot\[bot\]).*)$' -sn apache-arrow-adbc-0.7.0..apache-arrow-adbc-0.8.0
     27	David Li
     23	William Ayd
     19	Dewey Dunnington
@@ -323,39 +303,32 @@ Arrow binary (SQL BLOB), and supports binding some dictionary-encoded types
      1	OleMussmann
      1	Ruoxuan Wang
 </code></pre></div></div>
-
-<h2 id="roadmap">Roadmap</h2>
-
+<h2>Roadmap</h2>
 <p>Work continues on improving the existing drivers in terms of supported
 Arrow/database types, performance, and so on.</p>
-
 <p>For Java, the minimum JDK version will stay on JDK 8 as long as the Arrow Java
 libraries remain on that version.</p>
-
 <p>There are currently no plans for a second API revision. As work progresses
 on asynchronous and device-aware APIs in the Arrow ecosystem, ADBC will
 eventually be updated to support any new APIs.</p>
-
-<h2 id="getting-involved">Getting Involved</h2>
-
+<h2>Getting Involved</h2>
 <p>We welcome questions and contributions from all interested.  Issues
-can be filed on <a href="https://github.com/apache/arrow-adbc/issues">GitHub</a>, and questions can be directed to GitHub
-or the <a href="/community/">Arrow mailing lists</a>.</p>
-
+can be filed on <a href="https://github.com/apache/arrow-adbc/issues" target="_blank" rel="noopener">GitHub</a>, and questions can be directed to GitHub
+or the <a href="/arrow-site/community/">Arrow mailing lists</a>.</p>
 
       </main>
     </div>
 
-    <hr/>
+    <hr>
 <footer class="footer">
   <div class="row">
     <div class="col-md-9">
       <p>Apache Arrow, Arrow, Apache, the Apache feather logo, and the Apache Arrow project logo are either registered trademarks or trademarks of The Apache Software Foundation in the United States and other countries.</p>
-      <p>&copy; 2016-2025 The Apache Software Foundation</p>
+      <p>© 2016-2025 The Apache Software Foundation</p>
     </div>
     <div class="col-md-3">
-      <a class="d-sm-none d-md-inline pr-2" href="https://www.apache.org/events/current-event.html">
-        <img src="https://www.apache.org/events/current-event-234x60.png"/>
+      <a class="d-sm-none d-md-inline pr-2" href="https://www.apache.org/events/current-event.html" target="_blank" rel="noopener">
+        <img src="https://www.apache.org/events/current-event-234x60.png">
       </a>
     </div>
   </div>

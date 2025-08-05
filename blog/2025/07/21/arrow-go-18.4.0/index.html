@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    
+    <title>Apache Arrow Go 18.4.0 Release | Apache Arrow</title>
+    
+
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Apache Arrow Go 18.4.0 Release" />
+<meta name="author" content="pmc" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The Apache Arrow team is pleased to announce the v18.4.0 release of Apache Arrow Go. This minor release covers 25 commits from 11 distinct contributors. Contributors $ git shortlog -sn v18.3.1..v18.4.0 16 Matt Topol 1 Alvaro Viebrantz 1 Arnold Wakim 1 Daniil Mileev 1 Kristofer Gaudel 1 Marcin Bojanczyk 1 Raúl Cumplido 1 Saurabh Singh 1 Sutou Kouhei 1 Victor Perez 1 Willem Jan Changelog What&#39;s Changed feat(arrow/cdata): Add ReleaseCArrowArrayStream function by @karsov in https://github.com/apache/arrow-go/pull/373 fix: TestDeltaByteArray implementation and fix by @MetalBlueberry in https://github.com/apache/arrow-go/pull/369 chore: move .github/ISSUE_TEMPLATE/config.yaml to config.yml as currently does not work by @raulcd in https://github.com/apache/arrow-go/pull/383 fix: list_columns.parquet testing by @MetalBlueberry in https://github.com/apache/arrow-go/pull/378 feat: Extend arrow csv writter by @MetalBlueberry in https://github.com/apache/arrow-go/pull/375 feat(parquet/pqarrow): parallelize SeekToRow by @zeroshade in https://github.com/apache/arrow-go/pull/380 chore: Use apache/arrow-js for JS in integration test by @kou in https://github.com/apache/arrow-go/pull/389 feat(parquet): add variant encoder/decoder by @sfc-gh-mbojanczyk in https://github.com/apache/arrow-go/pull/344 chore: remove extra binary by @zeroshade in https://github.com/apache/arrow-go/pull/391 CI: add benchmark workflow and script by @singh1203 in https://github.com/apache/arrow-go/pull/250 feat(arrow/extensions): Add Variant extension type, array, and builder by @zeroshade in https://github.com/apache/arrow-go/pull/395 fix(parquet/pqarrow): Fix propagation of field-ids for Lists by @zeroshade in https://github.com/apache/arrow-go/pull/397 feat(arrow/_examples): enhance library examples by @kris-gaudel in https://github.com/apache/arrow-go/pull/394 chore: bump Windows GitHub hosted runner to windows-2022 by @raulcd in https://github.com/apache/arrow-go/pull/407 ci(benchmark): Fix benchmark runs by @zeroshade in https://github.com/apache/arrow-go/pull/409 ci: fix flaky test by @zeroshade in https://github.com/apache/arrow-go/pull/411 ci: make additional checks to prevent flaky EOF by @zeroshade in https://github.com/apache/arrow-go/pull/414 refactor: update linter and run it by @zeroshade in https://github.com/apache/arrow-go/pull/419 feat: expose Payload.WritePayload to allow serializing into IPC format by @alvarowolfx in https://github.com/apache/arrow-go/pull/421 feat(parquet/variant): Parse JSON into variant by @zeroshade in https://github.com/apache/arrow-go/pull/426 refactor(parquet/internal/encoding): Refactor parquet logic to use generics by @zeroshade in https://github.com/apache/arrow-go/pull/428 feat(arrrow/compute/expr): support substrait timestamp and decimal properly by @zeroshade in https://github.com/apache/arrow-go/pull/418 feat(parquet/examples): enhance library examples by @milden6 in https://github.com/apache/arrow-go/pull/429 feat(arrow/compute): support some float16 casts by @zeroshade in https://github.com/apache/arrow-go/pull/430 feat(parquet/pqarrow): Correctly handle Variant types in schema by @zeroshade in https://github.com/apache/arrow-go/pull/433 fix(arrow/avro-reader): bunch of types that didn&#39;t work by @Willem-J-an in https://github.com/apache/arrow-go/pull/416 feat(parquet/pqarrow): read/write variant by @zeroshade in https://github.com/apache/arrow-go/pull/434 build(deps): update to substrait-go v4.3.0 by @zeroshade in https://github.com/apache/arrow-go/pull/438 fix(arrow/flight/flightsql): drain channel in flightSqlServer.DoGet by @arnoldwakim in https://github.com/apache/arrow-go/pull/437 chore(arrow): Update PkgVersion by @zeroshade in https://github.com/apache/arrow-go/pull/439 New Contributors @karsov made their first contribution in https://github.com/apache/arrow-go/pull/373 @MetalBlueberry made their first contribution in https://github.com/apache/arrow-go/pull/369 @sfc-gh-mbojanczyk made their first contribution in https://github.com/apache/arrow-go/pull/344 @kris-gaudel made their first contribution in https://github.com/apache/arrow-go/pull/394 @alvarowolfx made their first contribution in https://github.com/apache/arrow-go/pull/421 @milden6 made their first contribution in https://github.com/apache/arrow-go/pull/429 @Willem-J-an made their first contribution in https://github.com/apache/arrow-go/pull/416 @arnoldwakim made their first contribution in https://github.com/apache/arrow-go/pull/437 Full Changelog: https://github.com/apache/arrow-go/compare/v18.3.0...v18.4.0" />
+<meta property="og:description" content="The Apache Arrow team is pleased to announce the v18.4.0 release of Apache Arrow Go. This minor release covers 25 commits from 11 distinct contributors. Contributors $ git shortlog -sn v18.3.1..v18.4.0 16 Matt Topol 1 Alvaro Viebrantz 1 Arnold Wakim 1 Daniil Mileev 1 Kristofer Gaudel 1 Marcin Bojanczyk 1 Raúl Cumplido 1 Saurabh Singh 1 Sutou Kouhei 1 Victor Perez 1 Willem Jan Changelog What&#39;s Changed feat(arrow/cdata): Add ReleaseCArrowArrayStream function by @karsov in https://github.com/apache/arrow-go/pull/373 fix: TestDeltaByteArray implementation and fix by @MetalBlueberry in https://github.com/apache/arrow-go/pull/369 chore: move .github/ISSUE_TEMPLATE/config.yaml to config.yml as currently does not work by @raulcd in https://github.com/apache/arrow-go/pull/383 fix: list_columns.parquet testing by @MetalBlueberry in https://github.com/apache/arrow-go/pull/378 feat: Extend arrow csv writter by @MetalBlueberry in https://github.com/apache/arrow-go/pull/375 feat(parquet/pqarrow): parallelize SeekToRow by @zeroshade in https://github.com/apache/arrow-go/pull/380 chore: Use apache/arrow-js for JS in integration test by @kou in https://github.com/apache/arrow-go/pull/389 feat(parquet): add variant encoder/decoder by @sfc-gh-mbojanczyk in https://github.com/apache/arrow-go/pull/344 chore: remove extra binary by @zeroshade in https://github.com/apache/arrow-go/pull/391 CI: add benchmark workflow and script by @singh1203 in https://github.com/apache/arrow-go/pull/250 feat(arrow/extensions): Add Variant extension type, array, and builder by @zeroshade in https://github.com/apache/arrow-go/pull/395 fix(parquet/pqarrow): Fix propagation of field-ids for Lists by @zeroshade in https://github.com/apache/arrow-go/pull/397 feat(arrow/_examples): enhance library examples by @kris-gaudel in https://github.com/apache/arrow-go/pull/394 chore: bump Windows GitHub hosted runner to windows-2022 by @raulcd in https://github.com/apache/arrow-go/pull/407 ci(benchmark): Fix benchmark runs by @zeroshade in https://github.com/apache/arrow-go/pull/409 ci: fix flaky test by @zeroshade in https://github.com/apache/arrow-go/pull/411 ci: make additional checks to prevent flaky EOF by @zeroshade in https://github.com/apache/arrow-go/pull/414 refactor: update linter and run it by @zeroshade in https://github.com/apache/arrow-go/pull/419 feat: expose Payload.WritePayload to allow serializing into IPC format by @alvarowolfx in https://github.com/apache/arrow-go/pull/421 feat(parquet/variant): Parse JSON into variant by @zeroshade in https://github.com/apache/arrow-go/pull/426 refactor(parquet/internal/encoding): Refactor parquet logic to use generics by @zeroshade in https://github.com/apache/arrow-go/pull/428 feat(arrrow/compute/expr): support substrait timestamp and decimal properly by @zeroshade in https://github.com/apache/arrow-go/pull/418 feat(parquet/examples): enhance library examples by @milden6 in https://github.com/apache/arrow-go/pull/429 feat(arrow/compute): support some float16 casts by @zeroshade in https://github.com/apache/arrow-go/pull/430 feat(parquet/pqarrow): Correctly handle Variant types in schema by @zeroshade in https://github.com/apache/arrow-go/pull/433 fix(arrow/avro-reader): bunch of types that didn&#39;t work by @Willem-J-an in https://github.com/apache/arrow-go/pull/416 feat(parquet/pqarrow): read/write variant by @zeroshade in https://github.com/apache/arrow-go/pull/434 build(deps): update to substrait-go v4.3.0 by @zeroshade in https://github.com/apache/arrow-go/pull/438 fix(arrow/flight/flightsql): drain channel in flightSqlServer.DoGet by @arnoldwakim in https://github.com/apache/arrow-go/pull/437 chore(arrow): Update PkgVersion by @zeroshade in https://github.com/apache/arrow-go/pull/439 New Contributors @karsov made their first contribution in https://github.com/apache/arrow-go/pull/373 @MetalBlueberry made their first contribution in https://github.com/apache/arrow-go/pull/369 @sfc-gh-mbojanczyk made their first contribution in https://github.com/apache/arrow-go/pull/344 @kris-gaudel made their first contribution in https://github.com/apache/arrow-go/pull/394 @alvarowolfx made their first contribution in https://github.com/apache/arrow-go/pull/421 @milden6 made their first contribution in https://github.com/apache/arrow-go/pull/429 @Willem-J-an made their first contribution in https://github.com/apache/arrow-go/pull/416 @arnoldwakim made their first contribution in https://github.com/apache/arrow-go/pull/437 Full Changelog: https://github.com/apache/arrow-go/compare/v18.3.0...v18.4.0" />
+<link rel="canonical" href="https://kou.github.io/arrow-site/arrow-site/blog/2025/07/21/arrow-go-18.4.0/" />
+<meta property="og:url" content="https://kou.github.io/arrow-site/arrow-site/blog/2025/07/21/arrow-go-18.4.0/" />
+<meta property="og:site_name" content="Apache Arrow" />
+<meta property="og:image" content="https://kou.github.io/arrow-site/arrow-site/img/arrow-logo_horizontal_black-txt_white-bg.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-07-21T00:00:00-04:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://kou.github.io/arrow-site/arrow-site/img/arrow-logo_horizontal_black-txt_white-bg.png" />
+<meta property="twitter:title" content="Apache Arrow Go 18.4.0 Release" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"pmc"},"dateModified":"2025-07-21T00:00:00-04:00","datePublished":"2025-07-21T00:00:00-04:00","description":"The Apache Arrow team is pleased to announce the v18.4.0 release of Apache Arrow Go. This minor release covers 25 commits from 11 distinct contributors. Contributors $ git shortlog -sn v18.3.1..v18.4.0 16 Matt Topol 1 Alvaro Viebrantz 1 Arnold Wakim 1 Daniil Mileev 1 Kristofer Gaudel 1 Marcin Bojanczyk 1 Raúl Cumplido 1 Saurabh Singh 1 Sutou Kouhei 1 Victor Perez 1 Willem Jan Changelog What&#39;s Changed feat(arrow/cdata): Add ReleaseCArrowArrayStream function by @karsov in https://github.com/apache/arrow-go/pull/373 fix: TestDeltaByteArray implementation and fix by @MetalBlueberry in https://github.com/apache/arrow-go/pull/369 chore: move .github/ISSUE_TEMPLATE/config.yaml to config.yml as currently does not work by @raulcd in https://github.com/apache/arrow-go/pull/383 fix: list_columns.parquet testing by @MetalBlueberry in https://github.com/apache/arrow-go/pull/378 feat: Extend arrow csv writter by @MetalBlueberry in https://github.com/apache/arrow-go/pull/375 feat(parquet/pqarrow): parallelize SeekToRow by @zeroshade in https://github.com/apache/arrow-go/pull/380 chore: Use apache/arrow-js for JS in integration test by @kou in https://github.com/apache/arrow-go/pull/389 feat(parquet): add variant encoder/decoder by @sfc-gh-mbojanczyk in https://github.com/apache/arrow-go/pull/344 chore: remove extra binary by @zeroshade in https://github.com/apache/arrow-go/pull/391 CI: add benchmark workflow and script by @singh1203 in https://github.com/apache/arrow-go/pull/250 feat(arrow/extensions): Add Variant extension type, array, and builder by @zeroshade in https://github.com/apache/arrow-go/pull/395 fix(parquet/pqarrow): Fix propagation of field-ids for Lists by @zeroshade in https://github.com/apache/arrow-go/pull/397 feat(arrow/_examples): enhance library examples by @kris-gaudel in https://github.com/apache/arrow-go/pull/394 chore: bump Windows GitHub hosted runner to windows-2022 by @raulcd in https://github.com/apache/arrow-go/pull/407 ci(benchmark): Fix benchmark runs by @zeroshade in https://github.com/apache/arrow-go/pull/409 ci: fix flaky test by @zeroshade in https://github.com/apache/arrow-go/pull/411 ci: make additional checks to prevent flaky EOF by @zeroshade in https://github.com/apache/arrow-go/pull/414 refactor: update linter and run it by @zeroshade in https://github.com/apache/arrow-go/pull/419 feat: expose Payload.WritePayload to allow serializing into IPC format by @alvarowolfx in https://github.com/apache/arrow-go/pull/421 feat(parquet/variant): Parse JSON into variant by @zeroshade in https://github.com/apache/arrow-go/pull/426 refactor(parquet/internal/encoding): Refactor parquet logic to use generics by @zeroshade in https://github.com/apache/arrow-go/pull/428 feat(arrrow/compute/expr): support substrait timestamp and decimal properly by @zeroshade in https://github.com/apache/arrow-go/pull/418 feat(parquet/examples): enhance library examples by @milden6 in https://github.com/apache/arrow-go/pull/429 feat(arrow/compute): support some float16 casts by @zeroshade in https://github.com/apache/arrow-go/pull/430 feat(parquet/pqarrow): Correctly handle Variant types in schema by @zeroshade in https://github.com/apache/arrow-go/pull/433 fix(arrow/avro-reader): bunch of types that didn&#39;t work by @Willem-J-an in https://github.com/apache/arrow-go/pull/416 feat(parquet/pqarrow): read/write variant by @zeroshade in https://github.com/apache/arrow-go/pull/434 build(deps): update to substrait-go v4.3.0 by @zeroshade in https://github.com/apache/arrow-go/pull/438 fix(arrow/flight/flightsql): drain channel in flightSqlServer.DoGet by @arnoldwakim in https://github.com/apache/arrow-go/pull/437 chore(arrow): Update PkgVersion by @zeroshade in https://github.com/apache/arrow-go/pull/439 New Contributors @karsov made their first contribution in https://github.com/apache/arrow-go/pull/373 @MetalBlueberry made their first contribution in https://github.com/apache/arrow-go/pull/369 @sfc-gh-mbojanczyk made their first contribution in https://github.com/apache/arrow-go/pull/344 @kris-gaudel made their first contribution in https://github.com/apache/arrow-go/pull/394 @alvarowolfx made their first contribution in https://github.com/apache/arrow-go/pull/421 @milden6 made their first contribution in https://github.com/apache/arrow-go/pull/429 @Willem-J-an made their first contribution in https://github.com/apache/arrow-go/pull/416 @arnoldwakim made their first contribution in https://github.com/apache/arrow-go/pull/437 Full Changelog: https://github.com/apache/arrow-go/compare/v18.3.0...v18.4.0","headline":"Apache Arrow Go 18.4.0 Release","image":"https://kou.github.io/arrow-site/arrow-site/img/arrow-logo_horizontal_black-txt_white-bg.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://kou.github.io/arrow-site/arrow-site/blog/2025/07/21/arrow-go-18.4.0/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://kou.github.io/arrow-site/arrow-site/img/logo.png"},"name":"pmc"},"url":"https://kou.github.io/arrow-site/arrow-site/blog/2025/07/21/arrow-go-18.4.0/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- favicons -->
+    <link rel="icon" type="image/png" sizes="16x16" href="/arrow-site/img/favicon-16x16.png" id="light1">
+    <link rel="icon" type="image/png" sizes="32x32" href="/arrow-site/img/favicon-32x32.png" id="light2">
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/arrow-site/img/apple-touch-icon.png" id="light3">
+    <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="/arrow-site/img/apple-touch-icon-120x120.png" id="light4">
+    <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="/arrow-site/img/apple-touch-icon-76x76.png" id="light5">
+    <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="/arrow-site/img/apple-touch-icon-60x60.png" id="light6">
+    <!-- dark mode favicons -->
+    <link rel="icon" type="image/png" sizes="16x16" href="/arrow-site/img/favicon-16x16-dark.png" id="dark1">
+    <link rel="icon" type="image/png" sizes="32x32" href="/arrow-site/img/favicon-32x32-dark.png" id="dark2">
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/arrow-site/img/apple-touch-icon-dark.png" id="dark3">
+    <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="/arrow-site/img/apple-touch-icon-120x120-dark.png" id="dark4">
+    <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="/arrow-site/img/apple-touch-icon-76x76-dark.png" id="dark5">
+    <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="/arrow-site/img/apple-touch-icon-60x60-dark.png" id="dark6">
+
+    <script>
+      // Switch to the dark-mode favicons if prefers-color-scheme: dark
+      function onUpdate() {
+        light1 = document.querySelector('link#light1');
+        light2 = document.querySelector('link#light2');
+        light3 = document.querySelector('link#light3');
+        light4 = document.querySelector('link#light4');
+        light5 = document.querySelector('link#light5');
+        light6 = document.querySelector('link#light6');
+
+        dark1 = document.querySelector('link#dark1');
+        dark2 = document.querySelector('link#dark2');
+        dark3 = document.querySelector('link#dark3');
+        dark4 = document.querySelector('link#dark4');
+        dark5 = document.querySelector('link#dark5');
+        dark6 = document.querySelector('link#dark6');
+
+        if (matcher.matches) {
+          light1.remove();
+          light2.remove();
+          light3.remove();
+          light4.remove();
+          light5.remove();
+          light6.remove();
+          document.head.append(dark1);
+          document.head.append(dark2);
+          document.head.append(dark3);
+          document.head.append(dark4);
+          document.head.append(dark5);
+          document.head.append(dark6);
+        } else {
+          dark1.remove();
+          dark2.remove();
+          dark3.remove();
+          dark4.remove();
+          dark5.remove();
+          dark6.remove();
+          document.head.append(light1);
+          document.head.append(light2);
+          document.head.append(light3);
+          document.head.append(light4);
+          document.head.append(light5);
+          document.head.append(light6);
+        }
+      }
+      matcher = window.matchMedia('(prefers-color-scheme: dark)');
+      matcher.addListener(onUpdate);
+      onUpdate();
+    </script>
+
+    <link href="/arrow-site/css/main.css" rel="stylesheet">
+    <link href="/arrow-site/css/syntax.css" rel="stylesheet">
+    <script src="/arrow-site/javascript/main.js"></script>
+    
+    <!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  /* We explicitly disable cookie tracking to avoid privacy issues */
+  _paq.push(['disableCookies']);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="https://analytics.apache.org/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '20']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+
+    
+    <link type="application/atom+xml" rel="alternate" href="https://kou.github.io/arrow-site/arrow-site/feed.xml" title="Apache Arrow" />
+  </head>
+
+
+<body class="wrap">
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  
+  <a class="navbar-brand no-padding" href="/arrow-site/"><img src="/arrow-site/img/arrow-inverse-300px.png" height="40px"></a>
+  
+   <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#arrow-navbar" aria-controls="arrow-navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse justify-content-end" id="arrow-navbar">
+      <ul class="nav navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="/arrow-site/overview/" role="button" aria-haspopup="true" aria-expanded="false">Overview</a></li>
+        <li class="nav-item"><a class="nav-link" href="/arrow-site/faq/" role="button" aria-haspopup="true" aria-expanded="false">FAQ</a></li>
+        <li class="nav-item"><a class="nav-link" href="/arrow-site/blog" role="button" aria-haspopup="true" aria-expanded="false">Blog</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownGetArrow" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             Get Arrow
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownGetArrow">
+            <a class="dropdown-item" href="/arrow-site/install/">Install</a>
+            <a class="dropdown-item" href="/arrow-site/release/">Releases</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDocumentation" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             Docs
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownDocumentation">
+            <a class="dropdown-item" href="/arrow-site/docs">Project Docs</a>
+            <a class="dropdown-item" href="/arrow-site/docs/format/Columnar.html">Format</a>
+            <hr>
+            <a class="dropdown-item" href="/arrow-site/docs/c_glib">C GLib</a>
+            <a class="dropdown-item" href="/arrow-site/docs/cpp">C++</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/blob/main/csharp/README.md" target="_blank" rel="noopener">C#</a>
+            <a class="dropdown-item" href="https://godoc.org/github.com/apache/arrow/go/arrow" target="_blank" rel="noopener">Go</a>
+            <a class="dropdown-item" href="/arrow-site/docs/java">Java</a>
+            <a class="dropdown-item" href="/arrow-site/docs/js">JavaScript</a>
+            <a class="dropdown-item" href="/arrow-site/julia/">Julia</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/blob/main/matlab/README.md" target="_blank" rel="noopener">MATLAB</a>
+            <a class="dropdown-item" href="/arrow-site/docs/python">Python</a>
+            <a class="dropdown-item" href="/arrow-site/docs/r">R</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/blob/main/ruby/README.md" target="_blank" rel="noopener">Ruby</a>
+            <a class="dropdown-item" href="https://docs.rs/arrow/latest" target="_blank" rel="noopener">Rust</a>
+            <a class="dropdown-item" href="/arrow-site/swift">Swift</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownSource" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             Source
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownSource">
+            <a class="dropdown-item" href="https://github.com/apache/arrow" target="_blank" rel="noopener">Main Repo</a>
+            <hr>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/c_glib" target="_blank" rel="noopener">C GLib</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/cpp" target="_blank" rel="noopener">C++</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/csharp" target="_blank" rel="noopener">C#</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow-go" target="_blank" rel="noopener">Go</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow-java" target="_blank" rel="noopener">Java</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow-js" target="_blank" rel="noopener">JavaScript</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow-julia" target="_blank" rel="noopener">Julia</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/matlab" target="_blank" rel="noopener">MATLAB</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/python" target="_blank" rel="noopener">Python</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/r" target="_blank" rel="noopener">R</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/ruby" target="_blank" rel="noopener">Ruby</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow-rs" target="_blank" rel="noopener">Rust</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow-swift" target="_blank" rel="noopener">Swift</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownSubprojects" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             Subprojects
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownSubprojects">
+            <a class="dropdown-item" href="/arrow-site/adbc">ADBC</a>
+            <a class="dropdown-item" href="/arrow-site/docs/format/Flight.html">Arrow Flight</a>
+            <a class="dropdown-item" href="/arrow-site/docs/format/FlightSql.html">Arrow Flight SQL</a>
+            <a class="dropdown-item" href="https://datafusion.apache.org" target="_blank" rel="noopener">DataFusion</a>
+            <a class="dropdown-item" href="/arrow-site/nanoarrow">nanoarrow</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCommunity" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             Community
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownCommunity">
+            <a class="dropdown-item" href="/arrow-site/community/">Communication</a>
+            <a class="dropdown-item" href="/arrow-site/docs/developers/index.html">Contributing</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/issues" target="_blank" rel="noopener">Issue Tracker</a>
+            <a class="dropdown-item" href="/arrow-site/committers/">Governance</a>
+            <a class="dropdown-item" href="/arrow-site/use_cases/">Use Cases</a>
+            <a class="dropdown-item" href="/arrow-site/powered_by/">Powered By</a>
+            <a class="dropdown-item" href="/arrow-site/visual_identity/">Visual Identity</a>
+            <a class="dropdown-item" href="/arrow-site/security/">Security</a>
+            <a class="dropdown-item" href="https://www.apache.org/foundation/policies/conduct.html" target="_blank" rel="noopener">Code of Conduct</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownASF" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             ASF Links
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownASF">
+            <a class="dropdown-item" href="https://www.apache.org/" target="_blank" rel="noopener">ASF Website</a>
+            <a class="dropdown-item" href="https://www.apache.org/licenses/" target="_blank" rel="noopener">License</a>
+            <a class="dropdown-item" href="https://www.apache.org/foundation/sponsorship.html" target="_blank" rel="noopener">Donate</a>
+            <a class="dropdown-item" href="https://www.apache.org/foundation/thanks.html" target="_blank" rel="noopener">Thanks</a>
+            <a class="dropdown-item" href="https://www.apache.org/security/" target="_blank" rel="noopener">Security</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+<!-- /.navbar-collapse -->
+  </nav>
+
+  </header>
+
+  <div class="container p-4 pt-5">
+    <div class="col-md-8 mx-auto">
+      <main role="main" class="pb-5">
+        
+<h1>
+  Apache Arrow Go 18.4.0 Release
+</h1>
+<hr class="mt-4 mb-3">
+
+
+
+<p class="mb-4 pb-1">
+  <span class="badge badge-secondary">Published</span>
+  <span class="published mr-3">
+    21 Jul 2025
+  </span>
+  <br>
+  <span class="badge badge-secondary">By</span>
+  
+    <a class="mr-3" href="https://arrow.apache.org" target="_blank" rel="noopener">The Apache Arrow PMC (pmc) </a>
+  
+
+  
+</p>
+
+
+        <!--
+
+-->
+<p>The Apache Arrow team is pleased to announce the v18.4.0 release of Apache Arrow Go.
+This minor release covers 25 commits from 11 distinct contributors.</p>
+<h2>Contributors</h2>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code data-lang="console"><span class="gp">$</span><span class="w"> </span>git shortlog <span class="nt">-sn</span> v18.3.1..v18.4.0
+<span class="go">    16	Matt Topol
+     1	Alvaro Viebrantz
+     1	Arnold Wakim
+     1	Daniil Mileev
+     1	Kristofer Gaudel
+     1	Marcin Bojanczyk
+     1	Raúl Cumplido
+     1	Saurabh Singh
+     1	Sutou Kouhei
+     1	Victor Perez
+     1	Willem Jan
+</span></code></pre></div></div>
+<h2>Changelog</h2>
+<h3>What's Changed</h3>
+<ul>
+<li>feat(arrow/cdata): Add ReleaseCArrowArrayStream function by @karsov in <a href="https://github.com/apache/arrow-go/pull/373" target="_blank" rel="noopener">https://github.com/apache/arrow-go/pull/373</a>
+</li>
+<li>fix: TestDeltaByteArray implementation and fix by @MetalBlueberry in <a href="https://github.com/apache/arrow-go/pull/369" target="_blank" rel="noopener">https://github.com/apache/arrow-go/pull/369</a>
+</li>
+<li>chore: move .github/ISSUE_TEMPLATE/config.yaml to config.yml as currently does not work by @raulcd in <a href="https://github.com/apache/arrow-go/pull/383" target="_blank" rel="noopener">https://github.com/apache/arrow-go/pull/383</a>
+</li>
+<li>fix: list_columns.parquet testing by @MetalBlueberry in <a href="https://github.com/apache/arrow-go/pull/378" target="_blank" rel="noopener">https://github.com/apache/arrow-go/pull/378</a>
+</li>
+<li>feat: Extend arrow csv writter by @MetalBlueberry in <a href="https://github.com/apache/arrow-go/pull/375" target="_blank" rel="noopener">https://github.com/apache/arrow-go/pull/375</a>
+</li>
+<li>feat(parquet/pqarrow): parallelize SeekToRow by @zeroshade in <a href="https://github.com/apache/arrow-go/pull/380" target="_blank" rel="noopener">https://github.com/apache/arrow-go/pull/380</a>
+</li>
+<li>chore: Use apache/arrow-js for JS in integration test by @kou in <a href="https://github.com/apache/arrow-go/pull/389" target="_blank" rel="noopener">https://github.com/apache/arrow-go/pull/389</a>
+</li>
+<li>feat(parquet): add variant encoder/decoder by @sfc-gh-mbojanczyk in <a href="https://github.com/apache/arrow-go/pull/344" target="_blank" rel="noopener">https://github.com/apache/arrow-go/pull/344</a>
+</li>
+<li>chore: remove extra binary by @zeroshade in <a href="https://github.com/apache/arrow-go/pull/391" target="_blank" rel="noopener">https://github.com/apache/arrow-go/pull/391</a>
+</li>
+<li>CI: add benchmark workflow and script by @singh1203 in <a href="https://github.com/apache/arrow-go/pull/250" target="_blank" rel="noopener">https://github.com/apache/arrow-go/pull/250</a>
+</li>
+<li>feat(arrow/extensions): Add Variant extension type, array, and builder by @zeroshade in <a href="https://github.com/apache/arrow-go/pull/395" target="_blank" rel="noopener">https://github.com/apache/arrow-go/pull/395</a>
+</li>
+<li>fix(parquet/pqarrow): Fix propagation of field-ids for Lists by @zeroshade in <a href="https://github.com/apache/arrow-go/pull/397" target="_blank" rel="noopener">https://github.com/apache/arrow-go/pull/397</a>
+</li>
+<li>feat(arrow/_examples): enhance library examples by @kris-gaudel in <a href="https://github.com/apache/arrow-go/pull/394" target="_blank" rel="noopener">https://github.com/apache/arrow-go/pull/394</a>
+</li>
+<li>chore: bump Windows GitHub hosted runner to windows-2022 by @raulcd in <a href="https://github.com/apache/arrow-go/pull/407" target="_blank" rel="noopener">https://github.com/apache/arrow-go/pull/407</a>
+</li>
+<li>ci(benchmark): Fix benchmark runs by @zeroshade in <a href="https://github.com/apache/arrow-go/pull/409" target="_blank" rel="noopener">https://github.com/apache/arrow-go/pull/409</a>
+</li>
+<li>ci: fix flaky test by @zeroshade in <a href="https://github.com/apache/arrow-go/pull/411" target="_blank" rel="noopener">https://github.com/apache/arrow-go/pull/411</a>
+</li>
+<li>ci: make additional checks to prevent flaky EOF by @zeroshade in <a href="https://github.com/apache/arrow-go/pull/414" target="_blank" rel="noopener">https://github.com/apache/arrow-go/pull/414</a>
+</li>
+<li>refactor: update linter and run it by @zeroshade in <a href="https://github.com/apache/arrow-go/pull/419" target="_blank" rel="noopener">https://github.com/apache/arrow-go/pull/419</a>
+</li>
+<li>feat: expose Payload.WritePayload to allow serializing into IPC format by @alvarowolfx in <a href="https://github.com/apache/arrow-go/pull/421" target="_blank" rel="noopener">https://github.com/apache/arrow-go/pull/421</a>
+</li>
+<li>feat(parquet/variant): Parse JSON into variant by @zeroshade in <a href="https://github.com/apache/arrow-go/pull/426" target="_blank" rel="noopener">https://github.com/apache/arrow-go/pull/426</a>
+</li>
+<li>refactor(parquet/internal/encoding): Refactor parquet logic to use generics by @zeroshade in <a href="https://github.com/apache/arrow-go/pull/428" target="_blank" rel="noopener">https://github.com/apache/arrow-go/pull/428</a>
+</li>
+<li>feat(arrrow/compute/expr): support substrait timestamp and decimal properly by @zeroshade in <a href="https://github.com/apache/arrow-go/pull/418" target="_blank" rel="noopener">https://github.com/apache/arrow-go/pull/418</a>
+</li>
+<li>feat(parquet/examples): enhance library examples by @milden6 in <a href="https://github.com/apache/arrow-go/pull/429" target="_blank" rel="noopener">https://github.com/apache/arrow-go/pull/429</a>
+</li>
+<li>feat(arrow/compute): support some float16 casts by @zeroshade in <a href="https://github.com/apache/arrow-go/pull/430" target="_blank" rel="noopener">https://github.com/apache/arrow-go/pull/430</a>
+</li>
+<li>feat(parquet/pqarrow): Correctly handle Variant types in schema by @zeroshade in <a href="https://github.com/apache/arrow-go/pull/433" target="_blank" rel="noopener">https://github.com/apache/arrow-go/pull/433</a>
+</li>
+<li>fix(arrow/avro-reader): bunch of types that didn't work by @Willem-J-an in <a href="https://github.com/apache/arrow-go/pull/416" target="_blank" rel="noopener">https://github.com/apache/arrow-go/pull/416</a>
+</li>
+<li>feat(parquet/pqarrow): read/write variant by @zeroshade in <a href="https://github.com/apache/arrow-go/pull/434" target="_blank" rel="noopener">https://github.com/apache/arrow-go/pull/434</a>
+</li>
+<li>build(deps): update to substrait-go v4.3.0 by @zeroshade in <a href="https://github.com/apache/arrow-go/pull/438" target="_blank" rel="noopener">https://github.com/apache/arrow-go/pull/438</a>
+</li>
+<li>fix(arrow/flight/flightsql): drain channel in flightSqlServer.DoGet by @arnoldwakim in <a href="https://github.com/apache/arrow-go/pull/437" target="_blank" rel="noopener">https://github.com/apache/arrow-go/pull/437</a>
+</li>
+<li>chore(arrow): Update PkgVersion by @zeroshade in <a href="https://github.com/apache/arrow-go/pull/439" target="_blank" rel="noopener">https://github.com/apache/arrow-go/pull/439</a>
+</li>
+</ul>
+<h3>New Contributors</h3>
+<ul>
+<li>@karsov made their first contribution in <a href="https://github.com/apache/arrow-go/pull/373" target="_blank" rel="noopener">https://github.com/apache/arrow-go/pull/373</a>
+</li>
+<li>@MetalBlueberry made their first contribution in <a href="https://github.com/apache/arrow-go/pull/369" target="_blank" rel="noopener">https://github.com/apache/arrow-go/pull/369</a>
+</li>
+<li>@sfc-gh-mbojanczyk made their first contribution in <a href="https://github.com/apache/arrow-go/pull/344" target="_blank" rel="noopener">https://github.com/apache/arrow-go/pull/344</a>
+</li>
+<li>@kris-gaudel made their first contribution in <a href="https://github.com/apache/arrow-go/pull/394" target="_blank" rel="noopener">https://github.com/apache/arrow-go/pull/394</a>
+</li>
+<li>@alvarowolfx made their first contribution in <a href="https://github.com/apache/arrow-go/pull/421" target="_blank" rel="noopener">https://github.com/apache/arrow-go/pull/421</a>
+</li>
+<li>@milden6 made their first contribution in <a href="https://github.com/apache/arrow-go/pull/429" target="_blank" rel="noopener">https://github.com/apache/arrow-go/pull/429</a>
+</li>
+<li>@Willem-J-an made their first contribution in <a href="https://github.com/apache/arrow-go/pull/416" target="_blank" rel="noopener">https://github.com/apache/arrow-go/pull/416</a>
+</li>
+<li>@arnoldwakim made their first contribution in <a href="https://github.com/apache/arrow-go/pull/437" target="_blank" rel="noopener">https://github.com/apache/arrow-go/pull/437</a>
+</li>
+</ul>
+<p><strong>Full Changelog</strong>: <a href="https://github.com/apache/arrow-go/compare/v18.3.0...v18.4.0" target="_blank" rel="noopener">https://github.com/apache/arrow-go/compare/v18.3.0...v18.4.0</a></p>
+
+      </main>
+    </div>
+
+    <hr>
+<footer class="footer">
+  <div class="row">
+    <div class="col-md-9">
+      <p>Apache Arrow, Arrow, Apache, the Apache feather logo, and the Apache Arrow project logo are either registered trademarks or trademarks of The Apache Software Foundation in the United States and other countries.</p>
+      <p>© 2016-2025 The Apache Software Foundation</p>
+    </div>
+    <div class="col-md-3">
+      <a class="d-sm-none d-md-inline pr-2" href="https://www.apache.org/events/current-event.html" target="_blank" rel="noopener">
+        <img src="https://www.apache.org/events/current-event-234x60.png">
+      </a>
+    </div>
+  </div>
+</footer>
+
+  </div>
+</body>
+</html>

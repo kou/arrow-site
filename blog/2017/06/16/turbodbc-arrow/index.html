@@ -10,40 +10,40 @@
     
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<meta name="generator" content="Jekyll v4.3.3" />
+<meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Connecting Relational Databases to the Apache Arrow World with turbodbc" />
 <meta name="author" content="MathMagique" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Michael König is the lead developer of the turbodbc project The Apache Arrow project set out to become the universal data layer for column-oriented data processing systems without incurring serialization costs or compromising on performance on a more general level. While relational databases still lag behind in Apache Arrow adoption, the Python database module turbodbc brings Apache Arrow support to these databases using a much older, more specialized data exchange layer: ODBC. ODBC is a database interface that offers developers the option to transfer data either in row-wise or column-wise fashion. Previous Python ODBC modules typically use the row-wise approach, and often trade repeated database roundtrips for simplified buffer handling. This makes them less suited for data-intensive applications, particularly when interfacing with modern columnar analytical databases. In contrast, turbodbc was designed to leverage columnar data processing from day one. Naturally, this implies using the columnar portion of the ODBC API. Equally important, however, is to find new ways of providing columnar data to Python users that exceed the capabilities of the row-wise API mandated by Python’s PEP 249. Turbodbc has adopted Apache Arrow for this very task with the recently released version 2.0.0: &gt;&gt;&gt; from turbodbc import connect &gt;&gt;&gt; connection = connect(dsn=&quot;My columnar database&quot;) &gt;&gt;&gt; cursor = connection.cursor() &gt;&gt;&gt; cursor.execute(&quot;SELECT some_integers, some_strings FROM my_table&quot;) &gt;&gt;&gt; cursor.fetchallarrow() pyarrow.Table some_integers: int64 some_strings: string With this new addition, the data flow for a result set of a typical SELECT query is like this: The database prepares the result set and exposes it to the ODBC driver using either row-wise or column-wise storage. Turbodbc has the ODBC driver write chunks of the result set into columnar buffers. These buffers are exposed to turbodbc’s Apache Arrow frontend. This frontend will create an Arrow table and fill in the buffered values. The previous steps are repeated until the entire result set is retrieved. In practice, it is possible to achieve the following ideal situation: A 64-bit integer column is stored as one contiguous block of memory in a columnar database. A huge chunk of 64-bit integers is transferred over the network and the ODBC driver directly writes it to a turbodbc buffer of 64-bit integers. The Arrow frontend accumulates these values by copying the entire 64-bit buffer into a free portion of an Arrow table’s 64-bit integer column. Moving data from the database to an Arrow table and, thus, providing it to the Python user can be as simple as copying memory blocks around, megabytes equivalent to hundred thousands of rows at a time. The absence of serialization and conversion logic renders the process extremely efficient. Once the data is stored in an Arrow table, Python users can continue to do some actual work. They can convert it into a Pandas DataFrame for data analysis (using a quick table.to_pandas()), pass it on to other data processing systems such as Apache Spark or Apache Impala (incubating), or store it in the Apache Parquet file format. This way, non-Python systems are efficiently connected with relational databases. In the future, turbodbc’s Arrow support will be extended to use more sophisticated features such as dictionary-encoded string fields. We also plan to pick smaller than 64-bit data types where possible. Last but not least, Arrow support will be extended to cover the reverse direction of data flow, so that Python users can quickly insert Arrow tables into relational databases. If you would like to learn more about turbodbc, check out the GitHub project and the project documentation. If you want to learn more about how turbodbc implements the nitty-gritty details, check out parts one and two of the “Making of turbodbc” series at Blue Yonder’s technology blog." />
-<meta property="og:description" content="Michael König is the lead developer of the turbodbc project The Apache Arrow project set out to become the universal data layer for column-oriented data processing systems without incurring serialization costs or compromising on performance on a more general level. While relational databases still lag behind in Apache Arrow adoption, the Python database module turbodbc brings Apache Arrow support to these databases using a much older, more specialized data exchange layer: ODBC. ODBC is a database interface that offers developers the option to transfer data either in row-wise or column-wise fashion. Previous Python ODBC modules typically use the row-wise approach, and often trade repeated database roundtrips for simplified buffer handling. This makes them less suited for data-intensive applications, particularly when interfacing with modern columnar analytical databases. In contrast, turbodbc was designed to leverage columnar data processing from day one. Naturally, this implies using the columnar portion of the ODBC API. Equally important, however, is to find new ways of providing columnar data to Python users that exceed the capabilities of the row-wise API mandated by Python’s PEP 249. Turbodbc has adopted Apache Arrow for this very task with the recently released version 2.0.0: &gt;&gt;&gt; from turbodbc import connect &gt;&gt;&gt; connection = connect(dsn=&quot;My columnar database&quot;) &gt;&gt;&gt; cursor = connection.cursor() &gt;&gt;&gt; cursor.execute(&quot;SELECT some_integers, some_strings FROM my_table&quot;) &gt;&gt;&gt; cursor.fetchallarrow() pyarrow.Table some_integers: int64 some_strings: string With this new addition, the data flow for a result set of a typical SELECT query is like this: The database prepares the result set and exposes it to the ODBC driver using either row-wise or column-wise storage. Turbodbc has the ODBC driver write chunks of the result set into columnar buffers. These buffers are exposed to turbodbc’s Apache Arrow frontend. This frontend will create an Arrow table and fill in the buffered values. The previous steps are repeated until the entire result set is retrieved. In practice, it is possible to achieve the following ideal situation: A 64-bit integer column is stored as one contiguous block of memory in a columnar database. A huge chunk of 64-bit integers is transferred over the network and the ODBC driver directly writes it to a turbodbc buffer of 64-bit integers. The Arrow frontend accumulates these values by copying the entire 64-bit buffer into a free portion of an Arrow table’s 64-bit integer column. Moving data from the database to an Arrow table and, thus, providing it to the Python user can be as simple as copying memory blocks around, megabytes equivalent to hundred thousands of rows at a time. The absence of serialization and conversion logic renders the process extremely efficient. Once the data is stored in an Arrow table, Python users can continue to do some actual work. They can convert it into a Pandas DataFrame for data analysis (using a quick table.to_pandas()), pass it on to other data processing systems such as Apache Spark or Apache Impala (incubating), or store it in the Apache Parquet file format. This way, non-Python systems are efficiently connected with relational databases. In the future, turbodbc’s Arrow support will be extended to use more sophisticated features such as dictionary-encoded string fields. We also plan to pick smaller than 64-bit data types where possible. Last but not least, Arrow support will be extended to cover the reverse direction of data flow, so that Python users can quickly insert Arrow tables into relational databases. If you would like to learn more about turbodbc, check out the GitHub project and the project documentation. If you want to learn more about how turbodbc implements the nitty-gritty details, check out parts one and two of the “Making of turbodbc” series at Blue Yonder’s technology blog." />
-<link rel="canonical" href="https://arrow.apache.org/blog/2017/06/16/turbodbc-arrow/" />
-<meta property="og:url" content="https://arrow.apache.org/blog/2017/06/16/turbodbc-arrow/" />
+<meta name="description" content="Michael König is the lead developer of the turbodbc project The Apache Arrow project set out to become the universal data layer for column-oriented data processing systems without incurring serialization costs or compromising on performance on a more general level. While relational databases still lag behind in Apache Arrow adoption, the Python database module turbodbc brings Apache Arrow support to these databases using a much older, more specialized data exchange layer: ODBC. ODBC is a database interface that offers developers the option to transfer data either in row-wise or column-wise fashion. Previous Python ODBC modules typically use the row-wise approach, and often trade repeated database roundtrips for simplified buffer handling. This makes them less suited for data-intensive applications, particularly when interfacing with modern columnar analytical databases. In contrast, turbodbc was designed to leverage columnar data processing from day one. Naturally, this implies using the columnar portion of the ODBC API. Equally important, however, is to find new ways of providing columnar data to Python users that exceed the capabilities of the row-wise API mandated by Python’s PEP 249. Turbodbc has adopted Apache Arrow for this very task with the recently released version 2.0.0: &gt;&gt;&gt; from turbodbc import connect &gt;&gt;&gt; connection = connect(dsn=&quot;My columnar database&quot;) &gt;&gt;&gt; cursor = connection.cursor() &gt;&gt;&gt; cursor.execute(&quot;SELECT some_integers, some_strings FROM my_table&quot;) &gt;&gt;&gt; cursor.fetchallarrow() pyarrow.Table some_integers: int64 some_strings: string With this new addition, the data flow for a result set of a typical SELECT query is like this: The database prepares the result set and exposes it to the ODBC driver using either row-wise or column-wise storage. Turbodbc has the ODBC driver write chunks of the result set into columnar buffers. These buffers are exposed to turbodbc&#39;s Apache Arrow frontend. This frontend will create an Arrow table and fill in the buffered values. The previous steps are repeated until the entire result set is retrieved. {:class=&quot;img-responsive&quot; width=&quot;75%&quot;} In practice, it is possible to achieve the following ideal situation: A 64-bit integer column is stored as one contiguous block of memory in a columnar database. A huge chunk of 64-bit integers is transferred over the network and the ODBC driver directly writes it to a turbodbc buffer of 64-bit integers. The Arrow frontend accumulates these values by copying the entire 64-bit buffer into a free portion of an Arrow table&#39;s 64-bit integer column. Moving data from the database to an Arrow table and, thus, providing it to the Python user can be as simple as copying memory blocks around, megabytes equivalent to hundred thousands of rows at a time. The absence of serialization and conversion logic renders the process extremely efficient. Once the data is stored in an Arrow table, Python users can continue to do some actual work. They can convert it into a Pandas DataFrame for data analysis (using a quick table.to_pandas()), pass it on to other data processing systems such as Apache Spark or Apache Impala (incubating), or store it in the Apache Parquet file format. This way, non-Python systems are efficiently connected with relational databases. In the future, turbodbc’s Arrow support will be extended to use more sophisticated features such as dictionary-encoded string fields. We also plan to pick smaller than 64-bit data types where possible. Last but not least, Arrow support will be extended to cover the reverse direction of data flow, so that Python users can quickly insert Arrow tables into relational databases. If you would like to learn more about turbodbc, check out the GitHub project and the project documentation. If you want to learn more about how turbodbc implements the nitty-gritty details, check out parts one and two of the &quot;Making of turbodbc&quot; series at Blue Yonder&#39;s technology blog." />
+<meta property="og:description" content="Michael König is the lead developer of the turbodbc project The Apache Arrow project set out to become the universal data layer for column-oriented data processing systems without incurring serialization costs or compromising on performance on a more general level. While relational databases still lag behind in Apache Arrow adoption, the Python database module turbodbc brings Apache Arrow support to these databases using a much older, more specialized data exchange layer: ODBC. ODBC is a database interface that offers developers the option to transfer data either in row-wise or column-wise fashion. Previous Python ODBC modules typically use the row-wise approach, and often trade repeated database roundtrips for simplified buffer handling. This makes them less suited for data-intensive applications, particularly when interfacing with modern columnar analytical databases. In contrast, turbodbc was designed to leverage columnar data processing from day one. Naturally, this implies using the columnar portion of the ODBC API. Equally important, however, is to find new ways of providing columnar data to Python users that exceed the capabilities of the row-wise API mandated by Python’s PEP 249. Turbodbc has adopted Apache Arrow for this very task with the recently released version 2.0.0: &gt;&gt;&gt; from turbodbc import connect &gt;&gt;&gt; connection = connect(dsn=&quot;My columnar database&quot;) &gt;&gt;&gt; cursor = connection.cursor() &gt;&gt;&gt; cursor.execute(&quot;SELECT some_integers, some_strings FROM my_table&quot;) &gt;&gt;&gt; cursor.fetchallarrow() pyarrow.Table some_integers: int64 some_strings: string With this new addition, the data flow for a result set of a typical SELECT query is like this: The database prepares the result set and exposes it to the ODBC driver using either row-wise or column-wise storage. Turbodbc has the ODBC driver write chunks of the result set into columnar buffers. These buffers are exposed to turbodbc&#39;s Apache Arrow frontend. This frontend will create an Arrow table and fill in the buffered values. The previous steps are repeated until the entire result set is retrieved. {:class=&quot;img-responsive&quot; width=&quot;75%&quot;} In practice, it is possible to achieve the following ideal situation: A 64-bit integer column is stored as one contiguous block of memory in a columnar database. A huge chunk of 64-bit integers is transferred over the network and the ODBC driver directly writes it to a turbodbc buffer of 64-bit integers. The Arrow frontend accumulates these values by copying the entire 64-bit buffer into a free portion of an Arrow table&#39;s 64-bit integer column. Moving data from the database to an Arrow table and, thus, providing it to the Python user can be as simple as copying memory blocks around, megabytes equivalent to hundred thousands of rows at a time. The absence of serialization and conversion logic renders the process extremely efficient. Once the data is stored in an Arrow table, Python users can continue to do some actual work. They can convert it into a Pandas DataFrame for data analysis (using a quick table.to_pandas()), pass it on to other data processing systems such as Apache Spark or Apache Impala (incubating), or store it in the Apache Parquet file format. This way, non-Python systems are efficiently connected with relational databases. In the future, turbodbc’s Arrow support will be extended to use more sophisticated features such as dictionary-encoded string fields. We also plan to pick smaller than 64-bit data types where possible. Last but not least, Arrow support will be extended to cover the reverse direction of data flow, so that Python users can quickly insert Arrow tables into relational databases. If you would like to learn more about turbodbc, check out the GitHub project and the project documentation. If you want to learn more about how turbodbc implements the nitty-gritty details, check out parts one and two of the &quot;Making of turbodbc&quot; series at Blue Yonder&#39;s technology blog." />
+<link rel="canonical" href="https://kou.github.io/arrow-site/arrow-site/blog/2017/06/16/turbodbc-arrow/" />
+<meta property="og:url" content="https://kou.github.io/arrow-site/arrow-site/blog/2017/06/16/turbodbc-arrow/" />
 <meta property="og:site_name" content="Apache Arrow" />
-<meta property="og:image" content="https://arrow.apache.org/img/arrow-logo_horizontal_black-txt_white-bg.png" />
+<meta property="og:image" content="https://kou.github.io/arrow-site/arrow-site/img/arrow-logo_horizontal_black-txt_white-bg.png" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2017-06-16T04:00:00-04:00" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta property="twitter:image" content="https://arrow.apache.org/img/arrow-logo_horizontal_black-txt_white-bg.png" />
+<meta property="twitter:image" content="https://kou.github.io/arrow-site/arrow-site/img/arrow-logo_horizontal_black-txt_white-bg.png" />
 <meta property="twitter:title" content="Connecting Relational Databases to the Apache Arrow World with turbodbc" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"MathMagique"},"dateModified":"2017-06-16T04:00:00-04:00","datePublished":"2017-06-16T04:00:00-04:00","description":"Michael König is the lead developer of the turbodbc project The Apache Arrow project set out to become the universal data layer for column-oriented data processing systems without incurring serialization costs or compromising on performance on a more general level. While relational databases still lag behind in Apache Arrow adoption, the Python database module turbodbc brings Apache Arrow support to these databases using a much older, more specialized data exchange layer: ODBC. ODBC is a database interface that offers developers the option to transfer data either in row-wise or column-wise fashion. Previous Python ODBC modules typically use the row-wise approach, and often trade repeated database roundtrips for simplified buffer handling. This makes them less suited for data-intensive applications, particularly when interfacing with modern columnar analytical databases. In contrast, turbodbc was designed to leverage columnar data processing from day one. Naturally, this implies using the columnar portion of the ODBC API. Equally important, however, is to find new ways of providing columnar data to Python users that exceed the capabilities of the row-wise API mandated by Python’s PEP 249. Turbodbc has adopted Apache Arrow for this very task with the recently released version 2.0.0: &gt;&gt;&gt; from turbodbc import connect &gt;&gt;&gt; connection = connect(dsn=&quot;My columnar database&quot;) &gt;&gt;&gt; cursor = connection.cursor() &gt;&gt;&gt; cursor.execute(&quot;SELECT some_integers, some_strings FROM my_table&quot;) &gt;&gt;&gt; cursor.fetchallarrow() pyarrow.Table some_integers: int64 some_strings: string With this new addition, the data flow for a result set of a typical SELECT query is like this: The database prepares the result set and exposes it to the ODBC driver using either row-wise or column-wise storage. Turbodbc has the ODBC driver write chunks of the result set into columnar buffers. These buffers are exposed to turbodbc’s Apache Arrow frontend. This frontend will create an Arrow table and fill in the buffered values. The previous steps are repeated until the entire result set is retrieved. In practice, it is possible to achieve the following ideal situation: A 64-bit integer column is stored as one contiguous block of memory in a columnar database. A huge chunk of 64-bit integers is transferred over the network and the ODBC driver directly writes it to a turbodbc buffer of 64-bit integers. The Arrow frontend accumulates these values by copying the entire 64-bit buffer into a free portion of an Arrow table’s 64-bit integer column. Moving data from the database to an Arrow table and, thus, providing it to the Python user can be as simple as copying memory blocks around, megabytes equivalent to hundred thousands of rows at a time. The absence of serialization and conversion logic renders the process extremely efficient. Once the data is stored in an Arrow table, Python users can continue to do some actual work. They can convert it into a Pandas DataFrame for data analysis (using a quick table.to_pandas()), pass it on to other data processing systems such as Apache Spark or Apache Impala (incubating), or store it in the Apache Parquet file format. This way, non-Python systems are efficiently connected with relational databases. In the future, turbodbc’s Arrow support will be extended to use more sophisticated features such as dictionary-encoded string fields. We also plan to pick smaller than 64-bit data types where possible. Last but not least, Arrow support will be extended to cover the reverse direction of data flow, so that Python users can quickly insert Arrow tables into relational databases. If you would like to learn more about turbodbc, check out the GitHub project and the project documentation. If you want to learn more about how turbodbc implements the nitty-gritty details, check out parts one and two of the “Making of turbodbc” series at Blue Yonder’s technology blog.","headline":"Connecting Relational Databases to the Apache Arrow World with turbodbc","image":"https://arrow.apache.org/img/arrow-logo_horizontal_black-txt_white-bg.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://arrow.apache.org/blog/2017/06/16/turbodbc-arrow/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://arrow.apache.org/img/logo.png"},"name":"MathMagique"},"url":"https://arrow.apache.org/blog/2017/06/16/turbodbc-arrow/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"MathMagique"},"dateModified":"2017-06-16T04:00:00-04:00","datePublished":"2017-06-16T04:00:00-04:00","description":"Michael König is the lead developer of the turbodbc project The Apache Arrow project set out to become the universal data layer for column-oriented data processing systems without incurring serialization costs or compromising on performance on a more general level. While relational databases still lag behind in Apache Arrow adoption, the Python database module turbodbc brings Apache Arrow support to these databases using a much older, more specialized data exchange layer: ODBC. ODBC is a database interface that offers developers the option to transfer data either in row-wise or column-wise fashion. Previous Python ODBC modules typically use the row-wise approach, and often trade repeated database roundtrips for simplified buffer handling. This makes them less suited for data-intensive applications, particularly when interfacing with modern columnar analytical databases. In contrast, turbodbc was designed to leverage columnar data processing from day one. Naturally, this implies using the columnar portion of the ODBC API. Equally important, however, is to find new ways of providing columnar data to Python users that exceed the capabilities of the row-wise API mandated by Python’s PEP 249. Turbodbc has adopted Apache Arrow for this very task with the recently released version 2.0.0: &gt;&gt;&gt; from turbodbc import connect &gt;&gt;&gt; connection = connect(dsn=&quot;My columnar database&quot;) &gt;&gt;&gt; cursor = connection.cursor() &gt;&gt;&gt; cursor.execute(&quot;SELECT some_integers, some_strings FROM my_table&quot;) &gt;&gt;&gt; cursor.fetchallarrow() pyarrow.Table some_integers: int64 some_strings: string With this new addition, the data flow for a result set of a typical SELECT query is like this: The database prepares the result set and exposes it to the ODBC driver using either row-wise or column-wise storage. Turbodbc has the ODBC driver write chunks of the result set into columnar buffers. These buffers are exposed to turbodbc&#39;s Apache Arrow frontend. This frontend will create an Arrow table and fill in the buffered values. The previous steps are repeated until the entire result set is retrieved. {:class=&quot;img-responsive&quot; width=&quot;75%&quot;} In practice, it is possible to achieve the following ideal situation: A 64-bit integer column is stored as one contiguous block of memory in a columnar database. A huge chunk of 64-bit integers is transferred over the network and the ODBC driver directly writes it to a turbodbc buffer of 64-bit integers. The Arrow frontend accumulates these values by copying the entire 64-bit buffer into a free portion of an Arrow table&#39;s 64-bit integer column. Moving data from the database to an Arrow table and, thus, providing it to the Python user can be as simple as copying memory blocks around, megabytes equivalent to hundred thousands of rows at a time. The absence of serialization and conversion logic renders the process extremely efficient. Once the data is stored in an Arrow table, Python users can continue to do some actual work. They can convert it into a Pandas DataFrame for data analysis (using a quick table.to_pandas()), pass it on to other data processing systems such as Apache Spark or Apache Impala (incubating), or store it in the Apache Parquet file format. This way, non-Python systems are efficiently connected with relational databases. In the future, turbodbc’s Arrow support will be extended to use more sophisticated features such as dictionary-encoded string fields. We also plan to pick smaller than 64-bit data types where possible. Last but not least, Arrow support will be extended to cover the reverse direction of data flow, so that Python users can quickly insert Arrow tables into relational databases. If you would like to learn more about turbodbc, check out the GitHub project and the project documentation. If you want to learn more about how turbodbc implements the nitty-gritty details, check out parts one and two of the &quot;Making of turbodbc&quot; series at Blue Yonder&#39;s technology blog.","headline":"Connecting Relational Databases to the Apache Arrow World with turbodbc","image":"https://kou.github.io/arrow-site/arrow-site/img/arrow-logo_horizontal_black-txt_white-bg.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://kou.github.io/arrow-site/arrow-site/blog/2017/06/16/turbodbc-arrow/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://kou.github.io/arrow-site/arrow-site/img/logo.png"},"name":"MathMagique"},"url":"https://kou.github.io/arrow-site/arrow-site/blog/2017/06/16/turbodbc-arrow/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
     <!-- favicons -->
-    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png" id="light1">
-    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png" id="light2">
-    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/img/apple-touch-icon.png" id="light3">
-    <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="/img/apple-touch-icon-120x120.png" id="light4">
-    <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="/img/apple-touch-icon-76x76.png" id="light5">
-    <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="/img/apple-touch-icon-60x60.png" id="light6">
+    <link rel="icon" type="image/png" sizes="16x16" href="/arrow-site/img/favicon-16x16.png" id="light1">
+    <link rel="icon" type="image/png" sizes="32x32" href="/arrow-site/img/favicon-32x32.png" id="light2">
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/arrow-site/img/apple-touch-icon.png" id="light3">
+    <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="/arrow-site/img/apple-touch-icon-120x120.png" id="light4">
+    <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="/arrow-site/img/apple-touch-icon-76x76.png" id="light5">
+    <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="/arrow-site/img/apple-touch-icon-60x60.png" id="light6">
     <!-- dark mode favicons -->
-    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16-dark.png" id="dark1">
-    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32-dark.png" id="dark2">
-    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/img/apple-touch-icon-dark.png" id="dark3">
-    <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="/img/apple-touch-icon-120x120-dark.png" id="dark4">
-    <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="/img/apple-touch-icon-76x76-dark.png" id="dark5">
-    <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="/img/apple-touch-icon-60x60-dark.png" id="dark6">
+    <link rel="icon" type="image/png" sizes="16x16" href="/arrow-site/img/favicon-16x16-dark.png" id="dark1">
+    <link rel="icon" type="image/png" sizes="32x32" href="/arrow-site/img/favicon-32x32-dark.png" id="dark2">
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/arrow-site/img/apple-touch-icon-dark.png" id="dark3">
+    <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="/arrow-site/img/apple-touch-icon-120x120-dark.png" id="dark4">
+    <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="/arrow-site/img/apple-touch-icon-76x76-dark.png" id="dark5">
+    <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="/arrow-site/img/apple-touch-icon-60x60-dark.png" id="dark6">
 
     <script>
       // Switch to the dark-mode favicons if prefers-color-scheme: dark
@@ -95,9 +95,9 @@
       onUpdate();
     </script>
 
-    <link href="/css/main.css" rel="stylesheet">
-    <link href="/css/syntax.css" rel="stylesheet">
-    <script src="/javascript/main.js"></script>
+    <link href="/arrow-site/css/main.css" rel="stylesheet">
+    <link href="/arrow-site/css/syntax.css" rel="stylesheet">
+    <script src="/arrow-site/javascript/main.js"></script>
     
     <!-- Matomo -->
 <script>
@@ -118,7 +118,7 @@
 <!-- End Matomo Code -->
 
     
-    <link type="application/atom+xml" rel="alternate" href="https://arrow.apache.org/feed.xml" title="Apache Arrow" />
+    <link type="application/atom+xml" rel="alternate" href="https://kou.github.io/arrow-site/arrow-site/feed.xml" title="Apache Arrow" />
   </head>
 
 
@@ -126,7 +126,7 @@
   <header>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
   
-  <a class="navbar-brand no-padding" href="/"><img src="/img/arrow-inverse-300px.png" height="40px"/></a>
+  <a class="navbar-brand no-padding" href="/arrow-site/"><img src="/arrow-site/img/arrow-inverse-300px.png" height="40px"></a>
   
    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#arrow-navbar" aria-controls="arrow-navbar" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -135,117 +135,106 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse justify-content-end" id="arrow-navbar">
       <ul class="nav navbar-nav">
-        <li class="nav-item"><a class="nav-link" href="/overview/" role="button" aria-haspopup="true" aria-expanded="false">Overview</a></li>
-        <li class="nav-item"><a class="nav-link" href="/faq/" role="button" aria-haspopup="true" aria-expanded="false">FAQ</a></li>
-        <li class="nav-item"><a class="nav-link" href="/blog" role="button" aria-haspopup="true" aria-expanded="false">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="/arrow-site/overview/" role="button" aria-haspopup="true" aria-expanded="false">Overview</a></li>
+        <li class="nav-item"><a class="nav-link" href="/arrow-site/faq/" role="button" aria-haspopup="true" aria-expanded="false">FAQ</a></li>
+        <li class="nav-item"><a class="nav-link" href="/arrow-site/blog" role="button" aria-haspopup="true" aria-expanded="false">Blog</a></li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#"
-             id="navbarDropdownGetArrow" role="button" data-toggle="dropdown"
-             aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownGetArrow" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              Get Arrow
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownGetArrow">
-            <a class="dropdown-item" href="/install/">Install</a>
-            <a class="dropdown-item" href="/release/">Releases</a>
+            <a class="dropdown-item" href="/arrow-site/install/">Install</a>
+            <a class="dropdown-item" href="/arrow-site/release/">Releases</a>
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#"
-             id="navbarDropdownDocumentation" role="button" data-toggle="dropdown"
-             aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDocumentation" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              Docs
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownDocumentation">
-            <a class="dropdown-item" href="/docs">Project Docs</a>
-            <a class="dropdown-item" href="/docs/format/Columnar.html">Format</a>
-            <hr/>
-            <a class="dropdown-item" href="/docs/c_glib">C GLib</a>
-            <a class="dropdown-item" href="/docs/cpp">C++</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/blob/main/csharp/README.md">C#</a>
-            <a class="dropdown-item" href="https://godoc.org/github.com/apache/arrow/go/arrow">Go</a>
-            <a class="dropdown-item" href="/docs/java">Java</a>
-            <a class="dropdown-item" href="/docs/js">JavaScript</a>
-            <a class="dropdown-item" href="/julia/">Julia</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/blob/main/matlab/README.md">MATLAB</a>
-            <a class="dropdown-item" href="/docs/python">Python</a>
-            <a class="dropdown-item" href="/docs/r">R</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/blob/main/ruby/README.md">Ruby</a>
-            <a class="dropdown-item" href="https://docs.rs/arrow/latest">Rust</a>
-            <a class="dropdown-item" href="/swift">Swift</a>
+            <a class="dropdown-item" href="/arrow-site/docs">Project Docs</a>
+            <a class="dropdown-item" href="/arrow-site/docs/format/Columnar.html">Format</a>
+            <hr>
+            <a class="dropdown-item" href="/arrow-site/docs/c_glib">C GLib</a>
+            <a class="dropdown-item" href="/arrow-site/docs/cpp">C++</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/blob/main/csharp/README.md" target="_blank" rel="noopener">C#</a>
+            <a class="dropdown-item" href="https://godoc.org/github.com/apache/arrow/go/arrow" target="_blank" rel="noopener">Go</a>
+            <a class="dropdown-item" href="/arrow-site/docs/java">Java</a>
+            <a class="dropdown-item" href="/arrow-site/docs/js">JavaScript</a>
+            <a class="dropdown-item" href="/arrow-site/julia/">Julia</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/blob/main/matlab/README.md" target="_blank" rel="noopener">MATLAB</a>
+            <a class="dropdown-item" href="/arrow-site/docs/python">Python</a>
+            <a class="dropdown-item" href="/arrow-site/docs/r">R</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/blob/main/ruby/README.md" target="_blank" rel="noopener">Ruby</a>
+            <a class="dropdown-item" href="https://docs.rs/arrow/latest" target="_blank" rel="noopener">Rust</a>
+            <a class="dropdown-item" href="/arrow-site/swift">Swift</a>
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#"
-             id="navbarDropdownSource" role="button" data-toggle="dropdown"
-             aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownSource" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              Source
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownSource">
-            <a class="dropdown-item" href="https://github.com/apache/arrow">Main Repo</a>
-            <hr/>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/c_glib">C GLib</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/cpp">C++</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/csharp">C#</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow-go">Go</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow-java">Java</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow-js">JavaScript</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow-julia">Julia</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/matlab">MATLAB</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/python">Python</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/r">R</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/ruby">Ruby</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow-rs">Rust</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow-swift">Swift</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow" target="_blank" rel="noopener">Main Repo</a>
+            <hr>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/c_glib" target="_blank" rel="noopener">C GLib</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/cpp" target="_blank" rel="noopener">C++</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/csharp" target="_blank" rel="noopener">C#</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow-go" target="_blank" rel="noopener">Go</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow-java" target="_blank" rel="noopener">Java</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow-js" target="_blank" rel="noopener">JavaScript</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow-julia" target="_blank" rel="noopener">Julia</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/matlab" target="_blank" rel="noopener">MATLAB</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/python" target="_blank" rel="noopener">Python</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/r" target="_blank" rel="noopener">R</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/ruby" target="_blank" rel="noopener">Ruby</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow-rs" target="_blank" rel="noopener">Rust</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow-swift" target="_blank" rel="noopener">Swift</a>
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#"
-             id="navbarDropdownSubprojects" role="button" data-toggle="dropdown"
-             aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownSubprojects" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              Subprojects
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownSubprojects">
-            <a class="dropdown-item" href="/adbc">ADBC</a>
-            <a class="dropdown-item" href="/docs/format/Flight.html">Arrow Flight</a>
-            <a class="dropdown-item" href="/docs/format/FlightSql.html">Arrow Flight SQL</a>
-            <a class="dropdown-item" href="https://datafusion.apache.org">DataFusion</a>
-            <a class="dropdown-item" href="/nanoarrow">nanoarrow</a>
+            <a class="dropdown-item" href="/arrow-site/adbc">ADBC</a>
+            <a class="dropdown-item" href="/arrow-site/docs/format/Flight.html">Arrow Flight</a>
+            <a class="dropdown-item" href="/arrow-site/docs/format/FlightSql.html">Arrow Flight SQL</a>
+            <a class="dropdown-item" href="https://datafusion.apache.org" target="_blank" rel="noopener">DataFusion</a>
+            <a class="dropdown-item" href="/arrow-site/nanoarrow">nanoarrow</a>
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#"
-             id="navbarDropdownCommunity" role="button" data-toggle="dropdown"
-             aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCommunity" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              Community
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownCommunity">
-            <a class="dropdown-item" href="/community/">Communication</a>
-            <a class="dropdown-item" href="/docs/developers/index.html">Contributing</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/issues">Issue Tracker</a>
-            <a class="dropdown-item" href="/committers/">Governance</a>
-            <a class="dropdown-item" href="/use_cases/">Use Cases</a>
-            <a class="dropdown-item" href="/powered_by/">Powered By</a>
-            <a class="dropdown-item" href="/visual_identity/">Visual Identity</a>
-            <a class="dropdown-item" href="/security/">Security</a>
-            <a class="dropdown-item" href="https://www.apache.org/foundation/policies/conduct.html">Code of Conduct</a>
+            <a class="dropdown-item" href="/arrow-site/community/">Communication</a>
+            <a class="dropdown-item" href="/arrow-site/docs/developers/index.html">Contributing</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/issues" target="_blank" rel="noopener">Issue Tracker</a>
+            <a class="dropdown-item" href="/arrow-site/committers/">Governance</a>
+            <a class="dropdown-item" href="/arrow-site/use_cases/">Use Cases</a>
+            <a class="dropdown-item" href="/arrow-site/powered_by/">Powered By</a>
+            <a class="dropdown-item" href="/arrow-site/visual_identity/">Visual Identity</a>
+            <a class="dropdown-item" href="/arrow-site/security/">Security</a>
+            <a class="dropdown-item" href="https://www.apache.org/foundation/policies/conduct.html" target="_blank" rel="noopener">Code of Conduct</a>
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#"
-             id="navbarDropdownASF" role="button" data-toggle="dropdown"
-             aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownASF" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              ASF Links
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownASF">
-            <a class="dropdown-item" href="https://www.apache.org/">ASF Website</a>
-            <a class="dropdown-item" href="https://www.apache.org/licenses/">License</a>
-            <a class="dropdown-item" href="https://www.apache.org/foundation/sponsorship.html">Donate</a>
-            <a class="dropdown-item" href="https://www.apache.org/foundation/thanks.html">Thanks</a>
-            <a class="dropdown-item" href="https://www.apache.org/security/">Security</a>
+            <a class="dropdown-item" href="https://www.apache.org/" target="_blank" rel="noopener">ASF Website</a>
+            <a class="dropdown-item" href="https://www.apache.org/licenses/" target="_blank" rel="noopener">License</a>
+            <a class="dropdown-item" href="https://www.apache.org/foundation/sponsorship.html" target="_blank" rel="noopener">Donate</a>
+            <a class="dropdown-item" href="https://www.apache.org/foundation/thanks.html" target="_blank" rel="noopener">Thanks</a>
+            <a class="dropdown-item" href="https://www.apache.org/security/" target="_blank" rel="noopener">Security</a>
           </div>
         </li>
       </ul>
-    </div><!-- /.navbar-collapse -->
+    </div>
+<!-- /.navbar-collapse -->
   </nav>
 
   </header>
@@ -266,10 +255,10 @@
   <span class="published mr-3">
     16 Jun 2017
   </span>
-  <br />
+  <br>
   <span class="badge badge-secondary">By</span>
   
-    <a class="mr-3" href="https://github.com/MathMagique">Michael König (MathMagique) </a>
+    <a class="mr-3" href="https://github.com/MathMagique" target="_blank" rel="noopener">Michael König (MathMagique) </a>
   
 
   
@@ -279,30 +268,25 @@
         <!--
 
 -->
-
-<p><em><a href="https://github.com/mathmagique">Michael König</a> is the lead developer of the <a href="https://github.com/blue-yonder/turbodbc">turbodbc project</a></em></p>
-
-<p>The <a href="https://arrow.apache.org/">Apache Arrow</a> project set out to become the universal data layer for
+<p><em><a href="https://github.com/mathmagique" target="_blank" rel="noopener">Michael König</a> is the lead developer of the <a href="https://github.com/blue-yonder/turbodbc" target="_blank" rel="noopener">turbodbc project</a></em></p>
+<p>The <a href="https://arrow.apache.org/" target="_blank" rel="noopener">Apache Arrow</a> project set out to become the universal data layer for
 column-oriented data processing systems without incurring serialization costs
 or compromising on performance on a more general level. While relational
 databases still lag behind in Apache Arrow adoption, the Python database module
-<a href="https://github.com/blue-yonder/turbodbc">turbodbc</a> brings Apache Arrow support to these databases using a much
-older, more specialized data exchange layer: <a href="https://en.wikipedia.org/wiki/Open_Database_Connectivity">ODBC</a>.</p>
-
+<a href="https://github.com/blue-yonder/turbodbc" target="_blank" rel="noopener">turbodbc</a> brings Apache Arrow support to these databases using a much
+older, more specialized data exchange layer: <a href="https://en.wikipedia.org/wiki/Open_Database_Connectivity" target="_blank" rel="noopener">ODBC</a>.</p>
 <p>ODBC is a database interface that offers developers the option to transfer data
 either in row-wise or column-wise fashion. Previous Python ODBC modules typically
 use the row-wise approach, and often trade repeated database roundtrips for simplified
 buffer handling. This makes them less suited for data-intensive applications,
 particularly when interfacing with modern columnar analytical databases.</p>
-
 <p>In contrast, turbodbc was designed to leverage columnar data processing from day
 one. Naturally, this implies using the columnar portion of the ODBC API. Equally
 important, however, is to find new ways of providing columnar data to Python users
-that exceed the capabilities of the row-wise API mandated by Python’s <a href="https://www.python.org/dev/peps/pep-0249/">PEP 249</a>.
+that exceed the capabilities of the row-wise API mandated by Python’s <a href="https://www.python.org/dev/peps/pep-0249/" target="_blank" rel="noopener">PEP 249</a>.
 Turbodbc has adopted Apache Arrow for this very task with the recently released
 version 2.0.0:</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="n">turbodbc</span> <span class="kn">import</span> <span class="n">connect</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="n">turbodbc</span> <span class="kn">import</span> <span class="n">connect</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">connection</span> <span class="o">=</span> <span class="nf">connect</span><span class="p">(</span><span class="n">dsn</span><span class="o">=</span><span class="sh">"</span><span class="s">My columnar database</span><span class="sh">"</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="p">.</span><span class="nf">cursor</span><span class="p">()</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">cursor</span><span class="p">.</span><span class="nf">execute</span><span class="p">(</span><span class="sh">"</span><span class="s">SELECT some_integers, some_strings FROM my_table</span><span class="sh">"</span><span class="p">)</span>
@@ -311,65 +295,57 @@ version 2.0.0:</p>
 <span class="n">some_integers</span><span class="p">:</span> <span class="n">int64</span>
 <span class="n">some_strings</span><span class="p">:</span> <span class="n">string</span>
 </code></pre></div></div>
-
 <p>With this new addition, the data flow for a result set of a typical SELECT query
 is like this:</p>
 <ul>
-  <li>The database prepares the result set and exposes it to the ODBC driver using
+<li>The database prepares the result set and exposes it to the ODBC driver using
 either row-wise or column-wise storage.</li>
-  <li>Turbodbc has the ODBC driver write chunks of the result set into columnar buffers.</li>
-  <li>These buffers are exposed to turbodbc’s Apache Arrow frontend. This frontend
+<li>Turbodbc has the ODBC driver write chunks of the result set into columnar buffers.</li>
+<li>These buffers are exposed to turbodbc's Apache Arrow frontend. This frontend
 will create an Arrow table and fill in the buffered values.</li>
-  <li>The previous steps are repeated until the entire result set is retrieved.</li>
+<li>The previous steps are repeated until the entire result set is retrieved.</li>
 </ul>
-
-<p><img src="https://arrow.apache.org/img/turbodbc_arrow.png" alt="Data flow from relational databases to Python with turbodbc and the Apache Arrow frontend" class="img-responsive" width="75%" /></p>
-
+<p><img src="https://kou.github.io/arrow-site/img/turbodbc_arrow.png" alt="Data flow from relational databases to Python with turbodbc and the Apache Arrow frontend">{:class="img-responsive" width="75%"}</p>
 <p>In practice, it is possible to achieve the following ideal situation: A 64-bit integer
 column is stored as one contiguous block of memory in a columnar database. A huge chunk
 of 64-bit integers is transferred over the network and the ODBC driver directly writes
 it to a turbodbc buffer of 64-bit integers. The Arrow frontend accumulates these values
-by copying the entire 64-bit buffer into a free portion of an Arrow table’s 64-bit
+by copying the entire 64-bit buffer into a free portion of an Arrow table's 64-bit
 integer column.</p>
-
 <p>Moving data from the database to an Arrow table and, thus, providing it to the Python
 user can be as simple as copying memory blocks around, megabytes equivalent to hundred
 thousands of rows at a time. The absence of serialization and conversion logic renders
 the process extremely efficient.</p>
-
 <p>Once the data is stored in an Arrow table, Python users can continue to do some
-actual work. They can convert it into a <a href="https://arrow.apache.org/docs/python/pandas.html">Pandas DataFrame</a> for data analysis
-(using a quick <code class="language-plaintext highlighter-rouge">table.to_pandas()</code>), pass it on to other data processing
-systems such as <a href="http://spark.apache.org/">Apache Spark</a> or <a href="http://impala.apache.org/">Apache Impala (incubating)</a>, or store
-it in the <a href="http://parquet.apache.org/">Apache Parquet</a> file format. This way, non-Python systems are
+actual work. They can convert it into a <a href="https://arrow.apache.org/docs/python/pandas.html" target="_blank" rel="noopener">Pandas DataFrame</a> for data analysis
+(using a quick <code>table.to_pandas()</code>), pass it on to other data processing
+systems such as <a href="http://spark.apache.org/" target="_blank" rel="noopener">Apache Spark</a> or <a href="http://impala.apache.org/" target="_blank" rel="noopener">Apache Impala (incubating)</a>, or store
+it in the <a href="http://parquet.apache.org/" target="_blank" rel="noopener">Apache Parquet</a> file format. This way, non-Python systems are
 efficiently connected with relational databases.</p>
-
 <p>In the future, turbodbc’s Arrow support will be extended to use more
-sophisticated features such as <a href="https://arrow.apache.org/docs/memory_layout.html#dictionary-encoding">dictionary-encoded</a> string fields. We also
-plan to pick smaller than 64-bit <a href="https://arrow.apache.org/docs/metadata.html#integers">data types</a> where possible. Last but not
+sophisticated features such as <a href="https://arrow.apache.org/docs/memory_layout.html#dictionary-encoding" target="_blank" rel="noopener">dictionary-encoded</a> string fields. We also
+plan to pick smaller than 64-bit <a href="https://arrow.apache.org/docs/metadata.html#integers" target="_blank" rel="noopener">data types</a> where possible. Last but not
 least, Arrow support will be extended to cover the reverse direction of data
 flow, so that Python users can quickly insert Arrow tables into relational
 databases.</p>
-
-<p>If you would like to learn more about turbodbc, check out the <a href="https://github.com/blue-yonder/turbodbc">GitHub project</a> and the
-<a href="http://turbodbc.readthedocs.io/">project documentation</a>. If you want to learn more about how turbodbc implements the
-nitty-gritty details, check out parts <a href="https://tech.blue-yonder.com/making-of-turbodbc-part-1-wrestling-with-the-side-effects-of-a-c-api/">one</a> and <a href="https://tech.blue-yonder.com/making-of-turbodbc-part-2-c-to-python/">two</a> of the
-<a href="https://tech.blue-yonder.com/making-of-turbodbc-part-1-wrestling-with-the-side-effects-of-a-c-api/">“Making of turbodbc”</a> series at <a href="https://tech.blue-yonder.com/">Blue Yonder’s technology blog</a>.</p>
-
+<p>If you would like to learn more about turbodbc, check out the <a href="https://github.com/blue-yonder/turbodbc" target="_blank" rel="noopener">GitHub project</a> and the
+<a href="http://turbodbc.readthedocs.io/" target="_blank" rel="noopener">project documentation</a>. If you want to learn more about how turbodbc implements the
+nitty-gritty details, check out parts <a href="https://tech.blue-yonder.com/making-of-turbodbc-part-1-wrestling-with-the-side-effects-of-a-c-api/" target="_blank" rel="noopener">one</a> and <a href="https://tech.blue-yonder.com/making-of-turbodbc-part-2-c-to-python/" target="_blank" rel="noopener">two</a> of the
+<a href="https://tech.blue-yonder.com/making-of-turbodbc-part-1-wrestling-with-the-side-effects-of-a-c-api/" target="_blank" rel="noopener">"Making of turbodbc"</a> series at <a href="https://tech.blue-yonder.com/" target="_blank" rel="noopener">Blue Yonder's technology blog</a>.</p>
 
       </main>
     </div>
 
-    <hr/>
+    <hr>
 <footer class="footer">
   <div class="row">
     <div class="col-md-9">
       <p>Apache Arrow, Arrow, Apache, the Apache feather logo, and the Apache Arrow project logo are either registered trademarks or trademarks of The Apache Software Foundation in the United States and other countries.</p>
-      <p>&copy; 2016-2025 The Apache Software Foundation</p>
+      <p>© 2016-2025 The Apache Software Foundation</p>
     </div>
     <div class="col-md-3">
-      <a class="d-sm-none d-md-inline pr-2" href="https://www.apache.org/events/current-event.html">
-        <img src="https://www.apache.org/events/current-event-234x60.png"/>
+      <a class="d-sm-none d-md-inline pr-2" href="https://www.apache.org/events/current-event.html" target="_blank" rel="noopener">
+        <img src="https://www.apache.org/events/current-event-234x60.png">
       </a>
     </div>
   </div>

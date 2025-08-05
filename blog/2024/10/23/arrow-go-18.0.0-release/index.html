@@ -10,40 +10,40 @@
     
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<meta name="generator" content="Jekyll v4.3.3" />
+<meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Apache Arrow Go 18.0.0 Release" />
 <meta name="author" content="pmc" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="The Apache Arrow team is pleased to announce the v18.0.0 release of Apache Arrow Go. This release covers 35 resolved issues from 11 contributors. Release Highlights Move to new Repository The Apache Arrow Go implementation has been shifted out of the Arrow monorepo and to its own repository now located at https://github.com/apache/arrow-go. This will enable fewer major version releases and facilitate more minor version/patch releases instead as it will detach the version number from the Arrow C++ and other implementations in the monorepo. Current users of Arrow Go will want to carefully note the breaking change to module paths this move causes. To upgrade to Arrow Go v18.0.0, ensure you properly update all relevant module paths in your go.mod, replacing all instances of github.com/apache/arrow/go/ with github.com/apache/arrow-go. Existing Go related issues have been moved to the new repository and please file any new issues on the new repository instead of the Arrow monorepo. Go Version With this release, the minimum Go version is now 1.22. Arrow Canonical Extension Types There is a new extensions package which implements canonical extension types. This includes: Opaque GH-43455 JSON and UUID GH-43764 Bool8 GH-17682 Features Added the initial implementation for the Decimal32/Decimal64 data types GH-120 Added is_null, is_not_null and is_nan function kernels to the compute package GH-134 Bug Fixes Fixed an inconsistency in ValueOffset between String and Binary Arrays GH-41 Parquet Added support for LZ4_RAW compression codec GH-43790 Fixed recovery from a panic in the file reader GH-124 Contributors This release consists of contributions from 11 contributors in addition to the invaluable advice and support of the Apache Arrow community. $ git shortlog --perl-regexp --author=&#39;^((?!dependabot\[bot\]).*)$&#39; -sn 8b7fde9..v18.0.0 17 Sutou Kouhei 8 Joel Lubinitsky 6 Matt Topol 6 Raúl Cumplido 2 Xin Hao 1 David Li 1 Nick Crews 1 Seb. V 1 Tom Scott-Coombes 1 rene-hess 1 yihao.dai" />
 <meta property="og:description" content="The Apache Arrow team is pleased to announce the v18.0.0 release of Apache Arrow Go. This release covers 35 resolved issues from 11 contributors. Release Highlights Move to new Repository The Apache Arrow Go implementation has been shifted out of the Arrow monorepo and to its own repository now located at https://github.com/apache/arrow-go. This will enable fewer major version releases and facilitate more minor version/patch releases instead as it will detach the version number from the Arrow C++ and other implementations in the monorepo. Current users of Arrow Go will want to carefully note the breaking change to module paths this move causes. To upgrade to Arrow Go v18.0.0, ensure you properly update all relevant module paths in your go.mod, replacing all instances of github.com/apache/arrow/go/ with github.com/apache/arrow-go. Existing Go related issues have been moved to the new repository and please file any new issues on the new repository instead of the Arrow monorepo. Go Version With this release, the minimum Go version is now 1.22. Arrow Canonical Extension Types There is a new extensions package which implements canonical extension types. This includes: Opaque GH-43455 JSON and UUID GH-43764 Bool8 GH-17682 Features Added the initial implementation for the Decimal32/Decimal64 data types GH-120 Added is_null, is_not_null and is_nan function kernels to the compute package GH-134 Bug Fixes Fixed an inconsistency in ValueOffset between String and Binary Arrays GH-41 Parquet Added support for LZ4_RAW compression codec GH-43790 Fixed recovery from a panic in the file reader GH-124 Contributors This release consists of contributions from 11 contributors in addition to the invaluable advice and support of the Apache Arrow community. $ git shortlog --perl-regexp --author=&#39;^((?!dependabot\[bot\]).*)$&#39; -sn 8b7fde9..v18.0.0 17 Sutou Kouhei 8 Joel Lubinitsky 6 Matt Topol 6 Raúl Cumplido 2 Xin Hao 1 David Li 1 Nick Crews 1 Seb. V 1 Tom Scott-Coombes 1 rene-hess 1 yihao.dai" />
-<link rel="canonical" href="https://arrow.apache.org/blog/2024/10/23/arrow-go-18.0.0-release/" />
-<meta property="og:url" content="https://arrow.apache.org/blog/2024/10/23/arrow-go-18.0.0-release/" />
+<link rel="canonical" href="https://kou.github.io/arrow-site/arrow-site/blog/2024/10/23/arrow-go-18.0.0-release/" />
+<meta property="og:url" content="https://kou.github.io/arrow-site/arrow-site/blog/2024/10/23/arrow-go-18.0.0-release/" />
 <meta property="og:site_name" content="Apache Arrow" />
-<meta property="og:image" content="https://arrow.apache.org/img/arrow-logo_horizontal_black-txt_white-bg.png" />
+<meta property="og:image" content="https://kou.github.io/arrow-site/arrow-site/img/arrow-logo_horizontal_black-txt_white-bg.png" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2024-10-23T00:00:00-04:00" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta property="twitter:image" content="https://arrow.apache.org/img/arrow-logo_horizontal_black-txt_white-bg.png" />
+<meta property="twitter:image" content="https://kou.github.io/arrow-site/arrow-site/img/arrow-logo_horizontal_black-txt_white-bg.png" />
 <meta property="twitter:title" content="Apache Arrow Go 18.0.0 Release" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"pmc"},"dateModified":"2024-10-23T00:00:00-04:00","datePublished":"2024-10-23T00:00:00-04:00","description":"The Apache Arrow team is pleased to announce the v18.0.0 release of Apache Arrow Go. This release covers 35 resolved issues from 11 contributors. Release Highlights Move to new Repository The Apache Arrow Go implementation has been shifted out of the Arrow monorepo and to its own repository now located at https://github.com/apache/arrow-go. This will enable fewer major version releases and facilitate more minor version/patch releases instead as it will detach the version number from the Arrow C++ and other implementations in the monorepo. Current users of Arrow Go will want to carefully note the breaking change to module paths this move causes. To upgrade to Arrow Go v18.0.0, ensure you properly update all relevant module paths in your go.mod, replacing all instances of github.com/apache/arrow/go/ with github.com/apache/arrow-go. Existing Go related issues have been moved to the new repository and please file any new issues on the new repository instead of the Arrow monorepo. Go Version With this release, the minimum Go version is now 1.22. Arrow Canonical Extension Types There is a new extensions package which implements canonical extension types. This includes: Opaque GH-43455 JSON and UUID GH-43764 Bool8 GH-17682 Features Added the initial implementation for the Decimal32/Decimal64 data types GH-120 Added is_null, is_not_null and is_nan function kernels to the compute package GH-134 Bug Fixes Fixed an inconsistency in ValueOffset between String and Binary Arrays GH-41 Parquet Added support for LZ4_RAW compression codec GH-43790 Fixed recovery from a panic in the file reader GH-124 Contributors This release consists of contributions from 11 contributors in addition to the invaluable advice and support of the Apache Arrow community. $ git shortlog --perl-regexp --author=&#39;^((?!dependabot\\[bot\\]).*)$&#39; -sn 8b7fde9..v18.0.0 17 Sutou Kouhei 8 Joel Lubinitsky 6 Matt Topol 6 Raúl Cumplido 2 Xin Hao 1 David Li 1 Nick Crews 1 Seb. V 1 Tom Scott-Coombes 1 rene-hess 1 yihao.dai","headline":"Apache Arrow Go 18.0.0 Release","image":"https://arrow.apache.org/img/arrow-logo_horizontal_black-txt_white-bg.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://arrow.apache.org/blog/2024/10/23/arrow-go-18.0.0-release/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://arrow.apache.org/img/logo.png"},"name":"pmc"},"url":"https://arrow.apache.org/blog/2024/10/23/arrow-go-18.0.0-release/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"pmc"},"dateModified":"2024-10-23T00:00:00-04:00","datePublished":"2024-10-23T00:00:00-04:00","description":"The Apache Arrow team is pleased to announce the v18.0.0 release of Apache Arrow Go. This release covers 35 resolved issues from 11 contributors. Release Highlights Move to new Repository The Apache Arrow Go implementation has been shifted out of the Arrow monorepo and to its own repository now located at https://github.com/apache/arrow-go. This will enable fewer major version releases and facilitate more minor version/patch releases instead as it will detach the version number from the Arrow C++ and other implementations in the monorepo. Current users of Arrow Go will want to carefully note the breaking change to module paths this move causes. To upgrade to Arrow Go v18.0.0, ensure you properly update all relevant module paths in your go.mod, replacing all instances of github.com/apache/arrow/go/ with github.com/apache/arrow-go. Existing Go related issues have been moved to the new repository and please file any new issues on the new repository instead of the Arrow monorepo. Go Version With this release, the minimum Go version is now 1.22. Arrow Canonical Extension Types There is a new extensions package which implements canonical extension types. This includes: Opaque GH-43455 JSON and UUID GH-43764 Bool8 GH-17682 Features Added the initial implementation for the Decimal32/Decimal64 data types GH-120 Added is_null, is_not_null and is_nan function kernels to the compute package GH-134 Bug Fixes Fixed an inconsistency in ValueOffset between String and Binary Arrays GH-41 Parquet Added support for LZ4_RAW compression codec GH-43790 Fixed recovery from a panic in the file reader GH-124 Contributors This release consists of contributions from 11 contributors in addition to the invaluable advice and support of the Apache Arrow community. $ git shortlog --perl-regexp --author=&#39;^((?!dependabot\\[bot\\]).*)$&#39; -sn 8b7fde9..v18.0.0 17 Sutou Kouhei 8 Joel Lubinitsky 6 Matt Topol 6 Raúl Cumplido 2 Xin Hao 1 David Li 1 Nick Crews 1 Seb. V 1 Tom Scott-Coombes 1 rene-hess 1 yihao.dai","headline":"Apache Arrow Go 18.0.0 Release","image":"https://kou.github.io/arrow-site/arrow-site/img/arrow-logo_horizontal_black-txt_white-bg.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://kou.github.io/arrow-site/arrow-site/blog/2024/10/23/arrow-go-18.0.0-release/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://kou.github.io/arrow-site/arrow-site/img/logo.png"},"name":"pmc"},"url":"https://kou.github.io/arrow-site/arrow-site/blog/2024/10/23/arrow-go-18.0.0-release/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
     <!-- favicons -->
-    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png" id="light1">
-    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png" id="light2">
-    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/img/apple-touch-icon.png" id="light3">
-    <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="/img/apple-touch-icon-120x120.png" id="light4">
-    <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="/img/apple-touch-icon-76x76.png" id="light5">
-    <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="/img/apple-touch-icon-60x60.png" id="light6">
+    <link rel="icon" type="image/png" sizes="16x16" href="/arrow-site/img/favicon-16x16.png" id="light1">
+    <link rel="icon" type="image/png" sizes="32x32" href="/arrow-site/img/favicon-32x32.png" id="light2">
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/arrow-site/img/apple-touch-icon.png" id="light3">
+    <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="/arrow-site/img/apple-touch-icon-120x120.png" id="light4">
+    <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="/arrow-site/img/apple-touch-icon-76x76.png" id="light5">
+    <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="/arrow-site/img/apple-touch-icon-60x60.png" id="light6">
     <!-- dark mode favicons -->
-    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16-dark.png" id="dark1">
-    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32-dark.png" id="dark2">
-    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/img/apple-touch-icon-dark.png" id="dark3">
-    <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="/img/apple-touch-icon-120x120-dark.png" id="dark4">
-    <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="/img/apple-touch-icon-76x76-dark.png" id="dark5">
-    <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="/img/apple-touch-icon-60x60-dark.png" id="dark6">
+    <link rel="icon" type="image/png" sizes="16x16" href="/arrow-site/img/favicon-16x16-dark.png" id="dark1">
+    <link rel="icon" type="image/png" sizes="32x32" href="/arrow-site/img/favicon-32x32-dark.png" id="dark2">
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/arrow-site/img/apple-touch-icon-dark.png" id="dark3">
+    <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="/arrow-site/img/apple-touch-icon-120x120-dark.png" id="dark4">
+    <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="/arrow-site/img/apple-touch-icon-76x76-dark.png" id="dark5">
+    <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="/arrow-site/img/apple-touch-icon-60x60-dark.png" id="dark6">
 
     <script>
       // Switch to the dark-mode favicons if prefers-color-scheme: dark
@@ -95,9 +95,9 @@
       onUpdate();
     </script>
 
-    <link href="/css/main.css" rel="stylesheet">
-    <link href="/css/syntax.css" rel="stylesheet">
-    <script src="/javascript/main.js"></script>
+    <link href="/arrow-site/css/main.css" rel="stylesheet">
+    <link href="/arrow-site/css/syntax.css" rel="stylesheet">
+    <script src="/arrow-site/javascript/main.js"></script>
     
     <!-- Matomo -->
 <script>
@@ -118,7 +118,7 @@
 <!-- End Matomo Code -->
 
     
-    <link type="application/atom+xml" rel="alternate" href="https://arrow.apache.org/feed.xml" title="Apache Arrow" />
+    <link type="application/atom+xml" rel="alternate" href="https://kou.github.io/arrow-site/arrow-site/feed.xml" title="Apache Arrow" />
   </head>
 
 
@@ -126,7 +126,7 @@
   <header>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
   
-  <a class="navbar-brand no-padding" href="/"><img src="/img/arrow-inverse-300px.png" height="40px"/></a>
+  <a class="navbar-brand no-padding" href="/arrow-site/"><img src="/arrow-site/img/arrow-inverse-300px.png" height="40px"></a>
   
    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#arrow-navbar" aria-controls="arrow-navbar" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -135,117 +135,106 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse justify-content-end" id="arrow-navbar">
       <ul class="nav navbar-nav">
-        <li class="nav-item"><a class="nav-link" href="/overview/" role="button" aria-haspopup="true" aria-expanded="false">Overview</a></li>
-        <li class="nav-item"><a class="nav-link" href="/faq/" role="button" aria-haspopup="true" aria-expanded="false">FAQ</a></li>
-        <li class="nav-item"><a class="nav-link" href="/blog" role="button" aria-haspopup="true" aria-expanded="false">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="/arrow-site/overview/" role="button" aria-haspopup="true" aria-expanded="false">Overview</a></li>
+        <li class="nav-item"><a class="nav-link" href="/arrow-site/faq/" role="button" aria-haspopup="true" aria-expanded="false">FAQ</a></li>
+        <li class="nav-item"><a class="nav-link" href="/arrow-site/blog" role="button" aria-haspopup="true" aria-expanded="false">Blog</a></li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#"
-             id="navbarDropdownGetArrow" role="button" data-toggle="dropdown"
-             aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownGetArrow" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              Get Arrow
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownGetArrow">
-            <a class="dropdown-item" href="/install/">Install</a>
-            <a class="dropdown-item" href="/release/">Releases</a>
+            <a class="dropdown-item" href="/arrow-site/install/">Install</a>
+            <a class="dropdown-item" href="/arrow-site/release/">Releases</a>
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#"
-             id="navbarDropdownDocumentation" role="button" data-toggle="dropdown"
-             aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDocumentation" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              Docs
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownDocumentation">
-            <a class="dropdown-item" href="/docs">Project Docs</a>
-            <a class="dropdown-item" href="/docs/format/Columnar.html">Format</a>
-            <hr/>
-            <a class="dropdown-item" href="/docs/c_glib">C GLib</a>
-            <a class="dropdown-item" href="/docs/cpp">C++</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/blob/main/csharp/README.md">C#</a>
-            <a class="dropdown-item" href="https://godoc.org/github.com/apache/arrow/go/arrow">Go</a>
-            <a class="dropdown-item" href="/docs/java">Java</a>
-            <a class="dropdown-item" href="/docs/js">JavaScript</a>
-            <a class="dropdown-item" href="/julia/">Julia</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/blob/main/matlab/README.md">MATLAB</a>
-            <a class="dropdown-item" href="/docs/python">Python</a>
-            <a class="dropdown-item" href="/docs/r">R</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/blob/main/ruby/README.md">Ruby</a>
-            <a class="dropdown-item" href="https://docs.rs/arrow/latest">Rust</a>
-            <a class="dropdown-item" href="/swift">Swift</a>
+            <a class="dropdown-item" href="/arrow-site/docs">Project Docs</a>
+            <a class="dropdown-item" href="/arrow-site/docs/format/Columnar.html">Format</a>
+            <hr>
+            <a class="dropdown-item" href="/arrow-site/docs/c_glib">C GLib</a>
+            <a class="dropdown-item" href="/arrow-site/docs/cpp">C++</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/blob/main/csharp/README.md" target="_blank" rel="noopener">C#</a>
+            <a class="dropdown-item" href="https://godoc.org/github.com/apache/arrow/go/arrow" target="_blank" rel="noopener">Go</a>
+            <a class="dropdown-item" href="/arrow-site/docs/java">Java</a>
+            <a class="dropdown-item" href="/arrow-site/docs/js">JavaScript</a>
+            <a class="dropdown-item" href="/arrow-site/julia/">Julia</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/blob/main/matlab/README.md" target="_blank" rel="noopener">MATLAB</a>
+            <a class="dropdown-item" href="/arrow-site/docs/python">Python</a>
+            <a class="dropdown-item" href="/arrow-site/docs/r">R</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/blob/main/ruby/README.md" target="_blank" rel="noopener">Ruby</a>
+            <a class="dropdown-item" href="https://docs.rs/arrow/latest" target="_blank" rel="noopener">Rust</a>
+            <a class="dropdown-item" href="/arrow-site/swift">Swift</a>
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#"
-             id="navbarDropdownSource" role="button" data-toggle="dropdown"
-             aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownSource" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              Source
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownSource">
-            <a class="dropdown-item" href="https://github.com/apache/arrow">Main Repo</a>
-            <hr/>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/c_glib">C GLib</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/cpp">C++</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/csharp">C#</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow-go">Go</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow-java">Java</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow-js">JavaScript</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow-julia">Julia</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/matlab">MATLAB</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/python">Python</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/r">R</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/ruby">Ruby</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow-rs">Rust</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow-swift">Swift</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow" target="_blank" rel="noopener">Main Repo</a>
+            <hr>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/c_glib" target="_blank" rel="noopener">C GLib</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/cpp" target="_blank" rel="noopener">C++</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/csharp" target="_blank" rel="noopener">C#</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow-go" target="_blank" rel="noopener">Go</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow-java" target="_blank" rel="noopener">Java</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow-js" target="_blank" rel="noopener">JavaScript</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow-julia" target="_blank" rel="noopener">Julia</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/matlab" target="_blank" rel="noopener">MATLAB</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/python" target="_blank" rel="noopener">Python</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/r" target="_blank" rel="noopener">R</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/ruby" target="_blank" rel="noopener">Ruby</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow-rs" target="_blank" rel="noopener">Rust</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow-swift" target="_blank" rel="noopener">Swift</a>
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#"
-             id="navbarDropdownSubprojects" role="button" data-toggle="dropdown"
-             aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownSubprojects" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              Subprojects
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownSubprojects">
-            <a class="dropdown-item" href="/adbc">ADBC</a>
-            <a class="dropdown-item" href="/docs/format/Flight.html">Arrow Flight</a>
-            <a class="dropdown-item" href="/docs/format/FlightSql.html">Arrow Flight SQL</a>
-            <a class="dropdown-item" href="https://datafusion.apache.org">DataFusion</a>
-            <a class="dropdown-item" href="/nanoarrow">nanoarrow</a>
+            <a class="dropdown-item" href="/arrow-site/adbc">ADBC</a>
+            <a class="dropdown-item" href="/arrow-site/docs/format/Flight.html">Arrow Flight</a>
+            <a class="dropdown-item" href="/arrow-site/docs/format/FlightSql.html">Arrow Flight SQL</a>
+            <a class="dropdown-item" href="https://datafusion.apache.org" target="_blank" rel="noopener">DataFusion</a>
+            <a class="dropdown-item" href="/arrow-site/nanoarrow">nanoarrow</a>
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#"
-             id="navbarDropdownCommunity" role="button" data-toggle="dropdown"
-             aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCommunity" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              Community
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownCommunity">
-            <a class="dropdown-item" href="/community/">Communication</a>
-            <a class="dropdown-item" href="/docs/developers/index.html">Contributing</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/issues">Issue Tracker</a>
-            <a class="dropdown-item" href="/committers/">Governance</a>
-            <a class="dropdown-item" href="/use_cases/">Use Cases</a>
-            <a class="dropdown-item" href="/powered_by/">Powered By</a>
-            <a class="dropdown-item" href="/visual_identity/">Visual Identity</a>
-            <a class="dropdown-item" href="/security/">Security</a>
-            <a class="dropdown-item" href="https://www.apache.org/foundation/policies/conduct.html">Code of Conduct</a>
+            <a class="dropdown-item" href="/arrow-site/community/">Communication</a>
+            <a class="dropdown-item" href="/arrow-site/docs/developers/index.html">Contributing</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/issues" target="_blank" rel="noopener">Issue Tracker</a>
+            <a class="dropdown-item" href="/arrow-site/committers/">Governance</a>
+            <a class="dropdown-item" href="/arrow-site/use_cases/">Use Cases</a>
+            <a class="dropdown-item" href="/arrow-site/powered_by/">Powered By</a>
+            <a class="dropdown-item" href="/arrow-site/visual_identity/">Visual Identity</a>
+            <a class="dropdown-item" href="/arrow-site/security/">Security</a>
+            <a class="dropdown-item" href="https://www.apache.org/foundation/policies/conduct.html" target="_blank" rel="noopener">Code of Conduct</a>
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#"
-             id="navbarDropdownASF" role="button" data-toggle="dropdown"
-             aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownASF" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              ASF Links
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownASF">
-            <a class="dropdown-item" href="https://www.apache.org/">ASF Website</a>
-            <a class="dropdown-item" href="https://www.apache.org/licenses/">License</a>
-            <a class="dropdown-item" href="https://www.apache.org/foundation/sponsorship.html">Donate</a>
-            <a class="dropdown-item" href="https://www.apache.org/foundation/thanks.html">Thanks</a>
-            <a class="dropdown-item" href="https://www.apache.org/security/">Security</a>
+            <a class="dropdown-item" href="https://www.apache.org/" target="_blank" rel="noopener">ASF Website</a>
+            <a class="dropdown-item" href="https://www.apache.org/licenses/" target="_blank" rel="noopener">License</a>
+            <a class="dropdown-item" href="https://www.apache.org/foundation/sponsorship.html" target="_blank" rel="noopener">Donate</a>
+            <a class="dropdown-item" href="https://www.apache.org/foundation/thanks.html" target="_blank" rel="noopener">Thanks</a>
+            <a class="dropdown-item" href="https://www.apache.org/security/" target="_blank" rel="noopener">Security</a>
           </div>
         </li>
       </ul>
-    </div><!-- /.navbar-collapse -->
+    </div>
+<!-- /.navbar-collapse -->
   </nav>
 
   </header>
@@ -266,10 +255,10 @@
   <span class="published mr-3">
     23 Oct 2024
   </span>
-  <br />
+  <br>
   <span class="badge badge-secondary">By</span>
   
-    <a class="mr-3" href="https://arrow.apache.org">The Apache Arrow PMC (pmc) </a>
+    <a class="mr-3" href="https://arrow.apache.org" target="_blank" rel="noopener">The Apache Arrow PMC (pmc) </a>
   
 
   
@@ -279,73 +268,60 @@
         <!--
 
 -->
-
 <p>The Apache Arrow team is pleased to announce the v18.0.0 release of
 Apache Arrow Go. This release covers 35 resolved issues from
 11 contributors.</p>
-
-<h2 id="release-highlights">Release Highlights</h2>
-
-<h3 id="move-to-new-repository">Move to new Repository</h3>
-
+<h2>Release Highlights</h2>
+<h3>Move to new Repository</h3>
 <p>The Apache Arrow Go implementation has been shifted out of the Arrow monorepo
-and to its own repository now located at https://github.com/apache/arrow-go.
+and to its own repository now located at <a href="https://github.com/apache/arrow-go" target="_blank" rel="noopener">https://github.com/apache/arrow-go</a>.
 This will enable fewer major version releases and facilitate more minor
 version/patch releases instead as it will detach the version number from the
 Arrow C++ and other implementations in the monorepo.</p>
-
 <p>Current users of Arrow Go will want to carefully note the breaking change to
 module paths this move causes. To upgrade to Arrow Go v18.0.0, ensure you
-properly update all relevant module paths in your <code class="language-plaintext highlighter-rouge">go.mod</code>, replacing all
-instances of <code class="language-plaintext highlighter-rouge">github.com/apache/arrow/go/</code> with <code class="language-plaintext highlighter-rouge">github.com/apache/arrow-go</code>.</p>
-
+properly update all relevant module paths in your <code>go.mod</code>, replacing all
+instances of <code>github.com/apache/arrow/go/</code> with <code>github.com/apache/arrow-go</code>.</p>
 <p>Existing Go related issues have been moved to the new repository and please file
 any new issues on the new repository instead of the Arrow monorepo.</p>
-
-<h3 id="go-version">Go Version</h3>
-
+<h3>Go Version</h3>
 <p>With this release, the minimum Go version is now 1.22.</p>
-
-<h3 id="arrow">Arrow</h3>
-
-<h4 id="canonical-extension-types">Canonical Extension Types</h4>
-
-<p>There is a new <a href="https://pkg.go.dev/github.com/apache/arrow-go/v18@v18.0.0/arrow/extensions"><code class="language-plaintext highlighter-rouge">extensions</code></a> package 
-which implements <a href="https://arrow.apache.org/docs/format/CanonicalExtensions.html">canonical extension types</a>. This
+<h3>Arrow</h3>
+<h4>Canonical Extension Types</h4>
+<p>There is a new <a href="https://pkg.go.dev/github.com/apache/arrow-go/v18@v18.0.0/arrow/extensions" target="_blank" rel="noopener"><code>extensions</code></a> package
+which implements <a href="https://arrow.apache.org/docs/format/CanonicalExtensions.html" target="_blank" rel="noopener">canonical extension types</a>. This
 includes:</p>
-
 <ul>
-  <li>Opaque <a href="https://github.com/apache/arrow/issues/43455">GH-43455</a></li>
-  <li>JSON and UUID <a href="https://github.com/apache/arrow/issues/43764">GH-43764</a></li>
-  <li>Bool8 <a href="https://github.com/apache/arrow/issues/17682">GH-17682</a></li>
+<li>Opaque <a href="https://github.com/apache/arrow/issues/43455" target="_blank" rel="noopener">GH-43455</a>
+</li>
+<li>JSON and UUID <a href="https://github.com/apache/arrow/issues/43764" target="_blank" rel="noopener">GH-43764</a>
+</li>
+<li>Bool8 <a href="https://github.com/apache/arrow/issues/17682" target="_blank" rel="noopener">GH-17682</a>
+</li>
 </ul>
-
-<h4 id="features">Features</h4>
-
+<h4>Features</h4>
 <ul>
-  <li>Added the initial implementation for the Decimal32/Decimal64 data types <a href="https://github.com/apache/arrow-go/issues/120">GH-120</a></li>
-  <li>Added <code class="language-plaintext highlighter-rouge">is_null</code>, <code class="language-plaintext highlighter-rouge">is_not_null</code> and <code class="language-plaintext highlighter-rouge">is_nan</code> function kernels to the <code class="language-plaintext highlighter-rouge">compute</code> package <a href="https://github.com/apache/arrow-go/issues/134">GH-134</a></li>
+<li>Added the initial implementation for the Decimal32/Decimal64 data types <a href="https://github.com/apache/arrow-go/issues/120" target="_blank" rel="noopener">GH-120</a>
+</li>
+<li>Added <code>is_null</code>, <code>is_not_null</code> and <code>is_nan</code> function kernels to the <code>compute</code> package <a href="https://github.com/apache/arrow-go/issues/134" target="_blank" rel="noopener">GH-134</a>
+</li>
 </ul>
-
-<h4 id="bug-fixes">Bug Fixes</h4>
-
+<h4>Bug Fixes</h4>
 <ul>
-  <li>Fixed an inconsistency in <code class="language-plaintext highlighter-rouge">ValueOffset</code> between String and Binary Arrays <a href="https://github.com/apache/arrow-go/issues/41">GH-41</a></li>
+<li>Fixed an inconsistency in <code>ValueOffset</code> between String and Binary Arrays <a href="https://github.com/apache/arrow-go/issues/41" target="_blank" rel="noopener">GH-41</a>
+</li>
 </ul>
-
-<h3 id="parquet">Parquet</h3>
-
+<h3>Parquet</h3>
 <ul>
-  <li>Added support for LZ4_RAW compression codec <a href="https://github.com/apache/arrow/issues/43790">GH-43790</a></li>
-  <li>Fixed recovery from a panic in the file reader <a href="https://github.com/apache/arrow-go/pull/124">GH-124</a></li>
+<li>Added support for LZ4_RAW compression codec <a href="https://github.com/apache/arrow/issues/43790" target="_blank" rel="noopener">GH-43790</a>
+</li>
+<li>Fixed recovery from a panic in the file reader <a href="https://github.com/apache/arrow-go/pull/124" target="_blank" rel="noopener">GH-124</a>
+</li>
 </ul>
-
-<h2 id="contributors">Contributors</h2>
-
+<h2>Contributors</h2>
 <p>This release consists of contributions from 11 contributors in addition to the
 invaluable advice and support of the Apache Arrow community.</p>
-
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>git shortlog <span class="nt">--perl-regexp</span> <span class="nt">--author</span><span class="o">=</span><span class="s1">'^((?!dependabot\[bot\]).*)$'</span> <span class="nt">-sn</span> 8b7fde9..v18.0.0
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code data-lang="console"><span class="gp">$</span><span class="w"> </span>git shortlog <span class="nt">--perl-regexp</span> <span class="nt">--author</span><span class="o">=</span><span class="s1">'^((?!dependabot\[bot\]).*)$'</span> <span class="nt">-sn</span> 8b7fde9..v18.0.0
 <span class="go">    17	Sutou Kouhei
      8	Joel Lubinitsky
      6	Matt Topol
@@ -362,16 +338,16 @@ invaluable advice and support of the Apache Arrow community.</p>
       </main>
     </div>
 
-    <hr/>
+    <hr>
 <footer class="footer">
   <div class="row">
     <div class="col-md-9">
       <p>Apache Arrow, Arrow, Apache, the Apache feather logo, and the Apache Arrow project logo are either registered trademarks or trademarks of The Apache Software Foundation in the United States and other countries.</p>
-      <p>&copy; 2016-2025 The Apache Software Foundation</p>
+      <p>© 2016-2025 The Apache Software Foundation</p>
     </div>
     <div class="col-md-3">
-      <a class="d-sm-none d-md-inline pr-2" href="https://www.apache.org/events/current-event.html">
-        <img src="https://www.apache.org/events/current-event-234x60.png"/>
+      <a class="d-sm-none d-md-inline pr-2" href="https://www.apache.org/events/current-event.html" target="_blank" rel="noopener">
+        <img src="https://www.apache.org/events/current-event-234x60.png">
       </a>
     </div>
   </div>

@@ -10,40 +10,40 @@
     
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<meta name="generator" content="Jekyll v4.3.3" />
+<meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Fuzzing the Arrow C++ IPC implementation" />
 <meta name="author" content="apitrou" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="We have set up continuous fuzzing for the Arrow C++ IPC reader. This helped us find and correct several issues where missing input validation would lead to crashes or undefined behaviour." />
 <meta property="og:description" content="We have set up continuous fuzzing for the Arrow C++ IPC reader. This helped us find and correct several issues where missing input validation would lead to crashes or undefined behaviour." />
-<link rel="canonical" href="https://arrow.apache.org/blog/2020/03/31/fuzzing-arrow-ipc/" />
-<meta property="og:url" content="https://arrow.apache.org/blog/2020/03/31/fuzzing-arrow-ipc/" />
+<link rel="canonical" href="https://kou.github.io/arrow-site/arrow-site/blog/2020/03/31/fuzzing-arrow-ipc/" />
+<meta property="og:url" content="https://kou.github.io/arrow-site/arrow-site/blog/2020/03/31/fuzzing-arrow-ipc/" />
 <meta property="og:site_name" content="Apache Arrow" />
-<meta property="og:image" content="https://arrow.apache.org/img/arrow-logo_horizontal_black-txt_white-bg.png" />
+<meta property="og:image" content="https://kou.github.io/arrow-site/arrow-site/img/arrow-logo_horizontal_black-txt_white-bg.png" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-03-31T19:00:00-04:00" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta property="twitter:image" content="https://arrow.apache.org/img/arrow-logo_horizontal_black-txt_white-bg.png" />
+<meta property="twitter:image" content="https://kou.github.io/arrow-site/arrow-site/img/arrow-logo_horizontal_black-txt_white-bg.png" />
 <meta property="twitter:title" content="Fuzzing the Arrow C++ IPC implementation" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"apitrou"},"dateModified":"2020-03-31T19:00:00-04:00","datePublished":"2020-03-31T19:00:00-04:00","description":"We have set up continuous fuzzing for the Arrow C++ IPC reader. This helped us find and correct several issues where missing input validation would lead to crashes or undefined behaviour.","headline":"Fuzzing the Arrow C++ IPC implementation","image":"https://arrow.apache.org/img/arrow-logo_horizontal_black-txt_white-bg.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://arrow.apache.org/blog/2020/03/31/fuzzing-arrow-ipc/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://arrow.apache.org/img/logo.png"},"name":"apitrou"},"url":"https://arrow.apache.org/blog/2020/03/31/fuzzing-arrow-ipc/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"apitrou"},"dateModified":"2020-03-31T19:00:00-04:00","datePublished":"2020-03-31T19:00:00-04:00","description":"We have set up continuous fuzzing for the Arrow C++ IPC reader. This helped us find and correct several issues where missing input validation would lead to crashes or undefined behaviour.","headline":"Fuzzing the Arrow C++ IPC implementation","image":"https://kou.github.io/arrow-site/arrow-site/img/arrow-logo_horizontal_black-txt_white-bg.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://kou.github.io/arrow-site/arrow-site/blog/2020/03/31/fuzzing-arrow-ipc/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://kou.github.io/arrow-site/arrow-site/img/logo.png"},"name":"apitrou"},"url":"https://kou.github.io/arrow-site/arrow-site/blog/2020/03/31/fuzzing-arrow-ipc/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
     <!-- favicons -->
-    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png" id="light1">
-    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png" id="light2">
-    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/img/apple-touch-icon.png" id="light3">
-    <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="/img/apple-touch-icon-120x120.png" id="light4">
-    <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="/img/apple-touch-icon-76x76.png" id="light5">
-    <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="/img/apple-touch-icon-60x60.png" id="light6">
+    <link rel="icon" type="image/png" sizes="16x16" href="/arrow-site/img/favicon-16x16.png" id="light1">
+    <link rel="icon" type="image/png" sizes="32x32" href="/arrow-site/img/favicon-32x32.png" id="light2">
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/arrow-site/img/apple-touch-icon.png" id="light3">
+    <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="/arrow-site/img/apple-touch-icon-120x120.png" id="light4">
+    <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="/arrow-site/img/apple-touch-icon-76x76.png" id="light5">
+    <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="/arrow-site/img/apple-touch-icon-60x60.png" id="light6">
     <!-- dark mode favicons -->
-    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16-dark.png" id="dark1">
-    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32-dark.png" id="dark2">
-    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/img/apple-touch-icon-dark.png" id="dark3">
-    <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="/img/apple-touch-icon-120x120-dark.png" id="dark4">
-    <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="/img/apple-touch-icon-76x76-dark.png" id="dark5">
-    <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="/img/apple-touch-icon-60x60-dark.png" id="dark6">
+    <link rel="icon" type="image/png" sizes="16x16" href="/arrow-site/img/favicon-16x16-dark.png" id="dark1">
+    <link rel="icon" type="image/png" sizes="32x32" href="/arrow-site/img/favicon-32x32-dark.png" id="dark2">
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/arrow-site/img/apple-touch-icon-dark.png" id="dark3">
+    <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="/arrow-site/img/apple-touch-icon-120x120-dark.png" id="dark4">
+    <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="/arrow-site/img/apple-touch-icon-76x76-dark.png" id="dark5">
+    <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="/arrow-site/img/apple-touch-icon-60x60-dark.png" id="dark6">
 
     <script>
       // Switch to the dark-mode favicons if prefers-color-scheme: dark
@@ -95,9 +95,9 @@
       onUpdate();
     </script>
 
-    <link href="/css/main.css" rel="stylesheet">
-    <link href="/css/syntax.css" rel="stylesheet">
-    <script src="/javascript/main.js"></script>
+    <link href="/arrow-site/css/main.css" rel="stylesheet">
+    <link href="/arrow-site/css/syntax.css" rel="stylesheet">
+    <script src="/arrow-site/javascript/main.js"></script>
     
     <!-- Matomo -->
 <script>
@@ -118,7 +118,7 @@
 <!-- End Matomo Code -->
 
     
-    <link type="application/atom+xml" rel="alternate" href="https://arrow.apache.org/feed.xml" title="Apache Arrow" />
+    <link type="application/atom+xml" rel="alternate" href="https://kou.github.io/arrow-site/arrow-site/feed.xml" title="Apache Arrow" />
   </head>
 
 
@@ -126,7 +126,7 @@
   <header>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
   
-  <a class="navbar-brand no-padding" href="/"><img src="/img/arrow-inverse-300px.png" height="40px"/></a>
+  <a class="navbar-brand no-padding" href="/arrow-site/"><img src="/arrow-site/img/arrow-inverse-300px.png" height="40px"></a>
   
    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#arrow-navbar" aria-controls="arrow-navbar" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -135,117 +135,106 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse justify-content-end" id="arrow-navbar">
       <ul class="nav navbar-nav">
-        <li class="nav-item"><a class="nav-link" href="/overview/" role="button" aria-haspopup="true" aria-expanded="false">Overview</a></li>
-        <li class="nav-item"><a class="nav-link" href="/faq/" role="button" aria-haspopup="true" aria-expanded="false">FAQ</a></li>
-        <li class="nav-item"><a class="nav-link" href="/blog" role="button" aria-haspopup="true" aria-expanded="false">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="/arrow-site/overview/" role="button" aria-haspopup="true" aria-expanded="false">Overview</a></li>
+        <li class="nav-item"><a class="nav-link" href="/arrow-site/faq/" role="button" aria-haspopup="true" aria-expanded="false">FAQ</a></li>
+        <li class="nav-item"><a class="nav-link" href="/arrow-site/blog" role="button" aria-haspopup="true" aria-expanded="false">Blog</a></li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#"
-             id="navbarDropdownGetArrow" role="button" data-toggle="dropdown"
-             aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownGetArrow" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              Get Arrow
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownGetArrow">
-            <a class="dropdown-item" href="/install/">Install</a>
-            <a class="dropdown-item" href="/release/">Releases</a>
+            <a class="dropdown-item" href="/arrow-site/install/">Install</a>
+            <a class="dropdown-item" href="/arrow-site/release/">Releases</a>
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#"
-             id="navbarDropdownDocumentation" role="button" data-toggle="dropdown"
-             aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDocumentation" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              Docs
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownDocumentation">
-            <a class="dropdown-item" href="/docs">Project Docs</a>
-            <a class="dropdown-item" href="/docs/format/Columnar.html">Format</a>
-            <hr/>
-            <a class="dropdown-item" href="/docs/c_glib">C GLib</a>
-            <a class="dropdown-item" href="/docs/cpp">C++</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/blob/main/csharp/README.md">C#</a>
-            <a class="dropdown-item" href="https://godoc.org/github.com/apache/arrow/go/arrow">Go</a>
-            <a class="dropdown-item" href="/docs/java">Java</a>
-            <a class="dropdown-item" href="/docs/js">JavaScript</a>
-            <a class="dropdown-item" href="/julia/">Julia</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/blob/main/matlab/README.md">MATLAB</a>
-            <a class="dropdown-item" href="/docs/python">Python</a>
-            <a class="dropdown-item" href="/docs/r">R</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/blob/main/ruby/README.md">Ruby</a>
-            <a class="dropdown-item" href="https://docs.rs/arrow/latest">Rust</a>
-            <a class="dropdown-item" href="/swift">Swift</a>
+            <a class="dropdown-item" href="/arrow-site/docs">Project Docs</a>
+            <a class="dropdown-item" href="/arrow-site/docs/format/Columnar.html">Format</a>
+            <hr>
+            <a class="dropdown-item" href="/arrow-site/docs/c_glib">C GLib</a>
+            <a class="dropdown-item" href="/arrow-site/docs/cpp">C++</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/blob/main/csharp/README.md" target="_blank" rel="noopener">C#</a>
+            <a class="dropdown-item" href="https://godoc.org/github.com/apache/arrow/go/arrow" target="_blank" rel="noopener">Go</a>
+            <a class="dropdown-item" href="/arrow-site/docs/java">Java</a>
+            <a class="dropdown-item" href="/arrow-site/docs/js">JavaScript</a>
+            <a class="dropdown-item" href="/arrow-site/julia/">Julia</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/blob/main/matlab/README.md" target="_blank" rel="noopener">MATLAB</a>
+            <a class="dropdown-item" href="/arrow-site/docs/python">Python</a>
+            <a class="dropdown-item" href="/arrow-site/docs/r">R</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/blob/main/ruby/README.md" target="_blank" rel="noopener">Ruby</a>
+            <a class="dropdown-item" href="https://docs.rs/arrow/latest" target="_blank" rel="noopener">Rust</a>
+            <a class="dropdown-item" href="/arrow-site/swift">Swift</a>
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#"
-             id="navbarDropdownSource" role="button" data-toggle="dropdown"
-             aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownSource" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              Source
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownSource">
-            <a class="dropdown-item" href="https://github.com/apache/arrow">Main Repo</a>
-            <hr/>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/c_glib">C GLib</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/cpp">C++</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/csharp">C#</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow-go">Go</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow-java">Java</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow-js">JavaScript</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow-julia">Julia</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/matlab">MATLAB</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/python">Python</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/r">R</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/ruby">Ruby</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow-rs">Rust</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow-swift">Swift</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow" target="_blank" rel="noopener">Main Repo</a>
+            <hr>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/c_glib" target="_blank" rel="noopener">C GLib</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/cpp" target="_blank" rel="noopener">C++</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/csharp" target="_blank" rel="noopener">C#</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow-go" target="_blank" rel="noopener">Go</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow-java" target="_blank" rel="noopener">Java</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow-js" target="_blank" rel="noopener">JavaScript</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow-julia" target="_blank" rel="noopener">Julia</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/matlab" target="_blank" rel="noopener">MATLAB</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/python" target="_blank" rel="noopener">Python</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/r" target="_blank" rel="noopener">R</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/ruby" target="_blank" rel="noopener">Ruby</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow-rs" target="_blank" rel="noopener">Rust</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow-swift" target="_blank" rel="noopener">Swift</a>
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#"
-             id="navbarDropdownSubprojects" role="button" data-toggle="dropdown"
-             aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownSubprojects" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              Subprojects
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownSubprojects">
-            <a class="dropdown-item" href="/adbc">ADBC</a>
-            <a class="dropdown-item" href="/docs/format/Flight.html">Arrow Flight</a>
-            <a class="dropdown-item" href="/docs/format/FlightSql.html">Arrow Flight SQL</a>
-            <a class="dropdown-item" href="https://datafusion.apache.org">DataFusion</a>
-            <a class="dropdown-item" href="/nanoarrow">nanoarrow</a>
+            <a class="dropdown-item" href="/arrow-site/adbc">ADBC</a>
+            <a class="dropdown-item" href="/arrow-site/docs/format/Flight.html">Arrow Flight</a>
+            <a class="dropdown-item" href="/arrow-site/docs/format/FlightSql.html">Arrow Flight SQL</a>
+            <a class="dropdown-item" href="https://datafusion.apache.org" target="_blank" rel="noopener">DataFusion</a>
+            <a class="dropdown-item" href="/arrow-site/nanoarrow">nanoarrow</a>
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#"
-             id="navbarDropdownCommunity" role="button" data-toggle="dropdown"
-             aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCommunity" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              Community
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownCommunity">
-            <a class="dropdown-item" href="/community/">Communication</a>
-            <a class="dropdown-item" href="/docs/developers/index.html">Contributing</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/issues">Issue Tracker</a>
-            <a class="dropdown-item" href="/committers/">Governance</a>
-            <a class="dropdown-item" href="/use_cases/">Use Cases</a>
-            <a class="dropdown-item" href="/powered_by/">Powered By</a>
-            <a class="dropdown-item" href="/visual_identity/">Visual Identity</a>
-            <a class="dropdown-item" href="/security/">Security</a>
-            <a class="dropdown-item" href="https://www.apache.org/foundation/policies/conduct.html">Code of Conduct</a>
+            <a class="dropdown-item" href="/arrow-site/community/">Communication</a>
+            <a class="dropdown-item" href="/arrow-site/docs/developers/index.html">Contributing</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/issues" target="_blank" rel="noopener">Issue Tracker</a>
+            <a class="dropdown-item" href="/arrow-site/committers/">Governance</a>
+            <a class="dropdown-item" href="/arrow-site/use_cases/">Use Cases</a>
+            <a class="dropdown-item" href="/arrow-site/powered_by/">Powered By</a>
+            <a class="dropdown-item" href="/arrow-site/visual_identity/">Visual Identity</a>
+            <a class="dropdown-item" href="/arrow-site/security/">Security</a>
+            <a class="dropdown-item" href="https://www.apache.org/foundation/policies/conduct.html" target="_blank" rel="noopener">Code of Conduct</a>
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#"
-             id="navbarDropdownASF" role="button" data-toggle="dropdown"
-             aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownASF" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              ASF Links
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownASF">
-            <a class="dropdown-item" href="https://www.apache.org/">ASF Website</a>
-            <a class="dropdown-item" href="https://www.apache.org/licenses/">License</a>
-            <a class="dropdown-item" href="https://www.apache.org/foundation/sponsorship.html">Donate</a>
-            <a class="dropdown-item" href="https://www.apache.org/foundation/thanks.html">Thanks</a>
-            <a class="dropdown-item" href="https://www.apache.org/security/">Security</a>
+            <a class="dropdown-item" href="https://www.apache.org/" target="_blank" rel="noopener">ASF Website</a>
+            <a class="dropdown-item" href="https://www.apache.org/licenses/" target="_blank" rel="noopener">License</a>
+            <a class="dropdown-item" href="https://www.apache.org/foundation/sponsorship.html" target="_blank" rel="noopener">Donate</a>
+            <a class="dropdown-item" href="https://www.apache.org/foundation/thanks.html" target="_blank" rel="noopener">Thanks</a>
+            <a class="dropdown-item" href="https://www.apache.org/security/" target="_blank" rel="noopener">Security</a>
           </div>
         </li>
       </ul>
-    </div><!-- /.navbar-collapse -->
+    </div>
+<!-- /.navbar-collapse -->
   </nav>
 
   </header>
@@ -266,10 +255,10 @@
   <span class="published mr-3">
     31 Mar 2020
   </span>
-  <br />
+  <br>
   <span class="badge badge-secondary">By</span>
   
-    <a class="mr-3" href="https://github.com/pitrou">Antoine Pitrou (apitrou) </a>
+    <a class="mr-3" href="https://github.com/pitrou" target="_blank" rel="noopener">Antoine Pitrou (apitrou) </a>
   
 
   
@@ -279,81 +268,67 @@
         <!--
 
 -->
-
 <p>Apache Arrow aims to allow fast and seamless data interchange between
 heterogenous runtimes and environments.  Whether using the columnar
-<a href="https://arrow.apache.org/docs/format/Columnar.html">IPC stream protocol</a>,
-the <a href="https://arrow.apache.org/docs/format/Flight.html">Flight</a> RPC layer,
+<a href="https://arrow.apache.org/docs/format/Columnar.html" target="_blank" rel="noopener">IPC stream protocol</a>,
+the <a href="https://arrow.apache.org/docs/format/Flight.html" target="_blank" rel="noopener">Flight</a> RPC layer,
 the Feather file format, the
-<a href="https://arrow.apache.org/docs/python/plasma.html">Plasma</a> shared object
+<a href="https://arrow.apache.org/docs/python/plasma.html" target="_blank" rel="noopener">Plasma</a> shared object
 store, or any application-specific data distribution mechanism, Arrow IPC
 implementations may try to decode data from untrusted input.  While it is ok
-to report an error in that case, Arrow shouldn’t crash or engage in risky
+to report an error in that case, Arrow shouldn't crash or engage in risky
 behaviour while reading such data.</p>
-
 <p>To validate the robustness of the Arrow C++ IPC reader (which also underlies
 the Python, C/GLib, R and Ruby bindings), we
-<a href="https://github.com/google/oss-fuzz/pull/3233">successfully submitted</a>
+<a href="https://github.com/google/oss-fuzz/pull/3233" target="_blank" rel="noopener">successfully submitted</a>
 the Arrow project to OSS-Fuzz, a continuous fuzzing initiative for critical
 open source projects, provided by Google.</p>
-
-<h2 id="what-is-being-fuzzed">What is being fuzzed</h2>
-
-<p>As of this writing, the <code class="language-plaintext highlighter-rouge">RecordBatchStreamReader</code> and <code class="language-plaintext highlighter-rouge">RecordBatchFileReader</code>
+<h2>What is being fuzzed</h2>
+<p>As of this writing, the <code>RecordBatchStreamReader</code> and <code>RecordBatchFileReader</code>
 C++ classes are being fuzzed by feeding them data generated by the fuzzer.</p>
-
 <p>When a record batch is successfully read by one of those classes, the
-fuzzing setup then validates it using <code class="language-plaintext highlighter-rouge">RecordBatch::ValidateFull</code>.  This
-method can either succeed or fail, but it shouldn’t crash.</p>
-
+fuzzing setup then validates it using <code>RecordBatch::ValidateFull</code>.  This
+method can either succeed or fail, but it shouldn't crash.</p>
 <p>By ensuring that reading a record batch from IPC, then validating it, always
 shows deterministic behaviour, we hope to make it relatively safe to ingest
 Arrow IPC data coming from untrusted sources.</p>
-
 <p>(of course, it is still recommended for security-critical applications
- to use cryptographic means of authentication and integrity control – for
- example, to enable TLS with the Flight RPC protocol)</p>
-
-<h2 id="how-we-help-the-fuzzer-find-problems">How we help the fuzzer find problems</h2>
-
+to use cryptographic means of authentication and integrity control -- for
+example, to enable TLS with the Flight RPC protocol)</p>
+<h2>How we help the fuzzer find problems</h2>
 <p>Fuzzing is a brute force process that tries to devise invalid data to
-exercise an implementation’s response.  By default, the fuzzer does not know
+exercise an implementation's response.  By default, the fuzzer does not know
 anything about the data representation expected by the program under test.
 Fuzzing can therefore be extremely inefficient, testing tons of uninteresting
 variations while missing critical ones.</p>
-
 <p>To help guide the fuzzing process, we added a seed corpus of valid Arrow IPC
 files with various data types.  By starting from this data and mutating it to
 find invalid variations, OSS-Fuzz was able to find tens of issues with data
 validation.  All of them have been fixed.  As of this writing, no new issue
 in the IPC layer was found since March 4th 2020.</p>
-
-<h2 id="what-comes-next">What comes next</h2>
-
+<h2>What comes next</h2>
 <p>Of course, we still monitor OSS-Fuzz for any new problem that could be found
 in the C++ IPC implementation.  Such problems might for example appear when adding
-features to the Arrow <a href="https://arrow.apache.org/docs/format/Columnar.html">IPC format</a>.</p>
-
+features to the Arrow <a href="https://arrow.apache.org/docs/format/Columnar.html" target="_blank" rel="noopener">IPC format</a>.</p>
 <p>We have started fuzzing the Parquet C++ implementation.  Several issues have
 been found and fixed, but more are still coming.  We hope to stabilize the
 situation in the next month or two.</p>
-
 <p>The tensor and sparse tensor IPC read paths are not being exercised yet.
 They will be once a motivated core developer wants to own the topic.</p>
 
       </main>
     </div>
 
-    <hr/>
+    <hr>
 <footer class="footer">
   <div class="row">
     <div class="col-md-9">
       <p>Apache Arrow, Arrow, Apache, the Apache feather logo, and the Apache Arrow project logo are either registered trademarks or trademarks of The Apache Software Foundation in the United States and other countries.</p>
-      <p>&copy; 2016-2025 The Apache Software Foundation</p>
+      <p>© 2016-2025 The Apache Software Foundation</p>
     </div>
     <div class="col-md-3">
-      <a class="d-sm-none d-md-inline pr-2" href="https://www.apache.org/events/current-event.html">
-        <img src="https://www.apache.org/events/current-event-234x60.png"/>
+      <a class="d-sm-none d-md-inline pr-2" href="https://www.apache.org/events/current-event.html" target="_blank" rel="noopener">
+        <img src="https://www.apache.org/events/current-event-234x60.png">
       </a>
     </div>
   </div>

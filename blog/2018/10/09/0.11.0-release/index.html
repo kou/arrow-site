@@ -10,40 +10,40 @@
     
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<meta name="generator" content="Jekyll v4.3.3" />
+<meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Apache Arrow 0.11.0 Release" />
 <meta name="author" content="wesm" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="The Apache Arrow team is pleased to announce the 0.11.0 release. It is the product of 2 months of development and includes 287 resolved issues. See the Install Page to learn how to get the libraries for your platform. The complete changelog is also available. We discuss some highlights from the release and other project news in this post. Arrow Flight RPC and Messaging Framework We are developing a new Arrow-native RPC framework, Arrow Flight, based on gRPC for high performance Arrow-based messaging. Through low-level extensions to gRPC’s internal memory management, we are able to avoid expensive parsing when receiving datasets over the wire, unlocking unprecedented levels of performance in moving datasets from one machine to another. We will be writing more about Flight on the Arrow blog in the future. Prototype implementations are available in Java and C++, and we will be focused in the coming months on hardening the Flight RPC framework for enterprise-grade production use cases. Parquet and Arrow C++ communities joining forces After discussion over the last year, the Apache Arrow and Apache Parquet C++ communities decide to merge the Parquet C++ codebase into the Arrow C++ codebase and work together in a “monorepo” structure. This should result in better developer productivity in core Parquet work as well as in Arrow integration. Before this codebase merge, we had a circular dependency between the Arrow and Parquet codebases, since the Parquet C++ library is used in the Arrow Python library. Gandiva LLVM Expression Compiler donation Dremio Corporation has donated the Gandiva LLVM expression compiler to Apache Arrow. We will be working on cross-platform builds, packaging, and language bindings (e.g. in Python) for Gandiva in the upcoming 0.12 release and beyond. We will write more about Gandiva in the future. Parquet C GLib Bindings Donation PMC member Kouhei Sutou has donated GLib bindings for the Parquet C++ libraries, which are designed to work together with the existing Arrow GLib bindings. C++ CSV Reader Project We have begun developing a general purpose multithreaded CSV file parser in C++. The purpose of this library is to parse and convert comma-separated text files into Arrow columnar record batches as efficiently as possible. The prototype version features Python bindings, and any language that can use the C++ libraries (including C, R, and Ruby). New MATLAB bindings The MathWorks has contributed an initial MEX file binding to the Arrow C++ libraries. Initially, it is possible to read Arrow-based Feather files in MATLAB. We are looking forward to seeing more developments for MATLAB users. R Library in Development The community has begun implementing R language bindings and interoperability with the Arrow C++ libraries. This will include support for zero-copy shared memory IPC and other tools needed to improve R integration with Apache Spark and more. Support for CUDA-based GPUs in Python This release includes Python bindings to the Arrow CUDA integration C++ library. This work is targeting interoperability with Numba and the GPU Open Analytics Initiative. Upcoming Roadmap In the coming months, we will continue to make progress on many fronts, with Gandiva packaging, expanded language support (especially in R), and improved data access (e.g. CSV, Parquet files) in focus." />
-<meta property="og:description" content="The Apache Arrow team is pleased to announce the 0.11.0 release. It is the product of 2 months of development and includes 287 resolved issues. See the Install Page to learn how to get the libraries for your platform. The complete changelog is also available. We discuss some highlights from the release and other project news in this post. Arrow Flight RPC and Messaging Framework We are developing a new Arrow-native RPC framework, Arrow Flight, based on gRPC for high performance Arrow-based messaging. Through low-level extensions to gRPC’s internal memory management, we are able to avoid expensive parsing when receiving datasets over the wire, unlocking unprecedented levels of performance in moving datasets from one machine to another. We will be writing more about Flight on the Arrow blog in the future. Prototype implementations are available in Java and C++, and we will be focused in the coming months on hardening the Flight RPC framework for enterprise-grade production use cases. Parquet and Arrow C++ communities joining forces After discussion over the last year, the Apache Arrow and Apache Parquet C++ communities decide to merge the Parquet C++ codebase into the Arrow C++ codebase and work together in a “monorepo” structure. This should result in better developer productivity in core Parquet work as well as in Arrow integration. Before this codebase merge, we had a circular dependency between the Arrow and Parquet codebases, since the Parquet C++ library is used in the Arrow Python library. Gandiva LLVM Expression Compiler donation Dremio Corporation has donated the Gandiva LLVM expression compiler to Apache Arrow. We will be working on cross-platform builds, packaging, and language bindings (e.g. in Python) for Gandiva in the upcoming 0.12 release and beyond. We will write more about Gandiva in the future. Parquet C GLib Bindings Donation PMC member Kouhei Sutou has donated GLib bindings for the Parquet C++ libraries, which are designed to work together with the existing Arrow GLib bindings. C++ CSV Reader Project We have begun developing a general purpose multithreaded CSV file parser in C++. The purpose of this library is to parse and convert comma-separated text files into Arrow columnar record batches as efficiently as possible. The prototype version features Python bindings, and any language that can use the C++ libraries (including C, R, and Ruby). New MATLAB bindings The MathWorks has contributed an initial MEX file binding to the Arrow C++ libraries. Initially, it is possible to read Arrow-based Feather files in MATLAB. We are looking forward to seeing more developments for MATLAB users. R Library in Development The community has begun implementing R language bindings and interoperability with the Arrow C++ libraries. This will include support for zero-copy shared memory IPC and other tools needed to improve R integration with Apache Spark and more. Support for CUDA-based GPUs in Python This release includes Python bindings to the Arrow CUDA integration C++ library. This work is targeting interoperability with Numba and the GPU Open Analytics Initiative. Upcoming Roadmap In the coming months, we will continue to make progress on many fronts, with Gandiva packaging, expanded language support (especially in R), and improved data access (e.g. CSV, Parquet files) in focus." />
-<link rel="canonical" href="https://arrow.apache.org/blog/2018/10/09/0.11.0-release/" />
-<meta property="og:url" content="https://arrow.apache.org/blog/2018/10/09/0.11.0-release/" />
+<meta name="description" content="The Apache Arrow team is pleased to announce the 0.11.0 release. It is the product of 2 months of development and includes 287 resolved issues. See the Install Page to learn how to get the libraries for your platform. The complete changelog is also available. We discuss some highlights from the release and other project news in this post. Arrow Flight RPC and Messaging Framework We are developing a new Arrow-native RPC framework, Arrow Flight, based on gRPC for high performance Arrow-based messaging. Through low-level extensions to gRPC&#39;s internal memory management, we are able to avoid expensive parsing when receiving datasets over the wire, unlocking unprecedented levels of performance in moving datasets from one machine to another. We will be writing more about Flight on the Arrow blog in the future. Prototype implementations are available in Java and C++, and we will be focused in the coming months on hardening the Flight RPC framework for enterprise-grade production use cases. Parquet and Arrow C++ communities joining forces After discussion over the last year, the Apache Arrow and Apache Parquet C++ communities decide to merge the Parquet C++ codebase into the Arrow C++ codebase and work together in a &quot;monorepo&quot; structure. This should result in better developer productivity in core Parquet work as well as in Arrow integration. Before this codebase merge, we had a circular dependency between the Arrow and Parquet codebases, since the Parquet C++ library is used in the Arrow Python library. Gandiva LLVM Expression Compiler donation Dremio Corporation has donated the Gandiva LLVM expression compiler to Apache Arrow. We will be working on cross-platform builds, packaging, and language bindings (e.g. in Python) for Gandiva in the upcoming 0.12 release and beyond. We will write more about Gandiva in the future. Parquet C GLib Bindings Donation PMC member Kouhei Sutou has donated GLib bindings for the Parquet C++ libraries, which are designed to work together with the existing Arrow GLib bindings. C++ CSV Reader Project We have begun developing a general purpose multithreaded CSV file parser in C++. The purpose of this library is to parse and convert comma-separated text files into Arrow columnar record batches as efficiently as possible. The prototype version features Python bindings, and any language that can use the C++ libraries (including C, R, and Ruby). New MATLAB bindings The MathWorks has contributed an initial MEX file binding to the Arrow C++ libraries. Initially, it is possible to read Arrow-based Feather files in MATLAB. We are looking forward to seeing more developments for MATLAB users. R Library in Development The community has begun implementing R language bindings and interoperability with the Arrow C++ libraries. This will include support for zero-copy shared memory IPC and other tools needed to improve R integration with Apache Spark and more. Support for CUDA-based GPUs in Python This release includes Python bindings to the Arrow CUDA integration C++ library. This work is targeting interoperability with Numba and the GPU Open Analytics Initiative. Upcoming Roadmap In the coming months, we will continue to make progress on many fronts, with Gandiva packaging, expanded language support (especially in R), and improved data access (e.g. CSV, Parquet files) in focus." />
+<meta property="og:description" content="The Apache Arrow team is pleased to announce the 0.11.0 release. It is the product of 2 months of development and includes 287 resolved issues. See the Install Page to learn how to get the libraries for your platform. The complete changelog is also available. We discuss some highlights from the release and other project news in this post. Arrow Flight RPC and Messaging Framework We are developing a new Arrow-native RPC framework, Arrow Flight, based on gRPC for high performance Arrow-based messaging. Through low-level extensions to gRPC&#39;s internal memory management, we are able to avoid expensive parsing when receiving datasets over the wire, unlocking unprecedented levels of performance in moving datasets from one machine to another. We will be writing more about Flight on the Arrow blog in the future. Prototype implementations are available in Java and C++, and we will be focused in the coming months on hardening the Flight RPC framework for enterprise-grade production use cases. Parquet and Arrow C++ communities joining forces After discussion over the last year, the Apache Arrow and Apache Parquet C++ communities decide to merge the Parquet C++ codebase into the Arrow C++ codebase and work together in a &quot;monorepo&quot; structure. This should result in better developer productivity in core Parquet work as well as in Arrow integration. Before this codebase merge, we had a circular dependency between the Arrow and Parquet codebases, since the Parquet C++ library is used in the Arrow Python library. Gandiva LLVM Expression Compiler donation Dremio Corporation has donated the Gandiva LLVM expression compiler to Apache Arrow. We will be working on cross-platform builds, packaging, and language bindings (e.g. in Python) for Gandiva in the upcoming 0.12 release and beyond. We will write more about Gandiva in the future. Parquet C GLib Bindings Donation PMC member Kouhei Sutou has donated GLib bindings for the Parquet C++ libraries, which are designed to work together with the existing Arrow GLib bindings. C++ CSV Reader Project We have begun developing a general purpose multithreaded CSV file parser in C++. The purpose of this library is to parse and convert comma-separated text files into Arrow columnar record batches as efficiently as possible. The prototype version features Python bindings, and any language that can use the C++ libraries (including C, R, and Ruby). New MATLAB bindings The MathWorks has contributed an initial MEX file binding to the Arrow C++ libraries. Initially, it is possible to read Arrow-based Feather files in MATLAB. We are looking forward to seeing more developments for MATLAB users. R Library in Development The community has begun implementing R language bindings and interoperability with the Arrow C++ libraries. This will include support for zero-copy shared memory IPC and other tools needed to improve R integration with Apache Spark and more. Support for CUDA-based GPUs in Python This release includes Python bindings to the Arrow CUDA integration C++ library. This work is targeting interoperability with Numba and the GPU Open Analytics Initiative. Upcoming Roadmap In the coming months, we will continue to make progress on many fronts, with Gandiva packaging, expanded language support (especially in R), and improved data access (e.g. CSV, Parquet files) in focus." />
+<link rel="canonical" href="https://kou.github.io/arrow-site/arrow-site/blog/2018/10/09/0.11.0-release/" />
+<meta property="og:url" content="https://kou.github.io/arrow-site/arrow-site/blog/2018/10/09/0.11.0-release/" />
 <meta property="og:site_name" content="Apache Arrow" />
-<meta property="og:image" content="https://arrow.apache.org/img/arrow-logo_horizontal_black-txt_white-bg.png" />
+<meta property="og:image" content="https://kou.github.io/arrow-site/arrow-site/img/arrow-logo_horizontal_black-txt_white-bg.png" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2018-10-09T00:00:00-04:00" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta property="twitter:image" content="https://arrow.apache.org/img/arrow-logo_horizontal_black-txt_white-bg.png" />
+<meta property="twitter:image" content="https://kou.github.io/arrow-site/arrow-site/img/arrow-logo_horizontal_black-txt_white-bg.png" />
 <meta property="twitter:title" content="Apache Arrow 0.11.0 Release" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"wesm"},"dateModified":"2018-10-09T00:00:00-04:00","datePublished":"2018-10-09T00:00:00-04:00","description":"The Apache Arrow team is pleased to announce the 0.11.0 release. It is the product of 2 months of development and includes 287 resolved issues. See the Install Page to learn how to get the libraries for your platform. The complete changelog is also available. We discuss some highlights from the release and other project news in this post. Arrow Flight RPC and Messaging Framework We are developing a new Arrow-native RPC framework, Arrow Flight, based on gRPC for high performance Arrow-based messaging. Through low-level extensions to gRPC’s internal memory management, we are able to avoid expensive parsing when receiving datasets over the wire, unlocking unprecedented levels of performance in moving datasets from one machine to another. We will be writing more about Flight on the Arrow blog in the future. Prototype implementations are available in Java and C++, and we will be focused in the coming months on hardening the Flight RPC framework for enterprise-grade production use cases. Parquet and Arrow C++ communities joining forces After discussion over the last year, the Apache Arrow and Apache Parquet C++ communities decide to merge the Parquet C++ codebase into the Arrow C++ codebase and work together in a “monorepo” structure. This should result in better developer productivity in core Parquet work as well as in Arrow integration. Before this codebase merge, we had a circular dependency between the Arrow and Parquet codebases, since the Parquet C++ library is used in the Arrow Python library. Gandiva LLVM Expression Compiler donation Dremio Corporation has donated the Gandiva LLVM expression compiler to Apache Arrow. We will be working on cross-platform builds, packaging, and language bindings (e.g. in Python) for Gandiva in the upcoming 0.12 release and beyond. We will write more about Gandiva in the future. Parquet C GLib Bindings Donation PMC member Kouhei Sutou has donated GLib bindings for the Parquet C++ libraries, which are designed to work together with the existing Arrow GLib bindings. C++ CSV Reader Project We have begun developing a general purpose multithreaded CSV file parser in C++. The purpose of this library is to parse and convert comma-separated text files into Arrow columnar record batches as efficiently as possible. The prototype version features Python bindings, and any language that can use the C++ libraries (including C, R, and Ruby). New MATLAB bindings The MathWorks has contributed an initial MEX file binding to the Arrow C++ libraries. Initially, it is possible to read Arrow-based Feather files in MATLAB. We are looking forward to seeing more developments for MATLAB users. R Library in Development The community has begun implementing R language bindings and interoperability with the Arrow C++ libraries. This will include support for zero-copy shared memory IPC and other tools needed to improve R integration with Apache Spark and more. Support for CUDA-based GPUs in Python This release includes Python bindings to the Arrow CUDA integration C++ library. This work is targeting interoperability with Numba and the GPU Open Analytics Initiative. Upcoming Roadmap In the coming months, we will continue to make progress on many fronts, with Gandiva packaging, expanded language support (especially in R), and improved data access (e.g. CSV, Parquet files) in focus.","headline":"Apache Arrow 0.11.0 Release","image":"https://arrow.apache.org/img/arrow-logo_horizontal_black-txt_white-bg.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://arrow.apache.org/blog/2018/10/09/0.11.0-release/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://arrow.apache.org/img/logo.png"},"name":"wesm"},"url":"https://arrow.apache.org/blog/2018/10/09/0.11.0-release/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"wesm"},"dateModified":"2018-10-09T00:00:00-04:00","datePublished":"2018-10-09T00:00:00-04:00","description":"The Apache Arrow team is pleased to announce the 0.11.0 release. It is the product of 2 months of development and includes 287 resolved issues. See the Install Page to learn how to get the libraries for your platform. The complete changelog is also available. We discuss some highlights from the release and other project news in this post. Arrow Flight RPC and Messaging Framework We are developing a new Arrow-native RPC framework, Arrow Flight, based on gRPC for high performance Arrow-based messaging. Through low-level extensions to gRPC&#39;s internal memory management, we are able to avoid expensive parsing when receiving datasets over the wire, unlocking unprecedented levels of performance in moving datasets from one machine to another. We will be writing more about Flight on the Arrow blog in the future. Prototype implementations are available in Java and C++, and we will be focused in the coming months on hardening the Flight RPC framework for enterprise-grade production use cases. Parquet and Arrow C++ communities joining forces After discussion over the last year, the Apache Arrow and Apache Parquet C++ communities decide to merge the Parquet C++ codebase into the Arrow C++ codebase and work together in a &quot;monorepo&quot; structure. This should result in better developer productivity in core Parquet work as well as in Arrow integration. Before this codebase merge, we had a circular dependency between the Arrow and Parquet codebases, since the Parquet C++ library is used in the Arrow Python library. Gandiva LLVM Expression Compiler donation Dremio Corporation has donated the Gandiva LLVM expression compiler to Apache Arrow. We will be working on cross-platform builds, packaging, and language bindings (e.g. in Python) for Gandiva in the upcoming 0.12 release and beyond. We will write more about Gandiva in the future. Parquet C GLib Bindings Donation PMC member Kouhei Sutou has donated GLib bindings for the Parquet C++ libraries, which are designed to work together with the existing Arrow GLib bindings. C++ CSV Reader Project We have begun developing a general purpose multithreaded CSV file parser in C++. The purpose of this library is to parse and convert comma-separated text files into Arrow columnar record batches as efficiently as possible. The prototype version features Python bindings, and any language that can use the C++ libraries (including C, R, and Ruby). New MATLAB bindings The MathWorks has contributed an initial MEX file binding to the Arrow C++ libraries. Initially, it is possible to read Arrow-based Feather files in MATLAB. We are looking forward to seeing more developments for MATLAB users. R Library in Development The community has begun implementing R language bindings and interoperability with the Arrow C++ libraries. This will include support for zero-copy shared memory IPC and other tools needed to improve R integration with Apache Spark and more. Support for CUDA-based GPUs in Python This release includes Python bindings to the Arrow CUDA integration C++ library. This work is targeting interoperability with Numba and the GPU Open Analytics Initiative. Upcoming Roadmap In the coming months, we will continue to make progress on many fronts, with Gandiva packaging, expanded language support (especially in R), and improved data access (e.g. CSV, Parquet files) in focus.","headline":"Apache Arrow 0.11.0 Release","image":"https://kou.github.io/arrow-site/arrow-site/img/arrow-logo_horizontal_black-txt_white-bg.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://kou.github.io/arrow-site/arrow-site/blog/2018/10/09/0.11.0-release/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://kou.github.io/arrow-site/arrow-site/img/logo.png"},"name":"wesm"},"url":"https://kou.github.io/arrow-site/arrow-site/blog/2018/10/09/0.11.0-release/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
     <!-- favicons -->
-    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png" id="light1">
-    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png" id="light2">
-    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/img/apple-touch-icon.png" id="light3">
-    <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="/img/apple-touch-icon-120x120.png" id="light4">
-    <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="/img/apple-touch-icon-76x76.png" id="light5">
-    <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="/img/apple-touch-icon-60x60.png" id="light6">
+    <link rel="icon" type="image/png" sizes="16x16" href="/arrow-site/img/favicon-16x16.png" id="light1">
+    <link rel="icon" type="image/png" sizes="32x32" href="/arrow-site/img/favicon-32x32.png" id="light2">
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/arrow-site/img/apple-touch-icon.png" id="light3">
+    <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="/arrow-site/img/apple-touch-icon-120x120.png" id="light4">
+    <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="/arrow-site/img/apple-touch-icon-76x76.png" id="light5">
+    <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="/arrow-site/img/apple-touch-icon-60x60.png" id="light6">
     <!-- dark mode favicons -->
-    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16-dark.png" id="dark1">
-    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32-dark.png" id="dark2">
-    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/img/apple-touch-icon-dark.png" id="dark3">
-    <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="/img/apple-touch-icon-120x120-dark.png" id="dark4">
-    <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="/img/apple-touch-icon-76x76-dark.png" id="dark5">
-    <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="/img/apple-touch-icon-60x60-dark.png" id="dark6">
+    <link rel="icon" type="image/png" sizes="16x16" href="/arrow-site/img/favicon-16x16-dark.png" id="dark1">
+    <link rel="icon" type="image/png" sizes="32x32" href="/arrow-site/img/favicon-32x32-dark.png" id="dark2">
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/arrow-site/img/apple-touch-icon-dark.png" id="dark3">
+    <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="/arrow-site/img/apple-touch-icon-120x120-dark.png" id="dark4">
+    <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="/arrow-site/img/apple-touch-icon-76x76-dark.png" id="dark5">
+    <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="/arrow-site/img/apple-touch-icon-60x60-dark.png" id="dark6">
 
     <script>
       // Switch to the dark-mode favicons if prefers-color-scheme: dark
@@ -95,9 +95,9 @@
       onUpdate();
     </script>
 
-    <link href="/css/main.css" rel="stylesheet">
-    <link href="/css/syntax.css" rel="stylesheet">
-    <script src="/javascript/main.js"></script>
+    <link href="/arrow-site/css/main.css" rel="stylesheet">
+    <link href="/arrow-site/css/syntax.css" rel="stylesheet">
+    <script src="/arrow-site/javascript/main.js"></script>
     
     <!-- Matomo -->
 <script>
@@ -118,7 +118,7 @@
 <!-- End Matomo Code -->
 
     
-    <link type="application/atom+xml" rel="alternate" href="https://arrow.apache.org/feed.xml" title="Apache Arrow" />
+    <link type="application/atom+xml" rel="alternate" href="https://kou.github.io/arrow-site/arrow-site/feed.xml" title="Apache Arrow" />
   </head>
 
 
@@ -126,7 +126,7 @@
   <header>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
   
-  <a class="navbar-brand no-padding" href="/"><img src="/img/arrow-inverse-300px.png" height="40px"/></a>
+  <a class="navbar-brand no-padding" href="/arrow-site/"><img src="/arrow-site/img/arrow-inverse-300px.png" height="40px"></a>
   
    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#arrow-navbar" aria-controls="arrow-navbar" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -135,117 +135,106 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse justify-content-end" id="arrow-navbar">
       <ul class="nav navbar-nav">
-        <li class="nav-item"><a class="nav-link" href="/overview/" role="button" aria-haspopup="true" aria-expanded="false">Overview</a></li>
-        <li class="nav-item"><a class="nav-link" href="/faq/" role="button" aria-haspopup="true" aria-expanded="false">FAQ</a></li>
-        <li class="nav-item"><a class="nav-link" href="/blog" role="button" aria-haspopup="true" aria-expanded="false">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="/arrow-site/overview/" role="button" aria-haspopup="true" aria-expanded="false">Overview</a></li>
+        <li class="nav-item"><a class="nav-link" href="/arrow-site/faq/" role="button" aria-haspopup="true" aria-expanded="false">FAQ</a></li>
+        <li class="nav-item"><a class="nav-link" href="/arrow-site/blog" role="button" aria-haspopup="true" aria-expanded="false">Blog</a></li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#"
-             id="navbarDropdownGetArrow" role="button" data-toggle="dropdown"
-             aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownGetArrow" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              Get Arrow
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownGetArrow">
-            <a class="dropdown-item" href="/install/">Install</a>
-            <a class="dropdown-item" href="/release/">Releases</a>
+            <a class="dropdown-item" href="/arrow-site/install/">Install</a>
+            <a class="dropdown-item" href="/arrow-site/release/">Releases</a>
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#"
-             id="navbarDropdownDocumentation" role="button" data-toggle="dropdown"
-             aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDocumentation" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              Docs
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownDocumentation">
-            <a class="dropdown-item" href="/docs">Project Docs</a>
-            <a class="dropdown-item" href="/docs/format/Columnar.html">Format</a>
-            <hr/>
-            <a class="dropdown-item" href="/docs/c_glib">C GLib</a>
-            <a class="dropdown-item" href="/docs/cpp">C++</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/blob/main/csharp/README.md">C#</a>
-            <a class="dropdown-item" href="https://godoc.org/github.com/apache/arrow/go/arrow">Go</a>
-            <a class="dropdown-item" href="/docs/java">Java</a>
-            <a class="dropdown-item" href="/docs/js">JavaScript</a>
-            <a class="dropdown-item" href="/julia/">Julia</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/blob/main/matlab/README.md">MATLAB</a>
-            <a class="dropdown-item" href="/docs/python">Python</a>
-            <a class="dropdown-item" href="/docs/r">R</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/blob/main/ruby/README.md">Ruby</a>
-            <a class="dropdown-item" href="https://docs.rs/arrow/latest">Rust</a>
-            <a class="dropdown-item" href="/swift">Swift</a>
+            <a class="dropdown-item" href="/arrow-site/docs">Project Docs</a>
+            <a class="dropdown-item" href="/arrow-site/docs/format/Columnar.html">Format</a>
+            <hr>
+            <a class="dropdown-item" href="/arrow-site/docs/c_glib">C GLib</a>
+            <a class="dropdown-item" href="/arrow-site/docs/cpp">C++</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/blob/main/csharp/README.md" target="_blank" rel="noopener">C#</a>
+            <a class="dropdown-item" href="https://godoc.org/github.com/apache/arrow/go/arrow" target="_blank" rel="noopener">Go</a>
+            <a class="dropdown-item" href="/arrow-site/docs/java">Java</a>
+            <a class="dropdown-item" href="/arrow-site/docs/js">JavaScript</a>
+            <a class="dropdown-item" href="/arrow-site/julia/">Julia</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/blob/main/matlab/README.md" target="_blank" rel="noopener">MATLAB</a>
+            <a class="dropdown-item" href="/arrow-site/docs/python">Python</a>
+            <a class="dropdown-item" href="/arrow-site/docs/r">R</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/blob/main/ruby/README.md" target="_blank" rel="noopener">Ruby</a>
+            <a class="dropdown-item" href="https://docs.rs/arrow/latest" target="_blank" rel="noopener">Rust</a>
+            <a class="dropdown-item" href="/arrow-site/swift">Swift</a>
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#"
-             id="navbarDropdownSource" role="button" data-toggle="dropdown"
-             aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownSource" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              Source
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownSource">
-            <a class="dropdown-item" href="https://github.com/apache/arrow">Main Repo</a>
-            <hr/>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/c_glib">C GLib</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/cpp">C++</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/csharp">C#</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow-go">Go</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow-java">Java</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow-js">JavaScript</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow-julia">Julia</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/matlab">MATLAB</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/python">Python</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/r">R</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/ruby">Ruby</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow-rs">Rust</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow-swift">Swift</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow" target="_blank" rel="noopener">Main Repo</a>
+            <hr>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/c_glib" target="_blank" rel="noopener">C GLib</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/cpp" target="_blank" rel="noopener">C++</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/csharp" target="_blank" rel="noopener">C#</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow-go" target="_blank" rel="noopener">Go</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow-java" target="_blank" rel="noopener">Java</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow-js" target="_blank" rel="noopener">JavaScript</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow-julia" target="_blank" rel="noopener">Julia</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/matlab" target="_blank" rel="noopener">MATLAB</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/python" target="_blank" rel="noopener">Python</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/r" target="_blank" rel="noopener">R</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/ruby" target="_blank" rel="noopener">Ruby</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow-rs" target="_blank" rel="noopener">Rust</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow-swift" target="_blank" rel="noopener">Swift</a>
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#"
-             id="navbarDropdownSubprojects" role="button" data-toggle="dropdown"
-             aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownSubprojects" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              Subprojects
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownSubprojects">
-            <a class="dropdown-item" href="/adbc">ADBC</a>
-            <a class="dropdown-item" href="/docs/format/Flight.html">Arrow Flight</a>
-            <a class="dropdown-item" href="/docs/format/FlightSql.html">Arrow Flight SQL</a>
-            <a class="dropdown-item" href="https://datafusion.apache.org">DataFusion</a>
-            <a class="dropdown-item" href="/nanoarrow">nanoarrow</a>
+            <a class="dropdown-item" href="/arrow-site/adbc">ADBC</a>
+            <a class="dropdown-item" href="/arrow-site/docs/format/Flight.html">Arrow Flight</a>
+            <a class="dropdown-item" href="/arrow-site/docs/format/FlightSql.html">Arrow Flight SQL</a>
+            <a class="dropdown-item" href="https://datafusion.apache.org" target="_blank" rel="noopener">DataFusion</a>
+            <a class="dropdown-item" href="/arrow-site/nanoarrow">nanoarrow</a>
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#"
-             id="navbarDropdownCommunity" role="button" data-toggle="dropdown"
-             aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCommunity" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              Community
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownCommunity">
-            <a class="dropdown-item" href="/community/">Communication</a>
-            <a class="dropdown-item" href="/docs/developers/index.html">Contributing</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/issues">Issue Tracker</a>
-            <a class="dropdown-item" href="/committers/">Governance</a>
-            <a class="dropdown-item" href="/use_cases/">Use Cases</a>
-            <a class="dropdown-item" href="/powered_by/">Powered By</a>
-            <a class="dropdown-item" href="/visual_identity/">Visual Identity</a>
-            <a class="dropdown-item" href="/security/">Security</a>
-            <a class="dropdown-item" href="https://www.apache.org/foundation/policies/conduct.html">Code of Conduct</a>
+            <a class="dropdown-item" href="/arrow-site/community/">Communication</a>
+            <a class="dropdown-item" href="/arrow-site/docs/developers/index.html">Contributing</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/issues" target="_blank" rel="noopener">Issue Tracker</a>
+            <a class="dropdown-item" href="/arrow-site/committers/">Governance</a>
+            <a class="dropdown-item" href="/arrow-site/use_cases/">Use Cases</a>
+            <a class="dropdown-item" href="/arrow-site/powered_by/">Powered By</a>
+            <a class="dropdown-item" href="/arrow-site/visual_identity/">Visual Identity</a>
+            <a class="dropdown-item" href="/arrow-site/security/">Security</a>
+            <a class="dropdown-item" href="https://www.apache.org/foundation/policies/conduct.html" target="_blank" rel="noopener">Code of Conduct</a>
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#"
-             id="navbarDropdownASF" role="button" data-toggle="dropdown"
-             aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownASF" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              ASF Links
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownASF">
-            <a class="dropdown-item" href="https://www.apache.org/">ASF Website</a>
-            <a class="dropdown-item" href="https://www.apache.org/licenses/">License</a>
-            <a class="dropdown-item" href="https://www.apache.org/foundation/sponsorship.html">Donate</a>
-            <a class="dropdown-item" href="https://www.apache.org/foundation/thanks.html">Thanks</a>
-            <a class="dropdown-item" href="https://www.apache.org/security/">Security</a>
+            <a class="dropdown-item" href="https://www.apache.org/" target="_blank" rel="noopener">ASF Website</a>
+            <a class="dropdown-item" href="https://www.apache.org/licenses/" target="_blank" rel="noopener">License</a>
+            <a class="dropdown-item" href="https://www.apache.org/foundation/sponsorship.html" target="_blank" rel="noopener">Donate</a>
+            <a class="dropdown-item" href="https://www.apache.org/foundation/thanks.html" target="_blank" rel="noopener">Thanks</a>
+            <a class="dropdown-item" href="https://www.apache.org/security/" target="_blank" rel="noopener">Security</a>
           </div>
         </li>
       </ul>
-    </div><!-- /.navbar-collapse -->
+    </div>
+<!-- /.navbar-collapse -->
   </nav>
 
   </header>
@@ -266,10 +255,10 @@
   <span class="published mr-3">
     09 Oct 2018
   </span>
-  <br />
+  <br>
   <span class="badge badge-secondary">By</span>
   
-    <a class="mr-3" href="https://wesmckinney.com">Wes McKinney (wesm) </a>
+    <a class="mr-3" href="https://wesmckinney.com" target="_blank" rel="noopener">Wes McKinney (wesm) </a>
   
 
   
@@ -279,102 +268,78 @@
         <!--
 
 -->
-
 <p>The Apache Arrow team is pleased to announce the 0.11.0 release. It is the
-product of 2 months of development and includes <a href="https://issues.apache.org/jira/issues/?jql=project%20%3D%20ARROW%20AND%20status%20in%20(Resolved%2C%20Closed)%20AND%20fixVersion%20%3D%200.11.0"><strong>287 resolved
+product of 2 months of development and includes <a href="https://issues.apache.org/jira/issues/?jql=project%20%3D%20ARROW%20AND%20status%20in%20(Resolved%2C%20Closed)%20AND%20fixVersion%20%3D%200.11.0" target="_blank" rel="noopener"><strong>287 resolved
 issues</strong></a>.</p>
-
-<p>See the <a href="https://arrow.apache.org/install">Install Page</a> to learn how to get the libraries for your
-platform. The <a href="https://arrow.apache.org/release/0.11.0.html">complete changelog</a> is also available.</p>
-
+<p>See the <a href="https://arrow.apache.org/install" target="_blank" rel="noopener">Install Page</a> to learn how to get the libraries for your
+platform. The <a href="https://arrow.apache.org/release/0.11.0.html" target="_blank" rel="noopener">complete changelog</a> is also available.</p>
 <p>We discuss some highlights from the release and other project news in this
 post.</p>
-
-<h2 id="arrow-flight-rpc-and-messaging-framework">Arrow Flight RPC and Messaging Framework</h2>
-
+<h2>Arrow Flight RPC and Messaging Framework</h2>
 <p>We are developing a new Arrow-native RPC framework, Arrow Flight, based on
-<a href="http://grpc.io">gRPC</a> for high performance Arrow-based messaging. Through low-level
-extensions to gRPC’s internal memory management, we are able to avoid expensive
+<a href="http://grpc.io" target="_blank" rel="noopener">gRPC</a> for high performance Arrow-based messaging. Through low-level
+extensions to gRPC's internal memory management, we are able to avoid expensive
 parsing when receiving datasets over the wire, unlocking unprecedented levels
 of performance in moving datasets from one machine to another. We will be
 writing more about Flight on the Arrow blog in the future.</p>
-
 <p>Prototype implementations are available in Java and C++, and we will be focused
 in the coming months on hardening the Flight RPC framework for enterprise-grade
 production use cases.</p>
-
-<h2 id="parquet-and-arrow-c-communities-joining-forces">Parquet and Arrow C++ communities joining forces</h2>
-
+<h2>Parquet and Arrow C++ communities joining forces</h2>
 <p>After discussion over the last year, the Apache Arrow and Apache Parquet C++
 communities decide to merge the Parquet C++ codebase into the Arrow C++
-codebase and work together in a “monorepo” structure. This should result in
+codebase and work together in a "monorepo" structure. This should result in
 better developer productivity in core Parquet work as well as in Arrow
 integration.</p>
-
 <p>Before this codebase merge, we had a circular dependency between the Arrow and
 Parquet codebases, since the Parquet C++ library is used in the Arrow Python
 library.</p>
-
-<h2 id="gandiva-llvm-expression-compiler-donation">Gandiva LLVM Expression Compiler donation</h2>
-
-<p><a href="http://dremio.com">Dremio Corporation</a> has donated the <a href="http://github.com/dremio/gandiva">Gandiva</a> LLVM expression compiler
+<h2>Gandiva LLVM Expression Compiler donation</h2>
+<p><a href="http://dremio.com" target="_blank" rel="noopener">Dremio Corporation</a> has donated the <a href="http://github.com/dremio/gandiva" target="_blank" rel="noopener">Gandiva</a> LLVM expression compiler
 to Apache Arrow. We will be working on cross-platform builds, packaging, and
 language bindings (e.g. in Python) for Gandiva in the upcoming 0.12 release and
 beyond. We will write more about Gandiva in the future.</p>
-
-<h2 id="parquet-c-glib-bindings-donation">Parquet C GLib Bindings Donation</h2>
-
-<p>PMC member <a href="https://github.com/kou">Kouhei Sutou</a> has donated GLib bindings for the Parquet C++
+<h2>Parquet C GLib Bindings Donation</h2>
+<p>PMC member <a href="https://github.com/kou" target="_blank" rel="noopener">Kouhei Sutou</a> has donated GLib bindings for the Parquet C++
 libraries, which are designed to work together with the existing Arrow GLib
 bindings.</p>
-
-<h2 id="c-csv-reader-project">C++ CSV Reader Project</h2>
-
+<h2>C++ CSV Reader Project</h2>
 <p>We have begun developing a general purpose multithreaded CSV file parser in
 C++. The purpose of this library is to parse and convert comma-separated text
 files into Arrow columnar record batches as efficiently as possible. The
 prototype version features Python bindings, and any language that can use the
 C++ libraries (including C, R, and Ruby).</p>
-
-<h2 id="new-matlab-bindings">New MATLAB bindings</h2>
-
-<p><a href="https://mathworks.com">The MathWorks</a> has contributed an initial MEX file binding to the Arrow
+<h2>New MATLAB bindings</h2>
+<p><a href="https://mathworks.com" target="_blank" rel="noopener">The MathWorks</a> has contributed an initial MEX file binding to the Arrow
 C++ libraries. Initially, it is possible to read Arrow-based Feather files in
 MATLAB. We are looking forward to seeing more developments for MATLAB users.</p>
-
-<h2 id="r-library-in-development">R Library in Development</h2>
-
-<p>The community has begun implementing <a href="https://github.com/apache/arrow/tree/master/r">R language bindings and interoperability</a>
+<h2>R Library in Development</h2>
+<p>The community has begun implementing <a href="https://github.com/apache/arrow/tree/master/r" target="_blank" rel="noopener">R language bindings and interoperability</a>
 with the Arrow C++ libraries. This will include support for zero-copy shared
 memory IPC and other tools needed to improve R integration with Apache Spark
 and more.</p>
-
-<h2 id="support-for-cuda-based-gpus-in-python">Support for CUDA-based GPUs in Python</h2>
-
+<h2>Support for CUDA-based GPUs in Python</h2>
 <p>This release includes Python bindings to the Arrow CUDA integration C++
-library. This work is targeting interoperability with <a href="https://github.com/numba/numba">Numba</a> and the <a href="http://gpuopenanalytics.com/">GPU
+library. This work is targeting interoperability with <a href="https://github.com/numba/numba" target="_blank" rel="noopener">Numba</a> and the <a href="http://gpuopenanalytics.com/" target="_blank" rel="noopener">GPU
 Open Analytics Initiative</a>.</p>
-
-<h2 id="upcoming-roadmap">Upcoming Roadmap</h2>
-
+<h2>Upcoming Roadmap</h2>
 <p>In the coming months, we will continue to make progress on many fronts, with
 Gandiva packaging, expanded language support (especially in R), and improved
 data access (e.g. CSV, Parquet files) in focus.</p>
 
-
       </main>
     </div>
 
-    <hr/>
+    <hr>
 <footer class="footer">
   <div class="row">
     <div class="col-md-9">
       <p>Apache Arrow, Arrow, Apache, the Apache feather logo, and the Apache Arrow project logo are either registered trademarks or trademarks of The Apache Software Foundation in the United States and other countries.</p>
-      <p>&copy; 2016-2025 The Apache Software Foundation</p>
+      <p>© 2016-2025 The Apache Software Foundation</p>
     </div>
     <div class="col-md-3">
-      <a class="d-sm-none d-md-inline pr-2" href="https://www.apache.org/events/current-event.html">
-        <img src="https://www.apache.org/events/current-event-234x60.png"/>
+      <a class="d-sm-none d-md-inline pr-2" href="https://www.apache.org/events/current-event.html" target="_blank" rel="noopener">
+        <img src="https://www.apache.org/events/current-event-234x60.png">
       </a>
     </div>
   </div>

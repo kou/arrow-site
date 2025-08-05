@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>File Formats &#8212; Apache Arrow v21.0.0.dev284</title>
+    <title>File Formats &#8212; Apache Arrow v22.0.0.dev22</title>
   
   
   
@@ -65,7 +65,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="21.0.0.dev284" />
+  <meta name="docsearch:version" content="22.0.0.dev22" />
 
   <!-- Matomo -->
   <script>
@@ -150,8 +150,8 @@
       
     
     
-    <img src="../../_static/arrow.png" class="logo__image only-light" alt="Apache Arrow v21.0.0.dev284 - Home"/>
-    <img src="../../_static/arrow-dark.png" class="logo__image only-dark pst-js-only" alt="Apache Arrow v21.0.0.dev284 - Home"/>
+    <img src="../../_static/arrow.png" class="logo__image only-light" alt="Apache Arrow v22.0.0.dev22 - Home"/>
+    <img src="../../_static/arrow-dark.png" class="logo__image only-dark pst-js-only" alt="Apache Arrow v22.0.0.dev22 - Home"/>
   
   
 </a></div>
@@ -215,6 +215,7 @@
         data-project-logo="https://arrow.apache.org/img/arrow-logo_chevrons_white-txt_black-bg.png"
         data-modal-disclaimer="This is a custom LLM with access to all [Arrow documentation](https://arrow.apache.org/docs/). Please include the language you are using in your question, e.g., Python, C++, Java, R, etc."
         data-consent-required="true" 
+        data-user-analytics-cookie-enabled="false"
         data-consent-screen-disclaimer="By clicking &quot;I agree, let's chat&quot;, you consent to the use of the AI assistant in accordance with kapa.ai's [Privacy Policy](https://www.kapa.ai/content/privacy-policy). This service uses reCAPTCHA, which requires your consent to Google's [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms). By proceeding, you explicitly agree to both kapa.ai's and Google's privacy policies."
     ></script>
    
@@ -376,6 +377,7 @@
         data-project-logo="https://arrow.apache.org/img/arrow-logo_chevrons_white-txt_black-bg.png"
         data-modal-disclaimer="This is a custom LLM with access to all [Arrow documentation](https://arrow.apache.org/docs/). Please include the language you are using in your question, e.g., Python, C++, Java, R, etc."
         data-consent-required="true" 
+        data-user-analytics-cookie-enabled="false"
         data-consent-screen-disclaimer="By clicking &quot;I agree, let's chat&quot;, you consent to the use of the AI assistant in accordance with kapa.ai's [Privacy Policy](https://www.kapa.ai/content/privacy-policy). This service uses reCAPTCHA, which requires your consent to Google's [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms). By proceeding, you explicitly agree to both kapa.ai's and Google's privacy policies."
     ></script>
    
@@ -614,7 +616,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../python/parquet.html">Reading and Writing the Apache Parquet Format</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../python/dataset.html">Tabular Datasets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../python/flight.html">Arrow Flight RPC</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../python/extending_types.html">Extending pyarrow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python/extending_types.html">Extending PyArrow</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../python/integration.html">PyArrow Integrations</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../python/integration/substrait.html">Substrait</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../python/integration/python_r.html">Integrating PyArrow with R</a></li>
@@ -761,6 +763,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../python/generated/pyarrow.types.is_map.html">pyarrow.types.is_map</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../python/generated/pyarrow.types.is_dictionary.html">pyarrow.types.is_dictionary</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../python/generated/pyarrow.types.is_primitive.html">pyarrow.types.is_primitive</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../python/generated/pyarrow.types.TypesEnum.html">pyarrow.types.TypesEnum</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../python/api/arrays.html">Arrays and Scalars</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -2497,6 +2500,13 @@
 <span id="_CPPv3N7parquet5arrow10FileReader20GetRecordBatchReaderERKNSt6vectorIiEERKNSt6vectorIiEEPNSt10shared_ptrIN5arrow17RecordBatchReaderEEE"></span><span id="_CPPv2N7parquet5arrow10FileReader20GetRecordBatchReaderERKNSt6vectorIiEERKNSt6vectorIiEEPNSt10shared_ptrIN5arrow17RecordBatchReaderEEE"></span><span id="parquet::arrow::FileReader::GetRecordBatchReader__std::vector:i:CR.std::vector:i:CR.std::shared_ptr:arrow::RecordBatchReader:P"></span><span class="target" id="classparquet_1_1arrow_1_1_file_reader_1adbaf13dcddef534c5cca878fb091721c"></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">arrow</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="support.html#_CPPv4N5arrow6StatusE" title="arrow::Status"><span class="n"><span class="pre">Status</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetRecordBatchReader</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">int</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">row_group_indices</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">int</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">column_indices</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">shared_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">arrow</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="table.html#_CPPv4N5arrow17RecordBatchReaderE" title="arrow::RecordBatchReader"><span class="n"><span class="pre">RecordBatchReader</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">out</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7parquet5arrow10FileReader20GetRecordBatchReaderERKNSt6vectorIiEERKNSt6vectorIiEEPNSt10shared_ptrIN5arrow17RecordBatchReaderEEE" title="Permalink to this definition">#</a><br /></dt>
 <dd><p>Return a RecordBatchReader of row groups selected from row_group_indices, whose columns are selected by column_indices. </p>
 <p>Note that the ordering in row_group_indices and column_indices matter. FileReaders must outlive their RecordBatchReaders.</p>
+<p><dl>
+<dt class="sig sig-object cpp">
+<em><span class="pre">Deprecated:</span></em></dt>
+<dd><p>Deprecated in 21.0.0. Use <a class="reference internal" href="support.html#classarrow_1_1_result"><span class="std std-ref">arrow::Result</span></a> version instead. </p>
+</dd></dl>
+
+</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -2509,6 +2519,30 @@
 <dd class="field-even"><p>error Status if either row_group_indices or column_indices contains an invalid index </p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7parquet5arrow10FileReader20GetRecordBatchReaderERKNSt6vectorIiEEPNSt10shared_ptrIN5arrow17RecordBatchReaderEEE">
+<span id="_CPPv3N7parquet5arrow10FileReader20GetRecordBatchReaderERKNSt6vectorIiEEPNSt10shared_ptrIN5arrow17RecordBatchReaderEEE"></span><span id="_CPPv2N7parquet5arrow10FileReader20GetRecordBatchReaderERKNSt6vectorIiEEPNSt10shared_ptrIN5arrow17RecordBatchReaderEEE"></span><span id="parquet::arrow::FileReader::GetRecordBatchReader__std::vector:i:CR.std::shared_ptr:arrow::RecordBatchReader:P"></span><span class="target" id="classparquet_1_1arrow_1_1_file_reader_1a6cf188e1da09adc46dc785052d9d7341"></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">arrow</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="support.html#_CPPv4N5arrow6StatusE" title="arrow::Status"><span class="n"><span class="pre">Status</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetRecordBatchReader</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">int</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">row_group_indices</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">shared_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">arrow</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="table.html#_CPPv4N5arrow17RecordBatchReaderE" title="arrow::RecordBatchReader"><span class="n"><span class="pre">RecordBatchReader</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">out</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7parquet5arrow10FileReader20GetRecordBatchReaderERKNSt6vectorIiEEPNSt10shared_ptrIN5arrow17RecordBatchReaderEEE" title="Permalink to this definition">#</a><br /></dt>
+<dd><p><dl>
+<dt class="sig sig-object cpp">
+<em><span class="pre">Deprecated:</span></em></dt>
+<dd><p>Deprecated in 21.0.0. Use <a class="reference internal" href="support.html#classarrow_1_1_result"><span class="std std-ref">arrow::Result</span></a> version instead. </p>
+</dd></dl>
+
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7parquet5arrow10FileReader20GetRecordBatchReaderEPNSt10shared_ptrIN5arrow17RecordBatchReaderEEE">
+<span id="_CPPv3N7parquet5arrow10FileReader20GetRecordBatchReaderEPNSt10shared_ptrIN5arrow17RecordBatchReaderEEE"></span><span id="_CPPv2N7parquet5arrow10FileReader20GetRecordBatchReaderEPNSt10shared_ptrIN5arrow17RecordBatchReaderEEE"></span><span id="parquet::arrow::FileReader::GetRecordBatchReader__std::shared_ptr:arrow::RecordBatchReader:P"></span><span class="target" id="classparquet_1_1arrow_1_1_file_reader_1a27a4c524a00d0fd2c8698e2dc4ecfc3c"></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">arrow</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="support.html#_CPPv4N5arrow6StatusE" title="arrow::Status"><span class="n"><span class="pre">Status</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetRecordBatchReader</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">shared_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">arrow</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="table.html#_CPPv4N5arrow17RecordBatchReaderE" title="arrow::RecordBatchReader"><span class="n"><span class="pre">RecordBatchReader</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">out</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7parquet5arrow10FileReader20GetRecordBatchReaderEPNSt10shared_ptrIN5arrow17RecordBatchReaderEEE" title="Permalink to this definition">#</a><br /></dt>
+<dd><p><dl>
+<dt class="sig sig-object cpp">
+<em><span class="pre">Deprecated:</span></em></dt>
+<dd><p>Deprecated in 21.0.0. Use <a class="reference internal" href="support.html#classarrow_1_1_result"><span class="std std-ref">arrow::Result</span></a> version instead. </p>
+</dd></dl>
+
+</p>
 </dd></dl>
 
 <dl class="cpp function">
@@ -3338,6 +3372,15 @@ WARNING: If <code class="docutils literal notranslate"><span class="pre">store_s
 <p>Similarly, operator&lt;&lt;(std::optional&lt;T&gt;) can be used to write required fields. However if the optional parameter does not have a value (i.e. it is nullopt) then a <a class="reference internal" href="support.html#classparquet_1_1_parquet_exception"><span class="std std-ref">ParquetException</span></a> will be raised.</p>
 <p>Currently there is no support for repeated fields. </p>
 <div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N7parquet12StreamWriter11RawDataViewE">
+<span id="_CPPv3N7parquet12StreamWriter11RawDataViewE"></span><span id="_CPPv2N7parquet12StreamWriter11RawDataViewE"></span><span class="target" id="classparquet_1_1_stream_writer_1a7fa202c9d487d5824b257bcd7d400158"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">RawDataView</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">arrow</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">util</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">span</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">uint8_t</span></span><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N7parquet12StreamWriter11RawDataViewE" title="Permalink to this definition">#</a><br /></dt>
+<dd><p>Helper class to write variable length raw data. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N7parquet12StreamWriterlsEb">
@@ -3356,6 +3399,12 @@ WARNING: If <code class="docutils literal notranslate"><span class="pre">store_s
 <dt class="sig sig-object cpp" id="_CPPv4N7parquet12StreamWriterlsEPKc">
 <span id="_CPPv3N7parquet12StreamWriterlsEPKc"></span><span id="_CPPv2N7parquet12StreamWriterlsEPKc"></span><span id="parquet::StreamWriter::lshift-operator__cCP"></span><span class="target" id="classparquet_1_1_stream_writer_1aca255abdb51ef89191ebb6a7f2596ad5"></span><a class="reference internal" href="#_CPPv4N7parquet12StreamWriterE" title="parquet::StreamWriter"><span class="n"><span class="pre">StreamWriter</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&lt;&lt;</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">v</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7parquet12StreamWriterlsEPKc" title="Permalink to this definition">#</a><br /></dt>
 <dd><p>Output operators for variable length strings. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7parquet12StreamWriterlsE11RawDataView">
+<span id="_CPPv3N7parquet12StreamWriterlsE11RawDataView"></span><span id="_CPPv2N7parquet12StreamWriterlsE11RawDataView"></span><span id="parquet::StreamWriter::lshift-operator__RawDataView"></span><span class="target" id="classparquet_1_1_stream_writer_1a6080cae8e9f106a44539691422f8d980"></span><a class="reference internal" href="#_CPPv4N7parquet12StreamWriterE" title="parquet::StreamWriter"><span class="n"><span class="pre">StreamWriter</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&lt;&lt;</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N7parquet12StreamWriter11RawDataViewE" title="parquet::StreamWriter::RawDataView"><span class="n"><span class="pre">RawDataView</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">v</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7parquet12StreamWriterlsE11RawDataView" title="Permalink to this definition">#</a><br /></dt>
+<dd><p>Output operators for variable length raw data. </p>
 </dd></dl>
 
 <dl class="cpp function">

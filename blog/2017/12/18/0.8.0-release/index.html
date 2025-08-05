@@ -10,40 +10,40 @@
     
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<meta name="generator" content="Jekyll v4.3.3" />
+<meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Apache Arrow 0.8.0 Release" />
 <meta name="author" content="wesm" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="The Apache Arrow team is pleased to announce the 0.8.0 release. It is the product of 10 weeks of development and includes 286 resolved JIRAs with many new features and bug fixes to the various language implementations. This is the largest release since 0.3.0 earlier this year. As part of work towards a stabilizing the Arrow format and making a 1.0.0 release sometime in 2018, we made a series of backwards-incompatible changes to the serialized Arrow metadata that requires Arrow readers and writers (0.7.1 and earlier) to upgrade in order to be compatible with 0.8.0 and higher. We expect future backwards-incompatible changes to be rare going forward. See the Install Page to learn how to get the libraries for your platform. The complete changelog is also available. We discuss some highlights from the release and other project news in this post. Projects “Powered By” Apache Arrow A growing ecosystem of projects are using Arrow to solve in-memory analytics and data interchange problems. We have added a new Powered By page to the Arrow website where we can acknowledge open source projects and companies which are using Arrow. If you would like to add your project to the list as an Arrow user, please let us know. New Arrow committers Since the last release, we have added 5 new Apache committers: Phillip Cloud, who has mainly contributed to C++ and Python Bryan Cutler, who has mainly contributed to Java and Spark integration Li Jin, who has mainly contributed to Java and Spark integration Paul Taylor, who has mainly contributed to JavaScript Siddharth Teotia, who has mainly contributed to Java Welcome to the Arrow team, and thank you for your contributions! Improved Java vector API, performance improvements Siddharth Teotia led efforts to revamp the Java vector API to make things simpler and faster. As part of this, we removed the dichotomy between nullable and non-nullable vectors. See Sidd’s blog post for more about these changes. Decimal support in C++, Python, consistency with Java Phillip Cloud led efforts this release to harden details about exact decimal values in the Arrow specification and ensure a consistent implementation across Java, C++, and Python. Arrow now supports decimals represented internally as a 128-bit little-endian integer, with a set precision and scale (as defined in many SQL-based systems). As part of this work, we needed to change Java’s internal representation from big- to little-endian. We are now integration testing decimals between Java, C++, and Python, which will facilitate Arrow adoption in Apache Spark and other systems that use both Java and Python. Decimal data can now be read and written by the Apache Parquet C++ library, including via pyarrow. In the future, we may implement support for smaller-precision decimals represented by 32- or 64-bit integers. C++ improvements: expanded kernels library and more In C++, we have continued developing the new arrow::compute submodule consisting of native computation fuctions for Arrow data. New contributor Licht Takeuchi helped expand the supported types for type casting in compute::Cast. We have also implemented new kernels Unique and DictionaryEncode for computing the distinct elements of an array and dictionary encoding (conversion to categorical), respectively. We expect the C++ computation “kernel” library to be a major expansion area for the project over the next year and beyond. Here, we can also implement SIMD- and GPU-accelerated versions of basic in-memory analytics functionality. As minor breaking API change in C++, we have made the RecordBatch and Table APIs “virtual” or abstract interfaces, to enable different implementations of a record batch or table which conform to the standard interface. This will help enable features like lazy IO or column loading. There was significant work improving the C++ library generally and supporting work happening in Python and C. See the change log for full details. GLib C improvements: Meson build, GPU support Developing of the GLib-based C bindings has generally tracked work happening in the C++ library. These bindings are being used to develop data science tools for Ruby users and elsewhere. The C bindings now support the Meson build system in addition to autotools, which enables them to be built on Windows. The Arrow GPU extension library is now also supported in the C bindings. JavaScript: first independent release on NPM Brian Hulette and Paul Taylor have been continuing to drive efforts on the TypeScript-based JavaScript implementation. Since the last release, we made a first JavaScript-only Apache release, version 0.2.0, which is now available on NPM. We decided to make separate JavaScript releases to enable the JS library to release more frequently than the rest of the project. Python improvements In addition to some of the new features mentioned above, we have made a variety of usability and performance improvements for integrations with pandas, NumPy, Dask, and other Python projects which may make use of pyarrow, the Arrow Python library. Some of these improvements include: Component-based serialization for more flexible and memory-efficient transport of large or complex Python objects Substantially improved serialization performance for pandas objects when using pyarrow.serialize and pyarrow.deserialize. This includes a special pyarrow.pandas_serialization_context which further accelerates certain internal details of pandas serialization * Support zero-copy reads for pandas.DataFrame using pyarrow.deserialize for objects without Python objects Multithreaded conversions from pandas.DataFrame to pyarrow.Table (we already supported multithreaded conversions from Arrow back to pandas) More efficient conversion from 1-dimensional NumPy arrays to Arrow format New generic buffer compression and decompression APIs pyarrow.compress and pyarrow.decompress Enhanced Parquet cross-compatibility with fastparquet and improved Dask support Python support for accessing Parquet row group column statistics Upcoming Roadmap The 0.8.0 release includes some API and format changes, but upcoming releases will focus on ompleting and stabilizing critical functionality to move the project closer to a 1.0.0 release. With the ecosystem of projects using Arrow expanding rapidly, we will be working to improve and expand the libraries in support of downstream use cases. We continue to look for more JavaScript, Julia, R, Rust, and other programming language developers to join the project and expand the available implementations and bindings to more languages." />
-<meta property="og:description" content="The Apache Arrow team is pleased to announce the 0.8.0 release. It is the product of 10 weeks of development and includes 286 resolved JIRAs with many new features and bug fixes to the various language implementations. This is the largest release since 0.3.0 earlier this year. As part of work towards a stabilizing the Arrow format and making a 1.0.0 release sometime in 2018, we made a series of backwards-incompatible changes to the serialized Arrow metadata that requires Arrow readers and writers (0.7.1 and earlier) to upgrade in order to be compatible with 0.8.0 and higher. We expect future backwards-incompatible changes to be rare going forward. See the Install Page to learn how to get the libraries for your platform. The complete changelog is also available. We discuss some highlights from the release and other project news in this post. Projects “Powered By” Apache Arrow A growing ecosystem of projects are using Arrow to solve in-memory analytics and data interchange problems. We have added a new Powered By page to the Arrow website where we can acknowledge open source projects and companies which are using Arrow. If you would like to add your project to the list as an Arrow user, please let us know. New Arrow committers Since the last release, we have added 5 new Apache committers: Phillip Cloud, who has mainly contributed to C++ and Python Bryan Cutler, who has mainly contributed to Java and Spark integration Li Jin, who has mainly contributed to Java and Spark integration Paul Taylor, who has mainly contributed to JavaScript Siddharth Teotia, who has mainly contributed to Java Welcome to the Arrow team, and thank you for your contributions! Improved Java vector API, performance improvements Siddharth Teotia led efforts to revamp the Java vector API to make things simpler and faster. As part of this, we removed the dichotomy between nullable and non-nullable vectors. See Sidd’s blog post for more about these changes. Decimal support in C++, Python, consistency with Java Phillip Cloud led efforts this release to harden details about exact decimal values in the Arrow specification and ensure a consistent implementation across Java, C++, and Python. Arrow now supports decimals represented internally as a 128-bit little-endian integer, with a set precision and scale (as defined in many SQL-based systems). As part of this work, we needed to change Java’s internal representation from big- to little-endian. We are now integration testing decimals between Java, C++, and Python, which will facilitate Arrow adoption in Apache Spark and other systems that use both Java and Python. Decimal data can now be read and written by the Apache Parquet C++ library, including via pyarrow. In the future, we may implement support for smaller-precision decimals represented by 32- or 64-bit integers. C++ improvements: expanded kernels library and more In C++, we have continued developing the new arrow::compute submodule consisting of native computation fuctions for Arrow data. New contributor Licht Takeuchi helped expand the supported types for type casting in compute::Cast. We have also implemented new kernels Unique and DictionaryEncode for computing the distinct elements of an array and dictionary encoding (conversion to categorical), respectively. We expect the C++ computation “kernel” library to be a major expansion area for the project over the next year and beyond. Here, we can also implement SIMD- and GPU-accelerated versions of basic in-memory analytics functionality. As minor breaking API change in C++, we have made the RecordBatch and Table APIs “virtual” or abstract interfaces, to enable different implementations of a record batch or table which conform to the standard interface. This will help enable features like lazy IO or column loading. There was significant work improving the C++ library generally and supporting work happening in Python and C. See the change log for full details. GLib C improvements: Meson build, GPU support Developing of the GLib-based C bindings has generally tracked work happening in the C++ library. These bindings are being used to develop data science tools for Ruby users and elsewhere. The C bindings now support the Meson build system in addition to autotools, which enables them to be built on Windows. The Arrow GPU extension library is now also supported in the C bindings. JavaScript: first independent release on NPM Brian Hulette and Paul Taylor have been continuing to drive efforts on the TypeScript-based JavaScript implementation. Since the last release, we made a first JavaScript-only Apache release, version 0.2.0, which is now available on NPM. We decided to make separate JavaScript releases to enable the JS library to release more frequently than the rest of the project. Python improvements In addition to some of the new features mentioned above, we have made a variety of usability and performance improvements for integrations with pandas, NumPy, Dask, and other Python projects which may make use of pyarrow, the Arrow Python library. Some of these improvements include: Component-based serialization for more flexible and memory-efficient transport of large or complex Python objects Substantially improved serialization performance for pandas objects when using pyarrow.serialize and pyarrow.deserialize. This includes a special pyarrow.pandas_serialization_context which further accelerates certain internal details of pandas serialization * Support zero-copy reads for pandas.DataFrame using pyarrow.deserialize for objects without Python objects Multithreaded conversions from pandas.DataFrame to pyarrow.Table (we already supported multithreaded conversions from Arrow back to pandas) More efficient conversion from 1-dimensional NumPy arrays to Arrow format New generic buffer compression and decompression APIs pyarrow.compress and pyarrow.decompress Enhanced Parquet cross-compatibility with fastparquet and improved Dask support Python support for accessing Parquet row group column statistics Upcoming Roadmap The 0.8.0 release includes some API and format changes, but upcoming releases will focus on ompleting and stabilizing critical functionality to move the project closer to a 1.0.0 release. With the ecosystem of projects using Arrow expanding rapidly, we will be working to improve and expand the libraries in support of downstream use cases. We continue to look for more JavaScript, Julia, R, Rust, and other programming language developers to join the project and expand the available implementations and bindings to more languages." />
-<link rel="canonical" href="https://arrow.apache.org/blog/2017/12/18/0.8.0-release/" />
-<meta property="og:url" content="https://arrow.apache.org/blog/2017/12/18/0.8.0-release/" />
+<meta name="description" content="The Apache Arrow team is pleased to announce the 0.8.0 release. It is the product of 10 weeks of development and includes 286 resolved JIRAs with many new features and bug fixes to the various language implementations. This is the largest release since 0.3.0 earlier this year. As part of work towards a stabilizing the Arrow format and making a 1.0.0 release sometime in 2018, we made a series of backwards-incompatible changes to the serialized Arrow metadata that requires Arrow readers and writers (0.7.1 and earlier) to upgrade in order to be compatible with 0.8.0 and higher. We expect future backwards-incompatible changes to be rare going forward. See the Install Page to learn how to get the libraries for your platform. The complete changelog is also available. We discuss some highlights from the release and other project news in this post. Projects &quot;Powered By&quot; Apache Arrow A growing ecosystem of projects are using Arrow to solve in-memory analytics and data interchange problems. We have added a new Powered By page to the Arrow website where we can acknowledge open source projects and companies which are using Arrow. If you would like to add your project to the list as an Arrow user, please let us know. New Arrow committers Since the last release, we have added 5 new Apache committers: Phillip Cloud, who has mainly contributed to C++ and Python Bryan Cutler, who has mainly contributed to Java and Spark integration Li Jin, who has mainly contributed to Java and Spark integration Paul Taylor, who has mainly contributed to JavaScript Siddharth Teotia, who has mainly contributed to Java Welcome to the Arrow team, and thank you for your contributions! Improved Java vector API, performance improvements Siddharth Teotia led efforts to revamp the Java vector API to make things simpler and faster. As part of this, we removed the dichotomy between nullable and non-nullable vectors. See Sidd&#39;s blog post for more about these changes. Decimal support in C++, Python, consistency with Java Phillip Cloud led efforts this release to harden details about exact decimal values in the Arrow specification and ensure a consistent implementation across Java, C++, and Python. Arrow now supports decimals represented internally as a 128-bit little-endian integer, with a set precision and scale (as defined in many SQL-based systems). As part of this work, we needed to change Java&#39;s internal representation from big- to little-endian. We are now integration testing decimals between Java, C++, and Python, which will facilitate Arrow adoption in Apache Spark and other systems that use both Java and Python. Decimal data can now be read and written by the Apache Parquet C++ library, including via pyarrow. In the future, we may implement support for smaller-precision decimals represented by 32- or 64-bit integers. C++ improvements: expanded kernels library and more In C++, we have continued developing the new arrow::compute submodule consisting of native computation fuctions for Arrow data. New contributor Licht Takeuchi helped expand the supported types for type casting in compute::Cast. We have also implemented new kernels Unique and DictionaryEncode for computing the distinct elements of an array and dictionary encoding (conversion to categorical), respectively. We expect the C++ computation &quot;kernel&quot; library to be a major expansion area for the project over the next year and beyond. Here, we can also implement SIMD- and GPU-accelerated versions of basic in-memory analytics functionality. As minor breaking API change in C++, we have made the RecordBatch and Table APIs &quot;virtual&quot; or abstract interfaces, to enable different implementations of a record batch or table which conform to the standard interface. This will help enable features like lazy IO or column loading. There was significant work improving the C++ library generally and supporting work happening in Python and C. See the change log for full details. GLib C improvements: Meson build, GPU support Developing of the GLib-based C bindings has generally tracked work happening in the C++ library. These bindings are being used to develop data science tools for Ruby users and elsewhere. The C bindings now support the Meson build system in addition to autotools, which enables them to be built on Windows. The Arrow GPU extension library is now also supported in the C bindings. JavaScript: first independent release on NPM Brian Hulette and Paul Taylor have been continuing to drive efforts on the TypeScript-based JavaScript implementation. Since the last release, we made a first JavaScript-only Apache release, version 0.2.0, which is now available on NPM. We decided to make separate JavaScript releases to enable the JS library to release more frequently than the rest of the project. Python improvements In addition to some of the new features mentioned above, we have made a variety of usability and performance improvements for integrations with pandas, NumPy, Dask, and other Python projects which may make use of pyarrow, the Arrow Python library. Some of these improvements include: Component-based serialization for more flexible and memory-efficient transport of large or complex Python objects Substantially improved serialization performance for pandas objects when using pyarrow.serialize and pyarrow.deserialize. This includes a special pyarrow.pandas_serialization_context which further accelerates certain internal details of pandas serialization * Support zero-copy reads for pandas.DataFrame using pyarrow.deserialize for objects without Python objects Multithreaded conversions from pandas.DataFrame to pyarrow.Table (we already supported multithreaded conversions from Arrow back to pandas) More efficient conversion from 1-dimensional NumPy arrays to Arrow format New generic buffer compression and decompression APIs pyarrow.compress and pyarrow.decompress Enhanced Parquet cross-compatibility with fastparquet and improved Dask support Python support for accessing Parquet row group column statistics Upcoming Roadmap The 0.8.0 release includes some API and format changes, but upcoming releases will focus on ompleting and stabilizing critical functionality to move the project closer to a 1.0.0 release. With the ecosystem of projects using Arrow expanding rapidly, we will be working to improve and expand the libraries in support of downstream use cases. We continue to look for more JavaScript, Julia, R, Rust, and other programming language developers to join the project and expand the available implementations and bindings to more languages." />
+<meta property="og:description" content="The Apache Arrow team is pleased to announce the 0.8.0 release. It is the product of 10 weeks of development and includes 286 resolved JIRAs with many new features and bug fixes to the various language implementations. This is the largest release since 0.3.0 earlier this year. As part of work towards a stabilizing the Arrow format and making a 1.0.0 release sometime in 2018, we made a series of backwards-incompatible changes to the serialized Arrow metadata that requires Arrow readers and writers (0.7.1 and earlier) to upgrade in order to be compatible with 0.8.0 and higher. We expect future backwards-incompatible changes to be rare going forward. See the Install Page to learn how to get the libraries for your platform. The complete changelog is also available. We discuss some highlights from the release and other project news in this post. Projects &quot;Powered By&quot; Apache Arrow A growing ecosystem of projects are using Arrow to solve in-memory analytics and data interchange problems. We have added a new Powered By page to the Arrow website where we can acknowledge open source projects and companies which are using Arrow. If you would like to add your project to the list as an Arrow user, please let us know. New Arrow committers Since the last release, we have added 5 new Apache committers: Phillip Cloud, who has mainly contributed to C++ and Python Bryan Cutler, who has mainly contributed to Java and Spark integration Li Jin, who has mainly contributed to Java and Spark integration Paul Taylor, who has mainly contributed to JavaScript Siddharth Teotia, who has mainly contributed to Java Welcome to the Arrow team, and thank you for your contributions! Improved Java vector API, performance improvements Siddharth Teotia led efforts to revamp the Java vector API to make things simpler and faster. As part of this, we removed the dichotomy between nullable and non-nullable vectors. See Sidd&#39;s blog post for more about these changes. Decimal support in C++, Python, consistency with Java Phillip Cloud led efforts this release to harden details about exact decimal values in the Arrow specification and ensure a consistent implementation across Java, C++, and Python. Arrow now supports decimals represented internally as a 128-bit little-endian integer, with a set precision and scale (as defined in many SQL-based systems). As part of this work, we needed to change Java&#39;s internal representation from big- to little-endian. We are now integration testing decimals between Java, C++, and Python, which will facilitate Arrow adoption in Apache Spark and other systems that use both Java and Python. Decimal data can now be read and written by the Apache Parquet C++ library, including via pyarrow. In the future, we may implement support for smaller-precision decimals represented by 32- or 64-bit integers. C++ improvements: expanded kernels library and more In C++, we have continued developing the new arrow::compute submodule consisting of native computation fuctions for Arrow data. New contributor Licht Takeuchi helped expand the supported types for type casting in compute::Cast. We have also implemented new kernels Unique and DictionaryEncode for computing the distinct elements of an array and dictionary encoding (conversion to categorical), respectively. We expect the C++ computation &quot;kernel&quot; library to be a major expansion area for the project over the next year and beyond. Here, we can also implement SIMD- and GPU-accelerated versions of basic in-memory analytics functionality. As minor breaking API change in C++, we have made the RecordBatch and Table APIs &quot;virtual&quot; or abstract interfaces, to enable different implementations of a record batch or table which conform to the standard interface. This will help enable features like lazy IO or column loading. There was significant work improving the C++ library generally and supporting work happening in Python and C. See the change log for full details. GLib C improvements: Meson build, GPU support Developing of the GLib-based C bindings has generally tracked work happening in the C++ library. These bindings are being used to develop data science tools for Ruby users and elsewhere. The C bindings now support the Meson build system in addition to autotools, which enables them to be built on Windows. The Arrow GPU extension library is now also supported in the C bindings. JavaScript: first independent release on NPM Brian Hulette and Paul Taylor have been continuing to drive efforts on the TypeScript-based JavaScript implementation. Since the last release, we made a first JavaScript-only Apache release, version 0.2.0, which is now available on NPM. We decided to make separate JavaScript releases to enable the JS library to release more frequently than the rest of the project. Python improvements In addition to some of the new features mentioned above, we have made a variety of usability and performance improvements for integrations with pandas, NumPy, Dask, and other Python projects which may make use of pyarrow, the Arrow Python library. Some of these improvements include: Component-based serialization for more flexible and memory-efficient transport of large or complex Python objects Substantially improved serialization performance for pandas objects when using pyarrow.serialize and pyarrow.deserialize. This includes a special pyarrow.pandas_serialization_context which further accelerates certain internal details of pandas serialization * Support zero-copy reads for pandas.DataFrame using pyarrow.deserialize for objects without Python objects Multithreaded conversions from pandas.DataFrame to pyarrow.Table (we already supported multithreaded conversions from Arrow back to pandas) More efficient conversion from 1-dimensional NumPy arrays to Arrow format New generic buffer compression and decompression APIs pyarrow.compress and pyarrow.decompress Enhanced Parquet cross-compatibility with fastparquet and improved Dask support Python support for accessing Parquet row group column statistics Upcoming Roadmap The 0.8.0 release includes some API and format changes, but upcoming releases will focus on ompleting and stabilizing critical functionality to move the project closer to a 1.0.0 release. With the ecosystem of projects using Arrow expanding rapidly, we will be working to improve and expand the libraries in support of downstream use cases. We continue to look for more JavaScript, Julia, R, Rust, and other programming language developers to join the project and expand the available implementations and bindings to more languages." />
+<link rel="canonical" href="https://kou.github.io/arrow-site/arrow-site/blog/2017/12/18/0.8.0-release/" />
+<meta property="og:url" content="https://kou.github.io/arrow-site/arrow-site/blog/2017/12/18/0.8.0-release/" />
 <meta property="og:site_name" content="Apache Arrow" />
-<meta property="og:image" content="https://arrow.apache.org/img/arrow-logo_horizontal_black-txt_white-bg.png" />
+<meta property="og:image" content="https://kou.github.io/arrow-site/arrow-site/img/arrow-logo_horizontal_black-txt_white-bg.png" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2017-12-18T23:01:00-05:00" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta property="twitter:image" content="https://arrow.apache.org/img/arrow-logo_horizontal_black-txt_white-bg.png" />
+<meta property="twitter:image" content="https://kou.github.io/arrow-site/arrow-site/img/arrow-logo_horizontal_black-txt_white-bg.png" />
 <meta property="twitter:title" content="Apache Arrow 0.8.0 Release" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"wesm"},"dateModified":"2017-12-18T23:01:00-05:00","datePublished":"2017-12-18T23:01:00-05:00","description":"The Apache Arrow team is pleased to announce the 0.8.0 release. It is the product of 10 weeks of development and includes 286 resolved JIRAs with many new features and bug fixes to the various language implementations. This is the largest release since 0.3.0 earlier this year. As part of work towards a stabilizing the Arrow format and making a 1.0.0 release sometime in 2018, we made a series of backwards-incompatible changes to the serialized Arrow metadata that requires Arrow readers and writers (0.7.1 and earlier) to upgrade in order to be compatible with 0.8.0 and higher. We expect future backwards-incompatible changes to be rare going forward. See the Install Page to learn how to get the libraries for your platform. The complete changelog is also available. We discuss some highlights from the release and other project news in this post. Projects “Powered By” Apache Arrow A growing ecosystem of projects are using Arrow to solve in-memory analytics and data interchange problems. We have added a new Powered By page to the Arrow website where we can acknowledge open source projects and companies which are using Arrow. If you would like to add your project to the list as an Arrow user, please let us know. New Arrow committers Since the last release, we have added 5 new Apache committers: Phillip Cloud, who has mainly contributed to C++ and Python Bryan Cutler, who has mainly contributed to Java and Spark integration Li Jin, who has mainly contributed to Java and Spark integration Paul Taylor, who has mainly contributed to JavaScript Siddharth Teotia, who has mainly contributed to Java Welcome to the Arrow team, and thank you for your contributions! Improved Java vector API, performance improvements Siddharth Teotia led efforts to revamp the Java vector API to make things simpler and faster. As part of this, we removed the dichotomy between nullable and non-nullable vectors. See Sidd’s blog post for more about these changes. Decimal support in C++, Python, consistency with Java Phillip Cloud led efforts this release to harden details about exact decimal values in the Arrow specification and ensure a consistent implementation across Java, C++, and Python. Arrow now supports decimals represented internally as a 128-bit little-endian integer, with a set precision and scale (as defined in many SQL-based systems). As part of this work, we needed to change Java’s internal representation from big- to little-endian. We are now integration testing decimals between Java, C++, and Python, which will facilitate Arrow adoption in Apache Spark and other systems that use both Java and Python. Decimal data can now be read and written by the Apache Parquet C++ library, including via pyarrow. In the future, we may implement support for smaller-precision decimals represented by 32- or 64-bit integers. C++ improvements: expanded kernels library and more In C++, we have continued developing the new arrow::compute submodule consisting of native computation fuctions for Arrow data. New contributor Licht Takeuchi helped expand the supported types for type casting in compute::Cast. We have also implemented new kernels Unique and DictionaryEncode for computing the distinct elements of an array and dictionary encoding (conversion to categorical), respectively. We expect the C++ computation “kernel” library to be a major expansion area for the project over the next year and beyond. Here, we can also implement SIMD- and GPU-accelerated versions of basic in-memory analytics functionality. As minor breaking API change in C++, we have made the RecordBatch and Table APIs “virtual” or abstract interfaces, to enable different implementations of a record batch or table which conform to the standard interface. This will help enable features like lazy IO or column loading. There was significant work improving the C++ library generally and supporting work happening in Python and C. See the change log for full details. GLib C improvements: Meson build, GPU support Developing of the GLib-based C bindings has generally tracked work happening in the C++ library. These bindings are being used to develop data science tools for Ruby users and elsewhere. The C bindings now support the Meson build system in addition to autotools, which enables them to be built on Windows. The Arrow GPU extension library is now also supported in the C bindings. JavaScript: first independent release on NPM Brian Hulette and Paul Taylor have been continuing to drive efforts on the TypeScript-based JavaScript implementation. Since the last release, we made a first JavaScript-only Apache release, version 0.2.0, which is now available on NPM. We decided to make separate JavaScript releases to enable the JS library to release more frequently than the rest of the project. Python improvements In addition to some of the new features mentioned above, we have made a variety of usability and performance improvements for integrations with pandas, NumPy, Dask, and other Python projects which may make use of pyarrow, the Arrow Python library. Some of these improvements include: Component-based serialization for more flexible and memory-efficient transport of large or complex Python objects Substantially improved serialization performance for pandas objects when using pyarrow.serialize and pyarrow.deserialize. This includes a special pyarrow.pandas_serialization_context which further accelerates certain internal details of pandas serialization * Support zero-copy reads for pandas.DataFrame using pyarrow.deserialize for objects without Python objects Multithreaded conversions from pandas.DataFrame to pyarrow.Table (we already supported multithreaded conversions from Arrow back to pandas) More efficient conversion from 1-dimensional NumPy arrays to Arrow format New generic buffer compression and decompression APIs pyarrow.compress and pyarrow.decompress Enhanced Parquet cross-compatibility with fastparquet and improved Dask support Python support for accessing Parquet row group column statistics Upcoming Roadmap The 0.8.0 release includes some API and format changes, but upcoming releases will focus on ompleting and stabilizing critical functionality to move the project closer to a 1.0.0 release. With the ecosystem of projects using Arrow expanding rapidly, we will be working to improve and expand the libraries in support of downstream use cases. We continue to look for more JavaScript, Julia, R, Rust, and other programming language developers to join the project and expand the available implementations and bindings to more languages.","headline":"Apache Arrow 0.8.0 Release","image":"https://arrow.apache.org/img/arrow-logo_horizontal_black-txt_white-bg.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://arrow.apache.org/blog/2017/12/18/0.8.0-release/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://arrow.apache.org/img/logo.png"},"name":"wesm"},"url":"https://arrow.apache.org/blog/2017/12/18/0.8.0-release/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"wesm"},"dateModified":"2017-12-18T23:01:00-05:00","datePublished":"2017-12-18T23:01:00-05:00","description":"The Apache Arrow team is pleased to announce the 0.8.0 release. It is the product of 10 weeks of development and includes 286 resolved JIRAs with many new features and bug fixes to the various language implementations. This is the largest release since 0.3.0 earlier this year. As part of work towards a stabilizing the Arrow format and making a 1.0.0 release sometime in 2018, we made a series of backwards-incompatible changes to the serialized Arrow metadata that requires Arrow readers and writers (0.7.1 and earlier) to upgrade in order to be compatible with 0.8.0 and higher. We expect future backwards-incompatible changes to be rare going forward. See the Install Page to learn how to get the libraries for your platform. The complete changelog is also available. We discuss some highlights from the release and other project news in this post. Projects &quot;Powered By&quot; Apache Arrow A growing ecosystem of projects are using Arrow to solve in-memory analytics and data interchange problems. We have added a new Powered By page to the Arrow website where we can acknowledge open source projects and companies which are using Arrow. If you would like to add your project to the list as an Arrow user, please let us know. New Arrow committers Since the last release, we have added 5 new Apache committers: Phillip Cloud, who has mainly contributed to C++ and Python Bryan Cutler, who has mainly contributed to Java and Spark integration Li Jin, who has mainly contributed to Java and Spark integration Paul Taylor, who has mainly contributed to JavaScript Siddharth Teotia, who has mainly contributed to Java Welcome to the Arrow team, and thank you for your contributions! Improved Java vector API, performance improvements Siddharth Teotia led efforts to revamp the Java vector API to make things simpler and faster. As part of this, we removed the dichotomy between nullable and non-nullable vectors. See Sidd&#39;s blog post for more about these changes. Decimal support in C++, Python, consistency with Java Phillip Cloud led efforts this release to harden details about exact decimal values in the Arrow specification and ensure a consistent implementation across Java, C++, and Python. Arrow now supports decimals represented internally as a 128-bit little-endian integer, with a set precision and scale (as defined in many SQL-based systems). As part of this work, we needed to change Java&#39;s internal representation from big- to little-endian. We are now integration testing decimals between Java, C++, and Python, which will facilitate Arrow adoption in Apache Spark and other systems that use both Java and Python. Decimal data can now be read and written by the Apache Parquet C++ library, including via pyarrow. In the future, we may implement support for smaller-precision decimals represented by 32- or 64-bit integers. C++ improvements: expanded kernels library and more In C++, we have continued developing the new arrow::compute submodule consisting of native computation fuctions for Arrow data. New contributor Licht Takeuchi helped expand the supported types for type casting in compute::Cast. We have also implemented new kernels Unique and DictionaryEncode for computing the distinct elements of an array and dictionary encoding (conversion to categorical), respectively. We expect the C++ computation &quot;kernel&quot; library to be a major expansion area for the project over the next year and beyond. Here, we can also implement SIMD- and GPU-accelerated versions of basic in-memory analytics functionality. As minor breaking API change in C++, we have made the RecordBatch and Table APIs &quot;virtual&quot; or abstract interfaces, to enable different implementations of a record batch or table which conform to the standard interface. This will help enable features like lazy IO or column loading. There was significant work improving the C++ library generally and supporting work happening in Python and C. See the change log for full details. GLib C improvements: Meson build, GPU support Developing of the GLib-based C bindings has generally tracked work happening in the C++ library. These bindings are being used to develop data science tools for Ruby users and elsewhere. The C bindings now support the Meson build system in addition to autotools, which enables them to be built on Windows. The Arrow GPU extension library is now also supported in the C bindings. JavaScript: first independent release on NPM Brian Hulette and Paul Taylor have been continuing to drive efforts on the TypeScript-based JavaScript implementation. Since the last release, we made a first JavaScript-only Apache release, version 0.2.0, which is now available on NPM. We decided to make separate JavaScript releases to enable the JS library to release more frequently than the rest of the project. Python improvements In addition to some of the new features mentioned above, we have made a variety of usability and performance improvements for integrations with pandas, NumPy, Dask, and other Python projects which may make use of pyarrow, the Arrow Python library. Some of these improvements include: Component-based serialization for more flexible and memory-efficient transport of large or complex Python objects Substantially improved serialization performance for pandas objects when using pyarrow.serialize and pyarrow.deserialize. This includes a special pyarrow.pandas_serialization_context which further accelerates certain internal details of pandas serialization * Support zero-copy reads for pandas.DataFrame using pyarrow.deserialize for objects without Python objects Multithreaded conversions from pandas.DataFrame to pyarrow.Table (we already supported multithreaded conversions from Arrow back to pandas) More efficient conversion from 1-dimensional NumPy arrays to Arrow format New generic buffer compression and decompression APIs pyarrow.compress and pyarrow.decompress Enhanced Parquet cross-compatibility with fastparquet and improved Dask support Python support for accessing Parquet row group column statistics Upcoming Roadmap The 0.8.0 release includes some API and format changes, but upcoming releases will focus on ompleting and stabilizing critical functionality to move the project closer to a 1.0.0 release. With the ecosystem of projects using Arrow expanding rapidly, we will be working to improve and expand the libraries in support of downstream use cases. We continue to look for more JavaScript, Julia, R, Rust, and other programming language developers to join the project and expand the available implementations and bindings to more languages.","headline":"Apache Arrow 0.8.0 Release","image":"https://kou.github.io/arrow-site/arrow-site/img/arrow-logo_horizontal_black-txt_white-bg.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://kou.github.io/arrow-site/arrow-site/blog/2017/12/18/0.8.0-release/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://kou.github.io/arrow-site/arrow-site/img/logo.png"},"name":"wesm"},"url":"https://kou.github.io/arrow-site/arrow-site/blog/2017/12/18/0.8.0-release/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
     <!-- favicons -->
-    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png" id="light1">
-    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png" id="light2">
-    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/img/apple-touch-icon.png" id="light3">
-    <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="/img/apple-touch-icon-120x120.png" id="light4">
-    <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="/img/apple-touch-icon-76x76.png" id="light5">
-    <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="/img/apple-touch-icon-60x60.png" id="light6">
+    <link rel="icon" type="image/png" sizes="16x16" href="/arrow-site/img/favicon-16x16.png" id="light1">
+    <link rel="icon" type="image/png" sizes="32x32" href="/arrow-site/img/favicon-32x32.png" id="light2">
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/arrow-site/img/apple-touch-icon.png" id="light3">
+    <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="/arrow-site/img/apple-touch-icon-120x120.png" id="light4">
+    <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="/arrow-site/img/apple-touch-icon-76x76.png" id="light5">
+    <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="/arrow-site/img/apple-touch-icon-60x60.png" id="light6">
     <!-- dark mode favicons -->
-    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16-dark.png" id="dark1">
-    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32-dark.png" id="dark2">
-    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/img/apple-touch-icon-dark.png" id="dark3">
-    <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="/img/apple-touch-icon-120x120-dark.png" id="dark4">
-    <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="/img/apple-touch-icon-76x76-dark.png" id="dark5">
-    <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="/img/apple-touch-icon-60x60-dark.png" id="dark6">
+    <link rel="icon" type="image/png" sizes="16x16" href="/arrow-site/img/favicon-16x16-dark.png" id="dark1">
+    <link rel="icon" type="image/png" sizes="32x32" href="/arrow-site/img/favicon-32x32-dark.png" id="dark2">
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/arrow-site/img/apple-touch-icon-dark.png" id="dark3">
+    <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="/arrow-site/img/apple-touch-icon-120x120-dark.png" id="dark4">
+    <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="/arrow-site/img/apple-touch-icon-76x76-dark.png" id="dark5">
+    <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="/arrow-site/img/apple-touch-icon-60x60-dark.png" id="dark6">
 
     <script>
       // Switch to the dark-mode favicons if prefers-color-scheme: dark
@@ -95,9 +95,9 @@
       onUpdate();
     </script>
 
-    <link href="/css/main.css" rel="stylesheet">
-    <link href="/css/syntax.css" rel="stylesheet">
-    <script src="/javascript/main.js"></script>
+    <link href="/arrow-site/css/main.css" rel="stylesheet">
+    <link href="/arrow-site/css/syntax.css" rel="stylesheet">
+    <script src="/arrow-site/javascript/main.js"></script>
     
     <!-- Matomo -->
 <script>
@@ -118,7 +118,7 @@
 <!-- End Matomo Code -->
 
     
-    <link type="application/atom+xml" rel="alternate" href="https://arrow.apache.org/feed.xml" title="Apache Arrow" />
+    <link type="application/atom+xml" rel="alternate" href="https://kou.github.io/arrow-site/arrow-site/feed.xml" title="Apache Arrow" />
   </head>
 
 
@@ -126,7 +126,7 @@
   <header>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
   
-  <a class="navbar-brand no-padding" href="/"><img src="/img/arrow-inverse-300px.png" height="40px"/></a>
+  <a class="navbar-brand no-padding" href="/arrow-site/"><img src="/arrow-site/img/arrow-inverse-300px.png" height="40px"></a>
   
    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#arrow-navbar" aria-controls="arrow-navbar" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -135,117 +135,106 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse justify-content-end" id="arrow-navbar">
       <ul class="nav navbar-nav">
-        <li class="nav-item"><a class="nav-link" href="/overview/" role="button" aria-haspopup="true" aria-expanded="false">Overview</a></li>
-        <li class="nav-item"><a class="nav-link" href="/faq/" role="button" aria-haspopup="true" aria-expanded="false">FAQ</a></li>
-        <li class="nav-item"><a class="nav-link" href="/blog" role="button" aria-haspopup="true" aria-expanded="false">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="/arrow-site/overview/" role="button" aria-haspopup="true" aria-expanded="false">Overview</a></li>
+        <li class="nav-item"><a class="nav-link" href="/arrow-site/faq/" role="button" aria-haspopup="true" aria-expanded="false">FAQ</a></li>
+        <li class="nav-item"><a class="nav-link" href="/arrow-site/blog" role="button" aria-haspopup="true" aria-expanded="false">Blog</a></li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#"
-             id="navbarDropdownGetArrow" role="button" data-toggle="dropdown"
-             aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownGetArrow" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              Get Arrow
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownGetArrow">
-            <a class="dropdown-item" href="/install/">Install</a>
-            <a class="dropdown-item" href="/release/">Releases</a>
+            <a class="dropdown-item" href="/arrow-site/install/">Install</a>
+            <a class="dropdown-item" href="/arrow-site/release/">Releases</a>
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#"
-             id="navbarDropdownDocumentation" role="button" data-toggle="dropdown"
-             aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDocumentation" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              Docs
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownDocumentation">
-            <a class="dropdown-item" href="/docs">Project Docs</a>
-            <a class="dropdown-item" href="/docs/format/Columnar.html">Format</a>
-            <hr/>
-            <a class="dropdown-item" href="/docs/c_glib">C GLib</a>
-            <a class="dropdown-item" href="/docs/cpp">C++</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/blob/main/csharp/README.md">C#</a>
-            <a class="dropdown-item" href="https://godoc.org/github.com/apache/arrow/go/arrow">Go</a>
-            <a class="dropdown-item" href="/docs/java">Java</a>
-            <a class="dropdown-item" href="/docs/js">JavaScript</a>
-            <a class="dropdown-item" href="/julia/">Julia</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/blob/main/matlab/README.md">MATLAB</a>
-            <a class="dropdown-item" href="/docs/python">Python</a>
-            <a class="dropdown-item" href="/docs/r">R</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/blob/main/ruby/README.md">Ruby</a>
-            <a class="dropdown-item" href="https://docs.rs/arrow/latest">Rust</a>
-            <a class="dropdown-item" href="/swift">Swift</a>
+            <a class="dropdown-item" href="/arrow-site/docs">Project Docs</a>
+            <a class="dropdown-item" href="/arrow-site/docs/format/Columnar.html">Format</a>
+            <hr>
+            <a class="dropdown-item" href="/arrow-site/docs/c_glib">C GLib</a>
+            <a class="dropdown-item" href="/arrow-site/docs/cpp">C++</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/blob/main/csharp/README.md" target="_blank" rel="noopener">C#</a>
+            <a class="dropdown-item" href="https://godoc.org/github.com/apache/arrow/go/arrow" target="_blank" rel="noopener">Go</a>
+            <a class="dropdown-item" href="/arrow-site/docs/java">Java</a>
+            <a class="dropdown-item" href="/arrow-site/docs/js">JavaScript</a>
+            <a class="dropdown-item" href="/arrow-site/julia/">Julia</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/blob/main/matlab/README.md" target="_blank" rel="noopener">MATLAB</a>
+            <a class="dropdown-item" href="/arrow-site/docs/python">Python</a>
+            <a class="dropdown-item" href="/arrow-site/docs/r">R</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/blob/main/ruby/README.md" target="_blank" rel="noopener">Ruby</a>
+            <a class="dropdown-item" href="https://docs.rs/arrow/latest" target="_blank" rel="noopener">Rust</a>
+            <a class="dropdown-item" href="/arrow-site/swift">Swift</a>
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#"
-             id="navbarDropdownSource" role="button" data-toggle="dropdown"
-             aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownSource" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              Source
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownSource">
-            <a class="dropdown-item" href="https://github.com/apache/arrow">Main Repo</a>
-            <hr/>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/c_glib">C GLib</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/cpp">C++</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/csharp">C#</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow-go">Go</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow-java">Java</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow-js">JavaScript</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow-julia">Julia</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/matlab">MATLAB</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/python">Python</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/r">R</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/ruby">Ruby</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow-rs">Rust</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow-swift">Swift</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow" target="_blank" rel="noopener">Main Repo</a>
+            <hr>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/c_glib" target="_blank" rel="noopener">C GLib</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/cpp" target="_blank" rel="noopener">C++</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/csharp" target="_blank" rel="noopener">C#</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow-go" target="_blank" rel="noopener">Go</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow-java" target="_blank" rel="noopener">Java</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow-js" target="_blank" rel="noopener">JavaScript</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow-julia" target="_blank" rel="noopener">Julia</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/matlab" target="_blank" rel="noopener">MATLAB</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/python" target="_blank" rel="noopener">Python</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/r" target="_blank" rel="noopener">R</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/ruby" target="_blank" rel="noopener">Ruby</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow-rs" target="_blank" rel="noopener">Rust</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow-swift" target="_blank" rel="noopener">Swift</a>
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#"
-             id="navbarDropdownSubprojects" role="button" data-toggle="dropdown"
-             aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownSubprojects" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              Subprojects
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownSubprojects">
-            <a class="dropdown-item" href="/adbc">ADBC</a>
-            <a class="dropdown-item" href="/docs/format/Flight.html">Arrow Flight</a>
-            <a class="dropdown-item" href="/docs/format/FlightSql.html">Arrow Flight SQL</a>
-            <a class="dropdown-item" href="https://datafusion.apache.org">DataFusion</a>
-            <a class="dropdown-item" href="/nanoarrow">nanoarrow</a>
+            <a class="dropdown-item" href="/arrow-site/adbc">ADBC</a>
+            <a class="dropdown-item" href="/arrow-site/docs/format/Flight.html">Arrow Flight</a>
+            <a class="dropdown-item" href="/arrow-site/docs/format/FlightSql.html">Arrow Flight SQL</a>
+            <a class="dropdown-item" href="https://datafusion.apache.org" target="_blank" rel="noopener">DataFusion</a>
+            <a class="dropdown-item" href="/arrow-site/nanoarrow">nanoarrow</a>
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#"
-             id="navbarDropdownCommunity" role="button" data-toggle="dropdown"
-             aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCommunity" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              Community
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownCommunity">
-            <a class="dropdown-item" href="/community/">Communication</a>
-            <a class="dropdown-item" href="/docs/developers/index.html">Contributing</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/issues">Issue Tracker</a>
-            <a class="dropdown-item" href="/committers/">Governance</a>
-            <a class="dropdown-item" href="/use_cases/">Use Cases</a>
-            <a class="dropdown-item" href="/powered_by/">Powered By</a>
-            <a class="dropdown-item" href="/visual_identity/">Visual Identity</a>
-            <a class="dropdown-item" href="/security/">Security</a>
-            <a class="dropdown-item" href="https://www.apache.org/foundation/policies/conduct.html">Code of Conduct</a>
+            <a class="dropdown-item" href="/arrow-site/community/">Communication</a>
+            <a class="dropdown-item" href="/arrow-site/docs/developers/index.html">Contributing</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/issues" target="_blank" rel="noopener">Issue Tracker</a>
+            <a class="dropdown-item" href="/arrow-site/committers/">Governance</a>
+            <a class="dropdown-item" href="/arrow-site/use_cases/">Use Cases</a>
+            <a class="dropdown-item" href="/arrow-site/powered_by/">Powered By</a>
+            <a class="dropdown-item" href="/arrow-site/visual_identity/">Visual Identity</a>
+            <a class="dropdown-item" href="/arrow-site/security/">Security</a>
+            <a class="dropdown-item" href="https://www.apache.org/foundation/policies/conduct.html" target="_blank" rel="noopener">Code of Conduct</a>
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#"
-             id="navbarDropdownASF" role="button" data-toggle="dropdown"
-             aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownASF" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              ASF Links
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownASF">
-            <a class="dropdown-item" href="https://www.apache.org/">ASF Website</a>
-            <a class="dropdown-item" href="https://www.apache.org/licenses/">License</a>
-            <a class="dropdown-item" href="https://www.apache.org/foundation/sponsorship.html">Donate</a>
-            <a class="dropdown-item" href="https://www.apache.org/foundation/thanks.html">Thanks</a>
-            <a class="dropdown-item" href="https://www.apache.org/security/">Security</a>
+            <a class="dropdown-item" href="https://www.apache.org/" target="_blank" rel="noopener">ASF Website</a>
+            <a class="dropdown-item" href="https://www.apache.org/licenses/" target="_blank" rel="noopener">License</a>
+            <a class="dropdown-item" href="https://www.apache.org/foundation/sponsorship.html" target="_blank" rel="noopener">Donate</a>
+            <a class="dropdown-item" href="https://www.apache.org/foundation/thanks.html" target="_blank" rel="noopener">Thanks</a>
+            <a class="dropdown-item" href="https://www.apache.org/security/" target="_blank" rel="noopener">Security</a>
           </div>
         </li>
       </ul>
-    </div><!-- /.navbar-collapse -->
+    </div>
+<!-- /.navbar-collapse -->
   </nav>
 
   </header>
@@ -266,10 +255,10 @@
   <span class="published mr-3">
     18 Dec 2017
   </span>
-  <br />
+  <br>
   <span class="badge badge-secondary">By</span>
   
-    <a class="mr-3" href="https://wesmckinney.com">Wes McKinney (wesm) </a>
+    <a class="mr-3" href="https://wesmckinney.com" target="_blank" rel="noopener">Wes McKinney (wesm) </a>
   
 
   
@@ -279,172 +268,140 @@
         <!--
 
 -->
-
 <p>The Apache Arrow team is pleased to announce the 0.8.0 release. It is the
-product of 10 weeks of development and includes <a href="https://issues.apache.org/jira/issues/?jql=project%20%3D%20ARROW%20AND%20status%20in%20(Resolved%2C%20Closed)%20AND%20fixVersion%20%3D%200.8.0"><strong>286 resolved JIRAs</strong></a> with
+product of 10 weeks of development and includes <a href="https://issues.apache.org/jira/issues/?jql=project%20%3D%20ARROW%20AND%20status%20in%20(Resolved%2C%20Closed)%20AND%20fixVersion%20%3D%200.8.0" target="_blank" rel="noopener"><strong>286 resolved JIRAs</strong></a> with
 many new features and bug fixes to the various language implementations. This
 is the largest release since 0.3.0 earlier this year.</p>
-
 <p>As part of work towards a stabilizing the Arrow format and making a 1.0.0
 release sometime in 2018, we made a series of backwards-incompatible changes to
 the serialized Arrow metadata that requires Arrow readers and writers (0.7.1
 and earlier) to upgrade in order to be compatible with 0.8.0 and higher. We
 expect future backwards-incompatible changes to be rare going forward.</p>
-
-<p>See the <a href="https://arrow.apache.org/install">Install Page</a> to learn how to get the libraries for your
-platform. The <a href="https://arrow.apache.org/release/0.8.0.html">complete changelog</a> is also available.</p>
-
+<p>See the <a href="https://arrow.apache.org/install" target="_blank" rel="noopener">Install Page</a> to learn how to get the libraries for your
+platform. The <a href="https://arrow.apache.org/release/0.8.0.html" target="_blank" rel="noopener">complete changelog</a> is also available.</p>
 <p>We discuss some highlights from the release and other project news in this
 post.</p>
-
-<h2 id="projects-powered-by-apache-arrow">Projects “Powered By” Apache Arrow</h2>
-
+<h2>Projects "Powered By" Apache Arrow</h2>
 <p>A growing ecosystem of projects are using Arrow to solve in-memory analytics
-and data interchange problems. We have added a new <a href="http://arrow.apache.org/powered_by/">Powered By</a> page to the
+and data interchange problems. We have added a new <a href="http://arrow.apache.org/powered_by/" target="_blank" rel="noopener">Powered By</a> page to the
 Arrow website where we can acknowledge open source projects and companies which
 are using Arrow. If you would like to add your project to the list as an Arrow
 user, please let us know.</p>
-
-<h2 id="new-arrow-committers">New Arrow committers</h2>
-
+<h2>New Arrow committers</h2>
 <p>Since the last release, we have added 5 new Apache committers:</p>
-
 <ul>
-  <li><a href="https://github.com/cpcloud">Phillip Cloud</a>, who has mainly contributed to C++ and Python</li>
-  <li><a href="https://github.com/BryanCutler">Bryan Cutler</a>, who has mainly contributed to Java and Spark integration</li>
-  <li><a href="https://github.com/icexelloss">Li Jin</a>, who has mainly contributed to Java and Spark integration</li>
-  <li><a href="https://github.com/trxcllnt">Paul Taylor</a>, who has mainly contributed to JavaScript</li>
-  <li><a href="https://github.com/siddharthteotia">Siddharth Teotia</a>, who has mainly contributed to Java</li>
+<li>
+<a href="https://github.com/cpcloud" target="_blank" rel="noopener">Phillip Cloud</a>, who has mainly contributed to C++ and Python</li>
+<li>
+<a href="https://github.com/BryanCutler" target="_blank" rel="noopener">Bryan Cutler</a>, who has mainly contributed to Java and Spark integration</li>
+<li>
+<a href="https://github.com/icexelloss" target="_blank" rel="noopener">Li Jin</a>, who has mainly contributed to Java and Spark integration</li>
+<li>
+<a href="https://github.com/trxcllnt" target="_blank" rel="noopener">Paul Taylor</a>, who has mainly contributed to JavaScript</li>
+<li>
+<a href="https://github.com/siddharthteotia" target="_blank" rel="noopener">Siddharth Teotia</a>, who has mainly contributed to Java</li>
 </ul>
-
 <p>Welcome to the Arrow team, and thank you for your contributions!</p>
-
-<h2 id="improved-java-vector-api-performance-improvements">Improved Java vector API, performance improvements</h2>
-
+<h2>Improved Java vector API, performance improvements</h2>
 <p>Siddharth Teotia led efforts to revamp the Java vector API to make things
 simpler and faster. As part of this, we removed the dichotomy between nullable
 and non-nullable vectors.</p>
-
-<p>See <a href="https://arrow.apache.org/blog/2017/12/19/java-vector-improvements/">Sidd’s blog post</a> for more about these changes.</p>
-
-<h2 id="decimal-support-in-c-python-consistency-with-java">Decimal support in C++, Python, consistency with Java</h2>
-
-<p><a href="https://github.com/cpcloud">Phillip Cloud</a> led efforts this release to harden details about exact
+<p>See <a href="https://arrow.apache.org/blog/2017/12/19/java-vector-improvements/" target="_blank" rel="noopener">Sidd's blog post</a> for more about these changes.</p>
+<h2>Decimal support in C++, Python, consistency with Java</h2>
+<p><a href="https://github.com/cpcloud" target="_blank" rel="noopener">Phillip Cloud</a> led efforts this release to harden details about exact
 decimal values in the Arrow specification and ensure a consistent
 implementation across Java, C++, and Python.</p>
-
 <p>Arrow now supports decimals represented internally as a 128-bit little-endian
 integer, with a set precision and scale (as defined in many SQL-based
-systems). As part of this work, we needed to change Java’s internal
+systems). As part of this work, we needed to change Java's internal
 representation from big- to little-endian.</p>
-
 <p>We are now integration testing decimals between Java, C++, and Python, which
 will facilitate Arrow adoption in Apache Spark and other systems that use both
 Java and Python.</p>
-
-<p>Decimal data can now be read and written by the <a href="https://github.com/apache/parquet-cpp">Apache Parquet C++
+<p>Decimal data can now be read and written by the <a href="https://github.com/apache/parquet-cpp" target="_blank" rel="noopener">Apache Parquet C++
 library</a>, including via pyarrow.</p>
-
 <p>In the future, we may implement support for smaller-precision decimals
 represented by 32- or 64-bit integers.</p>
-
-<h2 id="c-improvements-expanded-kernels-library-and-more">C++ improvements: expanded kernels library and more</h2>
-
-<p>In C++, we have continued developing the new <code class="language-plaintext highlighter-rouge">arrow::compute</code> submodule
+<h2>C++ improvements: expanded kernels library and more</h2>
+<p>In C++, we have continued developing the new <code>arrow::compute</code> submodule
 consisting of native computation fuctions for Arrow data. New contributor
-<a href="https://github.com/licht-t">Licht Takeuchi</a> helped expand the supported types for type casting in
-<code class="language-plaintext highlighter-rouge">compute::Cast</code>. We have also implemented new kernels <code class="language-plaintext highlighter-rouge">Unique</code> and
-<code class="language-plaintext highlighter-rouge">DictionaryEncode</code> for computing the distinct elements of an array and
+<a href="https://github.com/licht-t" target="_blank" rel="noopener">Licht Takeuchi</a> helped expand the supported types for type casting in
+<code>compute::Cast</code>. We have also implemented new kernels <code>Unique</code> and
+<code>DictionaryEncode</code> for computing the distinct elements of an array and
 dictionary encoding (conversion to categorical), respectively.</p>
-
-<p>We expect the C++ computation “kernel” library to be a major expansion area for
+<p>We expect the C++ computation "kernel" library to be a major expansion area for
 the project over the next year and beyond. Here, we can also implement SIMD-
 and GPU-accelerated versions of basic in-memory analytics functionality.</p>
-
-<p>As minor breaking API change in C++, we have made the <code class="language-plaintext highlighter-rouge">RecordBatch</code> and <code class="language-plaintext highlighter-rouge">Table</code>
-APIs “virtual” or abstract interfaces, to enable different implementations of a
+<p>As minor breaking API change in C++, we have made the <code>RecordBatch</code> and <code>Table</code>
+APIs "virtual" or abstract interfaces, to enable different implementations of a
 record batch or table which conform to the standard interface. This will help
 enable features like lazy IO or column loading.</p>
-
 <p>There was significant work improving the C++ library generally and supporting
 work happening in Python and C. See the change log for full details.</p>
-
-<h2 id="glib-c-improvements-meson-build-gpu-support">GLib C improvements: Meson build, GPU support</h2>
-
+<h2>GLib C improvements: Meson build, GPU support</h2>
 <p>Developing of the GLib-based C bindings has generally tracked work happening in
-the C++ library. These bindings are being used to develop <a href="https://github.com/red-data-tools">data science tools
+the C++ library. These bindings are being used to develop <a href="https://github.com/red-data-tools" target="_blank" rel="noopener">data science tools
 for Ruby users</a> and elsewhere.</p>
-
-<p>The C bindings now support the <a href="https://mesonbuild.com">Meson build system</a> in addition to
+<p>The C bindings now support the <a href="https://mesonbuild.com" target="_blank" rel="noopener">Meson build system</a> in addition to
 autotools, which enables them to be built on Windows.</p>
-
 <p>The Arrow GPU extension library is now also supported in the C bindings.</p>
-
-<h2 id="javascript-first-independent-release-on-npm">JavaScript: first independent release on NPM</h2>
-
-<p><a href="https://github.com/TheNeuralBit">Brian Hulette</a> and <a href="https://github.com/trxcllnt">Paul Taylor</a> have been continuing to drive efforts
+<h2>JavaScript: first independent release on NPM</h2>
+<p><a href="https://github.com/TheNeuralBit" target="_blank" rel="noopener">Brian Hulette</a> and <a href="https://github.com/trxcllnt" target="_blank" rel="noopener">Paul Taylor</a> have been continuing to drive efforts
 on the TypeScript-based JavaScript implementation.</p>
-
 <p>Since the last release, we made a first JavaScript-only Apache release, version
-0.2.0, which is <a href="http://npmjs.org/package/apache-arrow">now available on NPM</a>. We decided to make separate
+0.2.0, which is <a href="http://npmjs.org/package/apache-arrow" target="_blank" rel="noopener">now available on NPM</a>. We decided to make separate
 JavaScript releases to enable the JS library to release more frequently than
 the rest of the project.</p>
-
-<h2 id="python-improvements">Python improvements</h2>
-
+<h2>Python improvements</h2>
 <p>In addition to some of the new features mentioned above, we have made a variety
 of usability and performance improvements for integrations with pandas, NumPy,
 Dask, and other Python projects which may make use of pyarrow, the Arrow Python
 library.</p>
-
 <p>Some of these improvements include:</p>
-
 <ul>
-  <li><a href="http://arrow.apache.org/docs/python/ipc.html">Component-based serialization</a> for more flexible and memory-efficient
+<li>
+<a href="http://arrow.apache.org/docs/python/ipc.html" target="_blank" rel="noopener">Component-based serialization</a> for more flexible and memory-efficient
 transport of large or complex Python objects</li>
-  <li>Substantially improved serialization performance for pandas objects when
-using <code class="language-plaintext highlighter-rouge">pyarrow.serialize</code> and <code class="language-plaintext highlighter-rouge">pyarrow.deserialize</code>. This includes a special
-<code class="language-plaintext highlighter-rouge">pyarrow.pandas_serialization_context</code> which further accelerates certain
+<li>Substantially improved serialization performance for pandas objects when
+using <code>pyarrow.serialize</code> and <code>pyarrow.deserialize</code>. This includes a special
+<code>pyarrow.pandas_serialization_context</code> which further accelerates certain
 internal details of pandas serialization * Support zero-copy reads for</li>
-  <li><code class="language-plaintext highlighter-rouge">pandas.DataFrame</code> using <code class="language-plaintext highlighter-rouge">pyarrow.deserialize</code> for objects without Python
+<li>
+<code>pandas.DataFrame</code> using <code>pyarrow.deserialize</code> for objects without Python
 objects</li>
-  <li>Multithreaded conversions from <code class="language-plaintext highlighter-rouge">pandas.DataFrame</code> to <code class="language-plaintext highlighter-rouge">pyarrow.Table</code> (we
+<li>Multithreaded conversions from <code>pandas.DataFrame</code> to <code>pyarrow.Table</code> (we
 already supported multithreaded conversions from Arrow back to pandas)</li>
-  <li>More efficient conversion from 1-dimensional NumPy arrays to Arrow format</li>
-  <li>New generic buffer compression and decompression APIs <code class="language-plaintext highlighter-rouge">pyarrow.compress</code> and
-<code class="language-plaintext highlighter-rouge">pyarrow.decompress</code></li>
-  <li>Enhanced Parquet cross-compatibility with <a href="https://github.com/dask/fastparquet">fastparquet</a> and improved Dask
+<li>More efficient conversion from 1-dimensional NumPy arrays to Arrow format</li>
+<li>New generic buffer compression and decompression APIs <code>pyarrow.compress</code> and
+<code>pyarrow.decompress</code>
+</li>
+<li>Enhanced Parquet cross-compatibility with <a href="https://github.com/dask/fastparquet" target="_blank" rel="noopener">fastparquet</a> and improved Dask
 support</li>
-  <li>Python support for accessing Parquet row group column statistics</li>
+<li>Python support for accessing Parquet row group column statistics</li>
 </ul>
-
-<h2 id="upcoming-roadmap">Upcoming Roadmap</h2>
-
+<h2>Upcoming Roadmap</h2>
 <p>The 0.8.0 release includes some API and format changes, but upcoming releases
 will focus on ompleting and stabilizing critical functionality to move the
 project closer to a 1.0.0 release.</p>
-
 <p>With the ecosystem of projects using Arrow expanding rapidly, we will be
 working to improve and expand the libraries in support of downstream use cases.</p>
-
 <p>We continue to look for more JavaScript, Julia, R, Rust, and other programming
 language developers to join the project and expand the available
 implementations and bindings to more languages.</p>
 
-
       </main>
     </div>
 
-    <hr/>
+    <hr>
 <footer class="footer">
   <div class="row">
     <div class="col-md-9">
       <p>Apache Arrow, Arrow, Apache, the Apache feather logo, and the Apache Arrow project logo are either registered trademarks or trademarks of The Apache Software Foundation in the United States and other countries.</p>
-      <p>&copy; 2016-2025 The Apache Software Foundation</p>
+      <p>© 2016-2025 The Apache Software Foundation</p>
     </div>
     <div class="col-md-3">
-      <a class="d-sm-none d-md-inline pr-2" href="https://www.apache.org/events/current-event.html">
-        <img src="https://www.apache.org/events/current-event-234x60.png"/>
+      <a class="d-sm-none d-md-inline pr-2" href="https://www.apache.org/events/current-event.html" target="_blank" rel="noopener">
+        <img src="https://www.apache.org/events/current-event-234x60.png">
       </a>
     </div>
   </div>

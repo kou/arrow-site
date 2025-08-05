@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Arrays &#8212; Apache Arrow v21.0.0.dev284</title>
+    <title>Arrays &#8212; Apache Arrow v22.0.0.dev22</title>
   
   
   
@@ -65,7 +65,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="21.0.0.dev284" />
+  <meta name="docsearch:version" content="22.0.0.dev22" />
 
   <!-- Matomo -->
   <script>
@@ -150,8 +150,8 @@
       
     
     
-    <img src="../../_static/arrow.png" class="logo__image only-light" alt="Apache Arrow v21.0.0.dev284 - Home"/>
-    <img src="../../_static/arrow-dark.png" class="logo__image only-dark pst-js-only" alt="Apache Arrow v21.0.0.dev284 - Home"/>
+    <img src="../../_static/arrow.png" class="logo__image only-light" alt="Apache Arrow v22.0.0.dev22 - Home"/>
+    <img src="../../_static/arrow-dark.png" class="logo__image only-dark pst-js-only" alt="Apache Arrow v22.0.0.dev22 - Home"/>
   
   
 </a></div>
@@ -215,6 +215,7 @@
         data-project-logo="https://arrow.apache.org/img/arrow-logo_chevrons_white-txt_black-bg.png"
         data-modal-disclaimer="This is a custom LLM with access to all [Arrow documentation](https://arrow.apache.org/docs/). Please include the language you are using in your question, e.g., Python, C++, Java, R, etc."
         data-consent-required="true" 
+        data-user-analytics-cookie-enabled="false"
         data-consent-screen-disclaimer="By clicking &quot;I agree, let's chat&quot;, you consent to the use of the AI assistant in accordance with kapa.ai's [Privacy Policy](https://www.kapa.ai/content/privacy-policy). This service uses reCAPTCHA, which requires your consent to Google's [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms). By proceeding, you explicitly agree to both kapa.ai's and Google's privacy policies."
     ></script>
    
@@ -376,6 +377,7 @@
         data-project-logo="https://arrow.apache.org/img/arrow-logo_chevrons_white-txt_black-bg.png"
         data-modal-disclaimer="This is a custom LLM with access to all [Arrow documentation](https://arrow.apache.org/docs/). Please include the language you are using in your question, e.g., Python, C++, Java, R, etc."
         data-consent-required="true" 
+        data-user-analytics-cookie-enabled="false"
         data-consent-screen-disclaimer="By clicking &quot;I agree, let's chat&quot;, you consent to the use of the AI assistant in accordance with kapa.ai's [Privacy Policy](https://www.kapa.ai/content/privacy-policy). This service uses reCAPTCHA, which requires your consent to Google's [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms). By proceeding, you explicitly agree to both kapa.ai's and Google's privacy policies."
     ></script>
    
@@ -614,7 +616,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../python/parquet.html">Reading and Writing the Apache Parquet Format</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../python/dataset.html">Tabular Datasets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../python/flight.html">Arrow Flight RPC</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../python/extending_types.html">Extending pyarrow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python/extending_types.html">Extending PyArrow</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../python/integration.html">PyArrow Integrations</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../python/integration/substrait.html">Substrait</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../python/integration/python_r.html">Integrating PyArrow with R</a></li>
@@ -761,6 +763,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../python/generated/pyarrow.types.is_map.html">pyarrow.types.is_map</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../python/generated/pyarrow.types.is_dictionary.html">pyarrow.types.is_dictionary</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../python/generated/pyarrow.types.is_primitive.html">pyarrow.types.is_primitive</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../python/generated/pyarrow.types.TypesEnum.html">pyarrow.types.TypesEnum</a></li>
 </ul>
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../python/api/arrays.html">Arrays and Scalars</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -1607,8 +1610,20 @@
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N5arrow15ArrayStatistics14distinct_countE">
-<span id="_CPPv3N5arrow15ArrayStatistics14distinct_countE"></span><span id="_CPPv2N5arrow15ArrayStatistics14distinct_countE"></span><span id="arrow::ArrayStatistics::distinct_count__std::optional:int64_t:"></span><span class="target" id="structarrow_1_1_array_statistics_1a38f7f50c9d1114289815f56ca3dbc9b4"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">optional</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">int64_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">distinct_count</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">nullopt</span></span><a class="headerlink" href="#_CPPv4N5arrow15ArrayStatistics14distinct_countE" title="Permalink to this definition">#</a><br /></dt>
-<dd><p>The number of distinct values, may not be set. </p>
+<span id="_CPPv3N5arrow15ArrayStatistics14distinct_countE"></span><span id="_CPPv2N5arrow15ArrayStatistics14distinct_countE"></span><span id="arrow::ArrayStatistics::distinct_count__std::optional:CountType:"></span><span class="target" id="structarrow_1_1_array_statistics_1a8ad8d4979e726fdb3fc338aa4f73eaf1"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">optional</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">CountType</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">distinct_count</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">nullopt</span></span><a class="headerlink" href="#_CPPv4N5arrow15ArrayStatistics14distinct_countE" title="Permalink to this definition">#</a><br /></dt>
+<dd><p>The number of distinct values, may not be set Note: when set to <code class="docutils literal notranslate"><span class="pre">int64_t</span></code>, it represents <code class="docutils literal notranslate"><span class="pre">exact_distinct_count</span></code>, and when set to <code class="docutils literal notranslate"><span class="pre">double</span></code>, it represents <code class="docutils literal notranslate"><span class="pre">approximate_distinct_count</span></code>. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N5arrow15ArrayStatistics18average_byte_widthE">
+<span id="_CPPv3N5arrow15ArrayStatistics18average_byte_widthE"></span><span id="_CPPv2N5arrow15ArrayStatistics18average_byte_widthE"></span><span id="arrow::ArrayStatistics::average_byte_width__std::optional:double:"></span><span class="target" id="structarrow_1_1_array_statistics_1a202da5847faf25f51ac8daad0407f031"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">optional</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">average_byte_width</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">nullopt</span></span><a class="headerlink" href="#_CPPv4N5arrow15ArrayStatistics18average_byte_widthE" title="Permalink to this definition">#</a><br /></dt>
+<dd><p>The average size in bytes of a row in an array, may not be set. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N5arrow15ArrayStatistics27is_average_byte_width_exactE">
+<span id="_CPPv3N5arrow15ArrayStatistics27is_average_byte_width_exactE"></span><span id="_CPPv2N5arrow15ArrayStatistics27is_average_byte_width_exactE"></span><span id="arrow::ArrayStatistics::is_average_byte_width_exact__b"></span><span class="target" id="structarrow_1_1_array_statistics_1afa6b90f00536ebabb960da2695f451d7"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">is_average_byte_width_exact</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">false</span></span><a class="headerlink" href="#_CPPv4N5arrow15ArrayStatistics27is_average_byte_width_exactE" title="Permalink to this definition">#</a><br /></dt>
+<dd><p>Whether the average size in bytes is exact or not. </p>
 </dd></dl>
 
 <dl class="cpp var">

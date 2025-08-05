@@ -10,40 +10,40 @@
     
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<meta name="generator" content="Jekyll v4.3.3" />
+<meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Fast Python Serialization with Ray and Apache Arrow" />
 <meta name="author" content="Philipp Moritz, Robert Nishihara" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="This post describes how serialization works in Ray." />
 <meta property="og:description" content="This post describes how serialization works in Ray." />
-<link rel="canonical" href="https://arrow.apache.org/blog/2017/10/15/fast-python-serialization-with-ray-and-arrow/" />
-<meta property="og:url" content="https://arrow.apache.org/blog/2017/10/15/fast-python-serialization-with-ray-and-arrow/" />
+<link rel="canonical" href="https://kou.github.io/arrow-site/arrow-site/blog/2017/10/15/fast-python-serialization-with-ray-and-arrow/" />
+<meta property="og:url" content="https://kou.github.io/arrow-site/arrow-site/blog/2017/10/15/fast-python-serialization-with-ray-and-arrow/" />
 <meta property="og:site_name" content="Apache Arrow" />
-<meta property="og:image" content="https://arrow.apache.org/img/arrow-logo_horizontal_black-txt_white-bg.png" />
+<meta property="og:image" content="https://kou.github.io/arrow-site/arrow-site/img/arrow-logo_horizontal_black-txt_white-bg.png" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2017-10-15T10:00:00-04:00" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta property="twitter:image" content="https://arrow.apache.org/img/arrow-logo_horizontal_black-txt_white-bg.png" />
+<meta property="twitter:image" content="https://kou.github.io/arrow-site/arrow-site/img/arrow-logo_horizontal_black-txt_white-bg.png" />
 <meta property="twitter:title" content="Fast Python Serialization with Ray and Apache Arrow" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Philipp Moritz, Robert Nishihara"},"dateModified":"2017-10-15T10:00:00-04:00","datePublished":"2017-10-15T10:00:00-04:00","description":"This post describes how serialization works in Ray.","headline":"Fast Python Serialization with Ray and Apache Arrow","image":"https://arrow.apache.org/img/arrow-logo_horizontal_black-txt_white-bg.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://arrow.apache.org/blog/2017/10/15/fast-python-serialization-with-ray-and-arrow/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://arrow.apache.org/img/logo.png"},"name":"Philipp Moritz, Robert Nishihara"},"url":"https://arrow.apache.org/blog/2017/10/15/fast-python-serialization-with-ray-and-arrow/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Philipp Moritz, Robert Nishihara"},"dateModified":"2017-10-15T10:00:00-04:00","datePublished":"2017-10-15T10:00:00-04:00","description":"This post describes how serialization works in Ray.","headline":"Fast Python Serialization with Ray and Apache Arrow","image":"https://kou.github.io/arrow-site/arrow-site/img/arrow-logo_horizontal_black-txt_white-bg.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://kou.github.io/arrow-site/arrow-site/blog/2017/10/15/fast-python-serialization-with-ray-and-arrow/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://kou.github.io/arrow-site/arrow-site/img/logo.png"},"name":"Philipp Moritz, Robert Nishihara"},"url":"https://kou.github.io/arrow-site/arrow-site/blog/2017/10/15/fast-python-serialization-with-ray-and-arrow/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
     <!-- favicons -->
-    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png" id="light1">
-    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png" id="light2">
-    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/img/apple-touch-icon.png" id="light3">
-    <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="/img/apple-touch-icon-120x120.png" id="light4">
-    <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="/img/apple-touch-icon-76x76.png" id="light5">
-    <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="/img/apple-touch-icon-60x60.png" id="light6">
+    <link rel="icon" type="image/png" sizes="16x16" href="/arrow-site/img/favicon-16x16.png" id="light1">
+    <link rel="icon" type="image/png" sizes="32x32" href="/arrow-site/img/favicon-32x32.png" id="light2">
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/arrow-site/img/apple-touch-icon.png" id="light3">
+    <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="/arrow-site/img/apple-touch-icon-120x120.png" id="light4">
+    <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="/arrow-site/img/apple-touch-icon-76x76.png" id="light5">
+    <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="/arrow-site/img/apple-touch-icon-60x60.png" id="light6">
     <!-- dark mode favicons -->
-    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16-dark.png" id="dark1">
-    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32-dark.png" id="dark2">
-    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/img/apple-touch-icon-dark.png" id="dark3">
-    <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="/img/apple-touch-icon-120x120-dark.png" id="dark4">
-    <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="/img/apple-touch-icon-76x76-dark.png" id="dark5">
-    <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="/img/apple-touch-icon-60x60-dark.png" id="dark6">
+    <link rel="icon" type="image/png" sizes="16x16" href="/arrow-site/img/favicon-16x16-dark.png" id="dark1">
+    <link rel="icon" type="image/png" sizes="32x32" href="/arrow-site/img/favicon-32x32-dark.png" id="dark2">
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/arrow-site/img/apple-touch-icon-dark.png" id="dark3">
+    <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="/arrow-site/img/apple-touch-icon-120x120-dark.png" id="dark4">
+    <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="/arrow-site/img/apple-touch-icon-76x76-dark.png" id="dark5">
+    <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="/arrow-site/img/apple-touch-icon-60x60-dark.png" id="dark6">
 
     <script>
       // Switch to the dark-mode favicons if prefers-color-scheme: dark
@@ -95,9 +95,9 @@
       onUpdate();
     </script>
 
-    <link href="/css/main.css" rel="stylesheet">
-    <link href="/css/syntax.css" rel="stylesheet">
-    <script src="/javascript/main.js"></script>
+    <link href="/arrow-site/css/main.css" rel="stylesheet">
+    <link href="/arrow-site/css/syntax.css" rel="stylesheet">
+    <script src="/arrow-site/javascript/main.js"></script>
     
     <!-- Matomo -->
 <script>
@@ -118,7 +118,7 @@
 <!-- End Matomo Code -->
 
     
-    <link type="application/atom+xml" rel="alternate" href="https://arrow.apache.org/feed.xml" title="Apache Arrow" />
+    <link type="application/atom+xml" rel="alternate" href="https://kou.github.io/arrow-site/arrow-site/feed.xml" title="Apache Arrow" />
   </head>
 
 
@@ -126,7 +126,7 @@
   <header>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
   
-  <a class="navbar-brand no-padding" href="/"><img src="/img/arrow-inverse-300px.png" height="40px"/></a>
+  <a class="navbar-brand no-padding" href="/arrow-site/"><img src="/arrow-site/img/arrow-inverse-300px.png" height="40px"></a>
   
    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#arrow-navbar" aria-controls="arrow-navbar" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -135,117 +135,106 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse justify-content-end" id="arrow-navbar">
       <ul class="nav navbar-nav">
-        <li class="nav-item"><a class="nav-link" href="/overview/" role="button" aria-haspopup="true" aria-expanded="false">Overview</a></li>
-        <li class="nav-item"><a class="nav-link" href="/faq/" role="button" aria-haspopup="true" aria-expanded="false">FAQ</a></li>
-        <li class="nav-item"><a class="nav-link" href="/blog" role="button" aria-haspopup="true" aria-expanded="false">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="/arrow-site/overview/" role="button" aria-haspopup="true" aria-expanded="false">Overview</a></li>
+        <li class="nav-item"><a class="nav-link" href="/arrow-site/faq/" role="button" aria-haspopup="true" aria-expanded="false">FAQ</a></li>
+        <li class="nav-item"><a class="nav-link" href="/arrow-site/blog" role="button" aria-haspopup="true" aria-expanded="false">Blog</a></li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#"
-             id="navbarDropdownGetArrow" role="button" data-toggle="dropdown"
-             aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownGetArrow" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              Get Arrow
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownGetArrow">
-            <a class="dropdown-item" href="/install/">Install</a>
-            <a class="dropdown-item" href="/release/">Releases</a>
+            <a class="dropdown-item" href="/arrow-site/install/">Install</a>
+            <a class="dropdown-item" href="/arrow-site/release/">Releases</a>
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#"
-             id="navbarDropdownDocumentation" role="button" data-toggle="dropdown"
-             aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDocumentation" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              Docs
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownDocumentation">
-            <a class="dropdown-item" href="/docs">Project Docs</a>
-            <a class="dropdown-item" href="/docs/format/Columnar.html">Format</a>
-            <hr/>
-            <a class="dropdown-item" href="/docs/c_glib">C GLib</a>
-            <a class="dropdown-item" href="/docs/cpp">C++</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/blob/main/csharp/README.md">C#</a>
-            <a class="dropdown-item" href="https://godoc.org/github.com/apache/arrow/go/arrow">Go</a>
-            <a class="dropdown-item" href="/docs/java">Java</a>
-            <a class="dropdown-item" href="/docs/js">JavaScript</a>
-            <a class="dropdown-item" href="/julia/">Julia</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/blob/main/matlab/README.md">MATLAB</a>
-            <a class="dropdown-item" href="/docs/python">Python</a>
-            <a class="dropdown-item" href="/docs/r">R</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/blob/main/ruby/README.md">Ruby</a>
-            <a class="dropdown-item" href="https://docs.rs/arrow/latest">Rust</a>
-            <a class="dropdown-item" href="/swift">Swift</a>
+            <a class="dropdown-item" href="/arrow-site/docs">Project Docs</a>
+            <a class="dropdown-item" href="/arrow-site/docs/format/Columnar.html">Format</a>
+            <hr>
+            <a class="dropdown-item" href="/arrow-site/docs/c_glib">C GLib</a>
+            <a class="dropdown-item" href="/arrow-site/docs/cpp">C++</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/blob/main/csharp/README.md" target="_blank" rel="noopener">C#</a>
+            <a class="dropdown-item" href="https://godoc.org/github.com/apache/arrow/go/arrow" target="_blank" rel="noopener">Go</a>
+            <a class="dropdown-item" href="/arrow-site/docs/java">Java</a>
+            <a class="dropdown-item" href="/arrow-site/docs/js">JavaScript</a>
+            <a class="dropdown-item" href="/arrow-site/julia/">Julia</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/blob/main/matlab/README.md" target="_blank" rel="noopener">MATLAB</a>
+            <a class="dropdown-item" href="/arrow-site/docs/python">Python</a>
+            <a class="dropdown-item" href="/arrow-site/docs/r">R</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/blob/main/ruby/README.md" target="_blank" rel="noopener">Ruby</a>
+            <a class="dropdown-item" href="https://docs.rs/arrow/latest" target="_blank" rel="noopener">Rust</a>
+            <a class="dropdown-item" href="/arrow-site/swift">Swift</a>
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#"
-             id="navbarDropdownSource" role="button" data-toggle="dropdown"
-             aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownSource" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              Source
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownSource">
-            <a class="dropdown-item" href="https://github.com/apache/arrow">Main Repo</a>
-            <hr/>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/c_glib">C GLib</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/cpp">C++</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/csharp">C#</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow-go">Go</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow-java">Java</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow-js">JavaScript</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow-julia">Julia</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/matlab">MATLAB</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/python">Python</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/r">R</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/ruby">Ruby</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow-rs">Rust</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow-swift">Swift</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow" target="_blank" rel="noopener">Main Repo</a>
+            <hr>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/c_glib" target="_blank" rel="noopener">C GLib</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/cpp" target="_blank" rel="noopener">C++</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/csharp" target="_blank" rel="noopener">C#</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow-go" target="_blank" rel="noopener">Go</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow-java" target="_blank" rel="noopener">Java</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow-js" target="_blank" rel="noopener">JavaScript</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow-julia" target="_blank" rel="noopener">Julia</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/matlab" target="_blank" rel="noopener">MATLAB</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/python" target="_blank" rel="noopener">Python</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/r" target="_blank" rel="noopener">R</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/tree/main/ruby" target="_blank" rel="noopener">Ruby</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow-rs" target="_blank" rel="noopener">Rust</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow-swift" target="_blank" rel="noopener">Swift</a>
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#"
-             id="navbarDropdownSubprojects" role="button" data-toggle="dropdown"
-             aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownSubprojects" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              Subprojects
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownSubprojects">
-            <a class="dropdown-item" href="/adbc">ADBC</a>
-            <a class="dropdown-item" href="/docs/format/Flight.html">Arrow Flight</a>
-            <a class="dropdown-item" href="/docs/format/FlightSql.html">Arrow Flight SQL</a>
-            <a class="dropdown-item" href="https://datafusion.apache.org">DataFusion</a>
-            <a class="dropdown-item" href="/nanoarrow">nanoarrow</a>
+            <a class="dropdown-item" href="/arrow-site/adbc">ADBC</a>
+            <a class="dropdown-item" href="/arrow-site/docs/format/Flight.html">Arrow Flight</a>
+            <a class="dropdown-item" href="/arrow-site/docs/format/FlightSql.html">Arrow Flight SQL</a>
+            <a class="dropdown-item" href="https://datafusion.apache.org" target="_blank" rel="noopener">DataFusion</a>
+            <a class="dropdown-item" href="/arrow-site/nanoarrow">nanoarrow</a>
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#"
-             id="navbarDropdownCommunity" role="button" data-toggle="dropdown"
-             aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCommunity" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              Community
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownCommunity">
-            <a class="dropdown-item" href="/community/">Communication</a>
-            <a class="dropdown-item" href="/docs/developers/index.html">Contributing</a>
-            <a class="dropdown-item" href="https://github.com/apache/arrow/issues">Issue Tracker</a>
-            <a class="dropdown-item" href="/committers/">Governance</a>
-            <a class="dropdown-item" href="/use_cases/">Use Cases</a>
-            <a class="dropdown-item" href="/powered_by/">Powered By</a>
-            <a class="dropdown-item" href="/visual_identity/">Visual Identity</a>
-            <a class="dropdown-item" href="/security/">Security</a>
-            <a class="dropdown-item" href="https://www.apache.org/foundation/policies/conduct.html">Code of Conduct</a>
+            <a class="dropdown-item" href="/arrow-site/community/">Communication</a>
+            <a class="dropdown-item" href="/arrow-site/docs/developers/index.html">Contributing</a>
+            <a class="dropdown-item" href="https://github.com/apache/arrow/issues" target="_blank" rel="noopener">Issue Tracker</a>
+            <a class="dropdown-item" href="/arrow-site/committers/">Governance</a>
+            <a class="dropdown-item" href="/arrow-site/use_cases/">Use Cases</a>
+            <a class="dropdown-item" href="/arrow-site/powered_by/">Powered By</a>
+            <a class="dropdown-item" href="/arrow-site/visual_identity/">Visual Identity</a>
+            <a class="dropdown-item" href="/arrow-site/security/">Security</a>
+            <a class="dropdown-item" href="https://www.apache.org/foundation/policies/conduct.html" target="_blank" rel="noopener">Code of Conduct</a>
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#"
-             id="navbarDropdownASF" role="button" data-toggle="dropdown"
-             aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownASF" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              ASF Links
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownASF">
-            <a class="dropdown-item" href="https://www.apache.org/">ASF Website</a>
-            <a class="dropdown-item" href="https://www.apache.org/licenses/">License</a>
-            <a class="dropdown-item" href="https://www.apache.org/foundation/sponsorship.html">Donate</a>
-            <a class="dropdown-item" href="https://www.apache.org/foundation/thanks.html">Thanks</a>
-            <a class="dropdown-item" href="https://www.apache.org/security/">Security</a>
+            <a class="dropdown-item" href="https://www.apache.org/" target="_blank" rel="noopener">ASF Website</a>
+            <a class="dropdown-item" href="https://www.apache.org/licenses/" target="_blank" rel="noopener">License</a>
+            <a class="dropdown-item" href="https://www.apache.org/foundation/sponsorship.html" target="_blank" rel="noopener">Donate</a>
+            <a class="dropdown-item" href="https://www.apache.org/foundation/thanks.html" target="_blank" rel="noopener">Thanks</a>
+            <a class="dropdown-item" href="https://www.apache.org/security/" target="_blank" rel="noopener">Security</a>
           </div>
         </li>
       </ul>
-    </div><!-- /.navbar-collapse -->
+    </div>
+<!-- /.navbar-collapse -->
   </nav>
 
   </header>
@@ -266,7 +255,7 @@
   <span class="published mr-3">
     15 Oct 2017
   </span>
-  <br />
+  <br>
   <span class="badge badge-secondary">By</span>
   
     Philipp Moritz, Robert Nishihara
@@ -279,97 +268,78 @@
         <!--
 
 -->
-
-<p><em>This was originally posted on the <a href="https://ray-project.github.io/">Ray blog</a>. <a href="https://people.eecs.berkeley.edu/~pcmoritz/">Philipp Moritz</a> and <a href="http://www.robertnishihara.com">Robert Nishihara</a> are graduate students at UC Berkeley.</em></p>
-
-<p>This post elaborates on the integration between <a href="http://ray.readthedocs.io/en/latest/index.html">Ray</a> and <a href="https://arrow.apache.org/">Apache Arrow</a>.
-The main problem this addresses is <a href="https://en.wikipedia.org/wiki/Serialization">data serialization</a>.</p>
-
-<p>From <a href="https://en.wikipedia.org/wiki/Serialization">Wikipedia</a>, <strong>serialization</strong> is</p>
-
+<p><em>This was originally posted on the <a href="https://ray-project.github.io/" target="_blank" rel="noopener">Ray blog</a>. <a href="https://people.eecs.berkeley.edu/~pcmoritz/" target="_blank" rel="noopener">Philipp Moritz</a> and <a href="http://www.robertnishihara.com" target="_blank" rel="noopener">Robert Nishihara</a> are graduate students at UC Berkeley.</em></p>
+<p>This post elaborates on the integration between <a href="http://ray.readthedocs.io/en/latest/index.html" target="_blank" rel="noopener">Ray</a> and <a href="https://arrow.apache.org/" target="_blank" rel="noopener">Apache Arrow</a>.
+The main problem this addresses is <a href="https://en.wikipedia.org/wiki/Serialization" target="_blank" rel="noopener">data serialization</a>.</p>
+<p>From <a href="https://en.wikipedia.org/wiki/Serialization" target="_blank" rel="noopener">Wikipedia</a>, <strong>serialization</strong> is</p>
 <blockquote>
-  <p>… the process of translating data structures or object state into a format
-that can be stored … or transmitted … and reconstructed later (possibly
+<p>... the process of translating data structures or object state into a format
+that can be stored ... or transmitted ... and reconstructed later (possibly
 in a different computer environment).</p>
 </blockquote>
-
 <p>Why is any translation necessary? Well, when you create a Python object, it may
 have pointers to other Python objects, and these objects are all allocated in
 different regions of memory, and all of this has to make sense when unpacked by
 another process on another machine.</p>
-
 <p>Serialization and deserialization are <strong>bottlenecks in parallel and distributed
 computing</strong>, especially in machine learning applications with large objects and
 large quantities of data.</p>
-
-<h2 id="design-goals">Design Goals</h2>
-
+<h2>Design Goals</h2>
 <p>As Ray is optimized for machine learning and AI applications, we have focused a
 lot on serialization and data handling, with the following design goals:</p>
-
 <ol>
-  <li>It should be very efficient with <strong>large numerical data</strong> (this includes
+<li>It should be very efficient with <strong>large numerical data</strong> (this includes
 NumPy arrays and Pandas DataFrames, as well as objects that recursively contain
 Numpy arrays and Pandas DataFrames).</li>
-  <li>It should be about as fast as Pickle for <strong>general Python types</strong>.</li>
-  <li>It should be compatible with <strong>shared memory</strong>, allowing multiple processes
+<li>It should be about as fast as Pickle for <strong>general Python types</strong>.</li>
+<li>It should be compatible with <strong>shared memory</strong>, allowing multiple processes
 to use the same data without copying it.</li>
-  <li><strong>Deserialization</strong> should be extremely fast (when possible, it should not
+<li>
+<strong>Deserialization</strong> should be extremely fast (when possible, it should not
 require reading the entire serialized object).</li>
-  <li>It should be <strong>language independent</strong> (eventually we’d like to enable Python
+<li>It should be <strong>language independent</strong> (eventually we'd like to enable Python
 workers to use objects created by workers in Java or other languages and vice
 versa).</li>
 </ol>
-
-<h2 id="our-approach-and-alternatives">Our Approach and Alternatives</h2>
-
+<h2>Our Approach and Alternatives</h2>
 <p>The go-to serialization approach in Python is the <strong>pickle</strong> module. Pickle is
-very general, especially if you use variants like <a href="https://github.com/cloudpipe/cloudpickle/">cloudpickle</a>. However, it
+very general, especially if you use variants like <a href="https://github.com/cloudpipe/cloudpickle/" target="_blank" rel="noopener">cloudpickle</a>. However, it
 does not satisfy requirements 1, 3, 4, or 5. Alternatives like <strong>json</strong> satisfy
 5, but not 1-4.</p>
-
 <p><strong>Our Approach:</strong> To satisfy requirements 1-5, we chose to use the
-<a href="https://arrow.apache.org/">Apache Arrow</a> format as our underlying data representation. In collaboration
-with the Apache Arrow team, we built <a href="https://arrow.apache.org/docs/python/ipc.html#arbitrary-object-serialization">libraries</a> for mapping general Python
+<a href="https://arrow.apache.org/" target="_blank" rel="noopener">Apache Arrow</a> format as our underlying data representation. In collaboration
+with the Apache Arrow team, we built <a href="https://arrow.apache.org/docs/python/ipc.html#arbitrary-object-serialization" target="_blank" rel="noopener">libraries</a> for mapping general Python
 objects to and from the Arrow format. Some properties of this approach:</p>
-
 <ul>
-  <li>The data layout is language independent (requirement 5).</li>
-  <li>Offsets into a serialized data blob can be computed in constant time without
+<li>The data layout is language independent (requirement 5).</li>
+<li>Offsets into a serialized data blob can be computed in constant time without
 reading the full object (requirements 1 and 4).</li>
-  <li>Arrow supports <strong>zero-copy reads</strong>, so objects can naturally be stored in
+<li>Arrow supports <strong>zero-copy reads</strong>, so objects can naturally be stored in
 shared memory and used by multiple processes (requirements 1 and 3).</li>
-  <li>We can naturally fall back to pickle for anything we can’t handle well
+<li>We can naturally fall back to pickle for anything we can’t handle well
 (requirement 2).</li>
 </ul>
-
 <p><strong>Alternatives to Arrow:</strong> We could have built on top of
-<a href="https://developers.google.com/protocol-buffers/"><strong>Protocol Buffers</strong></a>, but protocol buffers really isn’t designed for
+<a href="https://developers.google.com/protocol-buffers/" target="_blank" rel="noopener"><strong>Protocol Buffers</strong></a>, but protocol buffers really isn't designed for
 numerical data, and that approach wouldn’t satisfy 1, 3, or 4. Building on top
-of <a href="https://google.github.io/flatbuffers/"><strong>Flatbuffers</strong></a> actually could be made to work, but it would have
+of <a href="https://google.github.io/flatbuffers/" target="_blank" rel="noopener"><strong>Flatbuffers</strong></a> actually could be made to work, but it would have
 required implementing a lot of the facilities that Arrow already has and we
 preferred a columnar data layout more optimized for big data.</p>
-
-<h2 id="speedups">Speedups</h2>
-
+<h2>Speedups</h2>
 <p>Here we show some performance improvements over Python’s pickle module. The
-experiments were done using <code class="language-plaintext highlighter-rouge">pickle.HIGHEST_PROTOCOL</code>. Code for generating these
+experiments were done using <code>pickle.HIGHEST_PROTOCOL</code>. Code for generating these
 plots is included at the end of the post.</p>
-
 <p><strong>With NumPy arrays:</strong> In machine learning and AI applications, data (e.g.,
 images, neural network weights, text documents) are typically represented as
 data structures containing NumPy arrays. When using NumPy arrays, the speedups
 are impressive.</p>
-
 <p>The fact that the Ray bars for deserialization are barely visible is not a
 mistake. This is a consequence of the support for zero-copy reads (the savings
 largely come from the lack of memory movement).</p>
-
 <div align="center">
-<img src="/assets/fast_python_serialization_with_ray_and_arrow/speedups0.png" width="365" height="255" />
-<img src="/assets/fast_python_serialization_with_ray_and_arrow/speedups1.png" width="365" height="255" />
+<img src="/arrow-site/assets/fast_python_serialization_with_ray_and_arrow/speedups0.png" width="365" height="255">
+<img src="/arrow-site/assets/fast_python_serialization_with_ray_and_arrow/speedups1.png" width="365" height="255">
 </div>
-
 <p>Note that the biggest wins are with deserialization. The speedups here are
 multiple orders of magnitude and get better as the NumPy arrays get larger
 (thanks to design goals 1, 3, and 4). Making <strong>deserialization</strong> fast is
@@ -378,60 +348,45 @@ deserialized many times (e.g., an object that is broadcast to all workers).
 Second, a common pattern is for many objects to be serialized in parallel and
 then aggregated and deserialized one at a time on a single worker making
 deserialization the bottleneck.</p>
-
 <p><strong>Without NumPy arrays:</strong> When using regular Python objects, for which we
 cannot take advantage of shared memory, the results are comparable to pickle.</p>
-
 <div align="center">
-<img src="/assets/fast_python_serialization_with_ray_and_arrow/speedups2.png" width="365" height="255" />
-<img src="/assets/fast_python_serialization_with_ray_and_arrow/speedups3.png" width="365" height="255" />
+<img src="/arrow-site/assets/fast_python_serialization_with_ray_and_arrow/speedups2.png" width="365" height="255">
+<img src="/arrow-site/assets/fast_python_serialization_with_ray_and_arrow/speedups3.png" width="365" height="255">
 </div>
-
 <p>These are just a few examples of interesting Python objects. The most important
 case is the case where NumPy arrays are nested within other objects. Note that
 our serialization library works with very general Python types including custom
 Python classes and deeply nested objects.</p>
-
-<h2 id="the-api">The API</h2>
-
+<h2>The API</h2>
 <p>The serialization library can be used directly through pyarrow as follows. More
-documentation is available <a href="https://arrow.apache.org/docs/python/ipc.html#arbitrary-object-serialization">here</a>.</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="sh">'</span><span class="s">hello</span><span class="sh">'</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">np</span><span class="p">.</span><span class="nf">array</span><span class="p">([</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">])]</span>
+documentation is available <a href="https://arrow.apache.org/docs/python/ipc.html#arbitrary-object-serialization" target="_blank" rel="noopener">here</a>.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code data-lang="python"><span class="n">x</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="sh">'</span><span class="s">hello</span><span class="sh">'</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">np</span><span class="p">.</span><span class="nf">array</span><span class="p">([</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">])]</span>
 <span class="n">serialized_x</span> <span class="o">=</span> <span class="n">pyarrow</span><span class="p">.</span><span class="nf">serialize</span><span class="p">(</span><span class="n">x</span><span class="p">).</span><span class="nf">to_buffer</span><span class="p">()</span>
 <span class="n">deserialized_x</span> <span class="o">=</span> <span class="n">pyarrow</span><span class="p">.</span><span class="nf">deserialize</span><span class="p">(</span><span class="n">serialized_x</span><span class="p">)</span>
 </code></pre></div></div>
-
 <p>It can be used directly through the Ray API as follows.</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="sh">'</span><span class="s">hello</span><span class="sh">'</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">np</span><span class="p">.</span><span class="nf">array</span><span class="p">([</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">])]</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code data-lang="python"><span class="n">x</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="sh">'</span><span class="s">hello</span><span class="sh">'</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">np</span><span class="p">.</span><span class="nf">array</span><span class="p">([</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">])]</span>
 <span class="n">x_id</span> <span class="o">=</span> <span class="n">ray</span><span class="p">.</span><span class="nf">put</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="n">deserialized_x</span> <span class="o">=</span> <span class="n">ray</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">x_id</span><span class="p">)</span>
 </code></pre></div></div>
-
-<h2 id="data-representation">Data Representation</h2>
-
+<h2>Data Representation</h2>
 <p>We use Apache Arrow as the underlying language-independent data layout. Objects
 are stored in two parts: a <strong>schema</strong> and a <strong>data blob</strong>. At a high level, the
 data blob is roughly a flattened concatenation of all of the data values
 recursively contained in the object, and the schema defines the types and
 nesting structure of the data blob.</p>
-
 <p><strong>Technical Details:</strong> Python sequences (e.g., dictionaries, lists, tuples,
-sets) are encoded as Arrow <a href="http://arrow.apache.org/docs/memory_layout.html#dense-union-type">UnionArrays</a> of other types (e.g., bools, ints,
+sets) are encoded as Arrow <a href="http://arrow.apache.org/docs/memory_layout.html#dense-union-type" target="_blank" rel="noopener">UnionArrays</a> of other types (e.g., bools, ints,
 strings, bytes, floats, doubles, date64s, tensors (i.e., NumPy arrays), lists,
 tuples, dicts and sets). Nested sequences are encoded using Arrow
-<a href="http://arrow.apache.org/docs/memory_layout.html#list-type">ListArrays</a>. All tensors are collected and appended to the end of the
+<a href="http://arrow.apache.org/docs/memory_layout.html#list-type" target="_blank" rel="noopener">ListArrays</a>. All tensors are collected and appended to the end of the
 serialized object, and the UnionArray contains references to these tensors.</p>
-
 <p>To give a concrete example, consider the following object.</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="sh">'</span><span class="s">hello</span><span class="sh">'</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">np</span><span class="p">.</span><span class="nf">array</span><span class="p">([</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">])]</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code data-lang="python"><span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="sh">'</span><span class="s">hello</span><span class="sh">'</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">np</span><span class="p">.</span><span class="nf">array</span><span class="p">([</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">])]</span>
 </code></pre></div></div>
-
 <p>It would be represented in Arrow with the following structure.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>UnionArray(type_ids=[tuple, string, int, int, ndarray],
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>UnionArray(type_ids=[tuple, string, int, int, ndarray],
            tuples=ListArray(offsets=[0, 2],
                             UnionArray(type_ids=[int, int],
                                        ints=[1, 2])),
@@ -439,49 +394,38 @@ serialized object, and the UnionArray contains references to these tensors.</p>
            ints=[3, 4],
            ndarrays=[&lt;offset of numpy array&gt;])
 </code></pre></div></div>
-
 <p>Arrow uses Flatbuffers to encode serialized schemas. <strong>Using only the schema, we
 can compute the offsets of each value in the data blob without scanning through
 the data blob</strong> (unlike Pickle, this is what enables fast deserialization). This
 means that we can avoid copying or otherwise converting large arrays and other
 values during deserialization. Tensors are appended at the end of the UnionArray
 and can be efficiently shared and accessed using shared memory.</p>
-
 <p>Note that the actual object would be laid out in memory as shown below.</p>
-
 <div align="center">
-<img src="/assets/fast_python_serialization_with_ray_and_arrow/python_object.png" width="600" />
+<img src="/arrow-site/assets/fast_python_serialization_with_ray_and_arrow/python_object.png" width="600">
 </div>
 <div><i>The layout of a Python object in the heap. Each box is allocated in a
 different memory region, and arrows between boxes represent pointers.</i></div>
-<p><br /></p>
-
+<br>
 <p>The Arrow serialized representation would be as follows.</p>
-
 <div align="center">
-<img src="/assets/fast_python_serialization_with_ray_and_arrow/arrow_object.png" width="400" />
+<img src="/arrow-site/assets/fast_python_serialization_with_ray_and_arrow/arrow_object.png" width="400">
 </div>
 <div><i>The memory layout of the Arrow-serialized object.</i></div>
-<p><br /></p>
-
-<h2 id="getting-involved">Getting Involved</h2>
-
+<br>
+<h2>Getting Involved</h2>
 <p>We welcome contributions, especially in the following areas.</p>
-
 <ul>
-  <li>Use the C++ and Java implementations of Arrow to implement versions of this
+<li>Use the C++ and Java implementations of Arrow to implement versions of this
 for C++ and Java.</li>
-  <li>Implement support for more Python types and better test coverage.</li>
+<li>Implement support for more Python types and better test coverage.</li>
 </ul>
-
-<h2 id="reproducing-the-figures-above">Reproducing the Figures Above</h2>
-
+<h2>Reproducing the Figures Above</h2>
 <p>For reference, the figures can be reproduced with the following code.
-Benchmarking <code class="language-plaintext highlighter-rouge">ray.put</code> and <code class="language-plaintext highlighter-rouge">ray.get</code> instead of <code class="language-plaintext highlighter-rouge">pyarrow.serialize</code> and
-<code class="language-plaintext highlighter-rouge">pyarrow.deserialize</code> gives similar figures. The plots were generated at this
-<a href="https://github.com/apache/arrow/tree/894f7400977693b4e0e8f4b9845fd89481f6bf29">commit</a>.</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">pickle</span>
+Benchmarking <code>ray.put</code> and <code>ray.get</code> instead of <code>pyarrow.serialize</code> and
+<code>pyarrow.deserialize</code> gives similar figures. The plots were generated at this
+<a href="https://github.com/apache/arrow/tree/894f7400977693b4e0e8f4b9845fd89481f6bf29" target="_blank" rel="noopener">commit</a>.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code data-lang="python"><span class="kn">import</span> <span class="n">pickle</span>
 <span class="kn">import</span> <span class="n">pyarrow</span>
 <span class="kn">import</span> <span class="n">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 <span class="kn">import</span> <span class="n">numpy</span> <span class="k">as</span> <span class="n">np</span>
@@ -550,20 +494,19 @@ Benchmarking <code class="language-plaintext highlighter-rouge">ray.put</code> a
     <span class="nf">plot</span><span class="p">(</span><span class="o">*</span><span class="nf">benchmark_object</span><span class="p">(</span><span class="n">test_objects</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="n">titles</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">i</span><span class="p">)</span>
 </code></pre></div></div>
 
-
       </main>
     </div>
 
-    <hr/>
+    <hr>
 <footer class="footer">
   <div class="row">
     <div class="col-md-9">
       <p>Apache Arrow, Arrow, Apache, the Apache feather logo, and the Apache Arrow project logo are either registered trademarks or trademarks of The Apache Software Foundation in the United States and other countries.</p>
-      <p>&copy; 2016-2025 The Apache Software Foundation</p>
+      <p>© 2016-2025 The Apache Software Foundation</p>
     </div>
     <div class="col-md-3">
-      <a class="d-sm-none d-md-inline pr-2" href="https://www.apache.org/events/current-event.html">
-        <img src="https://www.apache.org/events/current-event-234x60.png"/>
+      <a class="d-sm-none d-md-inline pr-2" href="https://www.apache.org/events/current-event.html" target="_blank" rel="noopener">
+        <img src="https://www.apache.org/events/current-event-234x60.png">
       </a>
     </div>
   </div>
